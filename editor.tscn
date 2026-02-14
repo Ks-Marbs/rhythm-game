@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwmypteamsaoa"]
+
+[ext_resource type="Script" uid="uid://dxvtjdblsipp3" path="res://editor.gd" id="1_q0a35"]
+[ext_resource type="Texture2D" uid="uid://g4bib5gt3elu" path="res://images/editor strip.png" id="1_wrb8p"]
+[ext_resource type="Script" uid="uid://dnofes6e12754" path="res://stripe.gd" id="2_q0a35"]
+[ext_resource type="Theme" uid="uid://b5dxjrg5nt1f4" path="res://something.tres" id="3_4s0cy"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_q0a35")
+
+[node name="FileDialog" type="FileDialog" parent="."]
+oversampling_override = 1.0
+title = "Open a File"
+position = Vector2i(0, 36)
+size = Vector2i(637, 360)
+visible = true
+theme = ExtResource("3_4s0cy")
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.mp3 , *.ogg")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 2
+z_as_relative = false
+ignore_rotation = false
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+z_index = -14
+offset_left = -343.38577
+offset_top = -343.5086
+offset_right = -323.38577
+offset_bottom = 56.491394
+scale = Vector2(6, 6)
+texture = ExtResource("1_wrb8p")
+region_rect = Rect2(0, 0, 20, 32)
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+script = ExtResource("2_q0a35")
+
+[node name="ColorRect" type="ColorRect" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0051186085
+anchor_top = 0.039795257
+anchor_right = -0.0051186085
+anchor_bottom = 0.039795257
+offset_right = 4.0
+offset_bottom = 4.0
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 16.768456
+offset_top = 0.8726578
+offset_right = 44.768456
+offset_bottom = 22.872658
+scale = Vector2(0.095, 0.095)
+theme = ExtResource("3_4s0cy")
+theme_override_font_sizes/normal_font_size = 16
+text = "-1"
+
+[node name="Song" type="AudioStreamPlayer" parent="."]

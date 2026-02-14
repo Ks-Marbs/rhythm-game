@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://x3tlmph1ixql"]
+
+[ext_resource type="Texture2D" uid="uid://c4xs2ow0xp1ou" path="res://images/web.png" id="1_3rlxx"]
+[ext_resource type="Script" uid="uid://b38ir2sodpgvk" path="res://lvl.gd" id="1_4iw1c"]
+[ext_resource type="AudioStream" uid="uid://b641glkg7wv7g" path="res://drnfctn - Frums.mp3" id="2_5ud41"]
+[ext_resource type="PackedScene" uid="uid://gjtxtey14xxh" path="res://timer.tscn" id="2_f2dqo"]
+[ext_resource type="Texture2D" uid="uid://ujmhwsbgjqu3" path="res://images/p0.png" id="3_hx1ia"]
+[ext_resource type="Theme" uid="uid://b5dxjrg5nt1f4" path="res://something.tres" id="4_2a1lc"]
+[ext_resource type="Script" uid="uid://dyovptx2dogol" path="res://f.gd" id="5_2a1lc"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_4iw1c")
+
+[node name="Song" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_5ud41")
+
+[node name="Timer" parent="." instance=ExtResource("2_f2dqo")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+z_as_relative = false
+position = Vector2(0, 0.14208698)
+texture = ExtResource("1_3rlxx")
+
+[node name="Camera2D" type="Camera2D" parent="Sprite2D"]
+z_index = 2
+z_as_relative = false
+ignore_rotation = false
+zoom = Vector2(4, 4)
+
+[node name="score" type="RichTextLabel" parent="Sprite2D/Camera2D"]
+z_index = 4
+z_as_relative = false
+offset_left = -343.0
+offset_top = -343.0
+offset_right = -69.58301
+offset_bottom = -271.432
+theme = ExtResource("4_2a1lc")
+theme_override_font_sizes/normal_font_size = 48
+text = "Score:00"
+
+[node name="f" type="Sprite2D" parent="Sprite2D"]
+z_as_relative = false
+position = Vector2(-7, 0)
+texture = ExtResource("3_hx1ia")
+script = ExtResource("5_2a1lc")
+
+[node name="v" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(0.07627869, 8.144165)
+rotation = -1.5707964
+texture = ExtResource("3_hx1ia")
+script = ExtResource("5_2a1lc")
+
+[node name="n" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(8.067886, 0.9916096)
+rotation = 3.1415927
+texture = ExtResource("3_hx1ia")
+script = ExtResource("5_2a1lc")
+
+[node name="j" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(1.0678864, -6.8474445)
+rotation = 1.5707964
+texture = ExtResource("3_hx1ia")
+script = ExtResource("5_2a1lc")
+
+[connection signal="ready" from="." to="Sprite2D/f" method="_on_node_2d_ready"]
+[connection signal="ready" from="." to="Sprite2D/v" method="_on_node_2d_ready"]
+[connection signal="ready" from="." to="Sprite2D/n" method="_on_node_2d_ready"]
+[connection signal="ready" from="." to="Sprite2D/j" method="_on_node_2d_ready"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
