@@ -1,0 +1,42 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1771031379
+editor.gd::GDScript::8818127242236041046::1770990004::0::1::::<>Node2D<><>0<>0<><>::
+editor.tscn::PackedScene::6343253459346214828::1771009393::0::1::::<><><>0<>0<><>::uid://dxvtjdblsipp3::::res://editor.gd<>uid://g4bib5gt3elu::::res://images/editor strip.png<>uid://dnofes6e12754::::res://stripe.gd<>uid://b5dxjrg5nt1f4::::res://something.tres
+f.gd::GDScript::8873998465411063871::1770927641::0::1::::<>Sprite2D<><>0<>0<><>::
+fnote.gd::GDScript::7744642108239303757::1770856603::0::1::::<>ColorRect<><>0<>0<><>::
+fnote.tscn::PackedScene::2756690525831430710::1770849819::0::1::::<><><>0<>0<><>::uid://diltehmlqp68x::::res://fnote.gd
+global.gd::GDScript::348682740902358939::1770942295::0::1::::<>Node<><>0<>0<><>::
+held.gd::GDScript::2992807571218982991::1770856664::0::1::::<>ColorRect<><>0<>0<><>::
+hold.tscn::PackedScene::2228933296412247421::1770849818::0::1::::<><><>0<>0<><>::uid://diltehmlqp68x::::res://fnote.gd
+icon.svg::CompressedTexture2D::6517289456576999405::1769996234::1769996260::1::::<><><>0<>0<>2eb595e3be81c943200a10ecf7086166<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+lvl.gd::GDScript::4420350312458130900::1770942295::0::1::::<>Node2D<><>0<>0<><>::
+lvl.tscn::PackedScene::1673319901189337479::1770990300::0::1::::<><><>0<>0<><>::uid://c4xs2ow0xp1ou::::res://images/web.png<>uid://b38ir2sodpgvk::::res://lvl.gd<>uid://b641glkg7wv7g::::res://drnfctn - Frums.mp3<>uid://gjtxtey14xxh::::res://timer.tscn<>uid://ujmhwsbgjqu3::::res://images/p0.png<>uid://b5dxjrg5nt1f4::::res://something.tres<>uid://dyovptx2dogol::::res://f.gd
+menu.tscn::PackedScene::1230138487929573779::1770846356::0::1::::<><><>0<>0<><>::uid://b5dxjrg5nt1f4::::res://something.tres
+README.md::TextFile::-1::1770001131::0::1::::<><><>0<>0<><>::
+something.otf::FontFile::1439702418147080730::1769018259::1770685747::1::::<><><>0<>0<>55a0b00a5d1fabab88b8e0a59ddb795a<>res://.godot/imported/something.otf-ff282718fa7c6b530ce02fc1e55a49c7.fontdata::
+something.otf-7342fd378cce4896bdf9b3496f369683.fontdata-folding-55f1fb690f9feda14323e4a4cc22f21d.cfg::TextFile::-1::1769018304::0::1::::<><><>0<>0<><>::
+something.tres::Theme::4499692592622015703::1770990299::0::1::::<><><>0<>0<><>::uid://urnxn5fublag::::res://something.otf
+something.tres-folding-98abdab7838ca07d2509c80e3d5bb5bd.cfg::TextFile::-1::1770660751::0::1::::<><><>0<>0<><>::
+stripe.gd::GDScript::8100930028596838097::1770944595::0::1::::<>NinePatchRect<><>0<>0<><>::
+Test.tscn::PackedScene::8099162704508995467::1769996354::0::1::::<><><>0<>0<><>::uid://ocqr4kaowgws::::res://icon.svg
+timer.gd::GDScript::8059696229683431375::1770927501::0::1::::<>Timer<><>0<>0<><>::
+timer.tscn::PackedScene::440908162986340217::1770681789::0::1::::<><><>0<>0<><>::uid://dm3gawnggrgy6::::res://timer.gd
+::res://addons/::1769996353
+::res://addons/godot_super-wakatime/::1769996353
+api_key_prompt.tscn::PackedScene::3919262858641749045::1769996353::0::1::::<><><>0<>0<><>::
+counter.tscn::PackedScene::6849360014225833986::1769996353::0::1::::<><><>0<>0<><>::
+decompressor.gd::GDScript::513498479588648040::1769996353::0::1::::<>RefCounted<><>0<>0<><>::
+godot_super-wakatime.gd::GDScript::6277149880384411866::1769996353::0::1::::<>EditorPlugin<><>0<>1<><>::
+plugin.cfg::TextFile::-1::1769996353::0::1::::<><><>0<>0<><>::
+README.md::TextFile::-1::1769996353::0::1::::<><><>0<>0<><>::
+utils.gd::GDScript::5251015809120159908::1769996353::0::1::::<>RefCounted<><>0<>0<><>::
+::res://images/::1771029659
+editor strip.png::CompressedTexture2D::481075119206524522::1770943443::1770943448::1::::<><><>0<>0<>b5786609c425f0b0a3f7a7f7bbb33838<>res://.godot/imported/editor strip.png-57620351b06de8b4ad1ac8beaaaa2452.ctex::
+godotwaka2.png::CompressedTexture2D::7026850610005011835::1769996353::1769996356::1::::<><><>0<>0<>46217c9c5839b2c9f7217cd3af6b8860<>res://.godot/imported/godotwaka2.png-7d3d010fb4adc0d433467ab1cc4754ed.ctex::
+godotwaka.png::CompressedTexture2D::7932361111412089001::1769996353::1769996355::1::::<><><>0<>0<>7360cc7c44aafc955def6087604c985e<>res://.godot/imported/godotwaka.png-ef0518417b4f997d237759e5551dd05d.ctex::
+icon.jpg::CompressedTexture2D::3122668444336440389::1769996353::1769996354::1::::<><><>0<>0<>3d1d80fd4049890345f07c1608fe4e66<>res://.godot/imported/icon.jpg-64f68b30ea939aa8019167e67dffb2db.ctex::
+p0.png::CompressedTexture2D::1423098560391726540::1770343353::1770343374::1::::<><><>0<>0<>7f582068900755321bd90f0e40dd7add<>res://.godot/imported/p0.png-aa2b88dd29f810dfa9eccb0c8521fe69.ctex::
+web.png::CompressedTexture2D::6856940414017585248::1770343368::1770342206::1::::<><><>0<>0<>75b83c9ece2d71c20e20a0826ddb92cb<>res://.godot/imported/web.png-71652dcd3936f1ccd3f31d13a95d80af.ctex::
+::res://levels/::1771031400
+drnfctn - Frums.mp3::AudioStreamMP3::4623731741436357002::1770746577::1771031416::1::::<><><>0<>0<>7e67492f2cf2f77d2a8a2c9e3e9c25dc<>res://.godot/imported/drnfctn - Frums.mp3-8138a3458b297c6db05554f2061727b6.mp3str::
+drnfctn - Frums.txt::TextFile::-1::1771031394::0::1::::<><><>0<>0<><>::

@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfjmj4qeuuhus"]
+
+[ext_resource type="Script" uid="uid://diltehmlqp68x" path="res://fnote.gd" id="2_3qoqo"]
+
+[node name="fnote" type="ColorRect"]
+z_as_relative = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -343.5
+offset_top = -343.5
+offset_right = -342.5
+offset_bottom = -342.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_3qoqo")
