@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://gjtxtey14xxh"]
+
+[ext_resource type="Script" uid="uid://dm3gawnggrgy6" path="res://timer.gd" id="1_qdhxh"]
+
+[node name="Timer" type="Timer"]
+wait_time = 0.696
+autostart = true
+script = ExtResource("1_qdhxh")
