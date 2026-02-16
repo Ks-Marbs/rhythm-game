@@ -5,7 +5,7 @@ var sco := 0
 var held:= false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GlobalTimer.connect("timeout",Callable(self,"on_timeout"))
+	self.get_parent().get_parent().get_parent().connect("boop",Callable(self,"on_boop"))
 	for m in range(hold_time):
 		var i = ColorRect.new()
 		i.set_script(load("res://held.gd"))
@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 	pass
 
 
-func on_timeout() -> void:
+func on_boop() -> void:
 	position=position+Vector2.RIGHT
 	if int(position[0]) > (-6):
 		position=position+Vector2.DOWN

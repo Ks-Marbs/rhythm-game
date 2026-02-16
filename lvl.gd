@@ -7,9 +7,12 @@ var fcolo:= Color(0.592, 0.0, 0.0, 1.0)
 var vcolo:= Color(0.39, 0.274, 0.0, 1.0)
 var ncolo:= Color(0.0, 0.354, 0.259, 1.0)
 var jcolo:= Color(0.124, 0.0, 0.873, 1.0)
-var beat := -75
+signal boop
+var t:= 0.0
+var beat := 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Song.stream = load(Global.song)
 	for k in Global.level_notes:
 		match k.pop_front():
 			"f":
@@ -57,7 +60,64 @@ func _process(delta: float) -> void:
 		jcolo = Color(0.074, 0.0, 0.49, 1.0)
 	pass
 
+func rotate_camera(end:float,time1:float,time2:float,ease):
+	var start = $Sprite2D/Camera2D.rotation
+	if (beat > time1*25) and (beat < time2*25):
+		var t = ((beat-(time1*25))/((time2-time1)*25))
+		match ease:
+			"line":
+				$Sprite2D/Camera2D.rotation = lerp_angle(start,end,t)
+			"sin":
+				$Sprite2D/Camera2D.rotation = lerp_angle(start,end,-(cos(PI * t) - 1) / 2)
+			"in-sin":
+				$Sprite2D/Camera2D.rotation = lerp_angle(start,end,1-(cos(PI * t) / 2))
+			"out-sin":
+				$Sprite2D/Camera2D.rotation = lerp_angle(start,end,sin(PI * t / 2))
 
-func _on_timer_timeout() -> void:
-	beat += 1
-	pass # Replace with function body.
+	elif beat == time2*25:
+		$Sprite2D/Camera2D.rotation = end
+
+func position_camera(end:Vector2,time1:float,time2:float,ease):
+	var start = $Sprite2D/Camera2D.position
+	if (beat > time1*25) and (beat < time2*25):
+		var t = ((beat-(time1*25))/((time2-time1)*25))
+		match ease:
+			"line":
+				$Sprite2D/Camera2D.position = start.lerp(end,t)
+			"sin":
+				$Sprite2D/Camera2D.position  = start.lerp(end,-(cos(PI * t) - 1) / 2)
+			"in-sin":
+				$Sprite2D/Camera2D.position  = start.lerp(end,1-(cos(PI * t) / 2))
+			"out-sin":
+				$Sprite2D/Camera2D.position  = start.lerp(end,sin(PI * t / 2))
+
+	elif beat == time2*25:
+		$Sprite2D/Camera2D.position = end
+
+func zoom_camera(end:Vector2,time1:float,time2:float,ease):
+	var start = $Sprite2D/Camera2D.zoom
+	if (beat > time1*25) and (beat < time2*25):
+		var t = ((beat-(time1*25))/((time2-time1)*25))
+		match ease:
+			"line":
+				$Sprite2D/Camera2D.zoom = start.lerp(end,t)
+			"sin":
+				$Sprite2D/Camera2D.zoom  = start.lerp(end,-(cos(PI * t) - 1) / 2)
+			"in-sin":
+				$Sprite2D/Camera2D.zoom  = start.lerp(end,1-(cos(PI * t) / 2))
+			"out-sin":
+				$Sprite2D/Camera2D.zoom  = start.lerp(end,sin(PI * t / 2))
+
+	elif beat == time2*25:
+		$Sprite2D/Camera2D.zoom = end
+
+func _physics_process(delta):
+	t += delta
+	if t > (2.4/Global.bpm):
+		t-=2.4/Global.bpm
+		boop.emit()
+		beat += 1
+	rotate_camera(1,1,5,"sin")
+	position_camera(Vector2(20,30),1,5,"sin")
+	zoom_camera(Vector2(2,3),1,5,"sin")
+	pass
