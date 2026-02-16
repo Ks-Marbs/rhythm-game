@@ -1,6 +1,9 @@
-res://editor.tscn
-res://something.tres
-res://editor.gd
+res://menu.gd
 res://menu.tscn
-res://global.gd
+res://something.tres
 res://lvl.gd
+res://global.gd
+res://timer.gd
+res://lvl.tscn
+res://fnote.gd
+res://f.gd
