@@ -1,15 +1,24 @@
 extends Node
-var score = 0
+var score = 0.0
+var max_score = 0.0
+var selected = -1
+var vol:=6
+var hvol:=6
 var rady = 0
+var pop = 0.0
 var bpm := 132
 var move = false
+var level_list = [["Prophecy","Creo",load("res://images/prophecy.jpg"),"Prophecy"],["drnfctn","Frums",load("res://images/drnfctn.jpg"),"drnfctn - Frums"]]
 var level_notes:= []
 var song = ""
-
-func load_level(boop):
-	level_notes = Array(str_to_var(FileAccess.open(boop,FileAccess.READ).get_as_text(true).replace("\n", "")))
-	Global.bpm = level_notes[0][0]
-	song = level_notes.pop_front()[1]
+var video = ""
+var offset = 50
+var paused = false
+var len:= 0.0
+var po:= Vector2.ZERO
+var zo:= Vector2.ONE * 4
+var ro:= 0.0
+var plays = 0.0
 
 func _ready() -> void:
 	pass 

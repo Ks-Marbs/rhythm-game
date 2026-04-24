@@ -1,9 +1,11 @@
-res://menu.gd
-res://menu.tscn
+res://lvl.tscn
 res://something.tres
 res://lvl.gd
-res://global.gd
-res://timer.gd
-res://lvl.tscn
+res://leveltap.gd
+res://leveltap.tscn
 res://fnote.gd
-res://f.gd
+res://menu.tscn
+res://menu.gd
+res://set.tscn
+res://c.gd
+res://global.gd
