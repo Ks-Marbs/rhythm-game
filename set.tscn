@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn3ov8ff7vr40"]
+
+[ext_resource type="Script" uid="uid://dj7ora5co14mq" path="res://set.gd" id="1_64a2g"]
+[ext_resource type="Theme" uid="uid://b5dxjrg5nt1f4" path="res://something.tres" id="1_f27m4"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_64a2g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -160.0
+offset_top = -352.0
+offset_right = 189.0
+offset_bottom = -256.0
+theme = ExtResource("1_f27m4")
+theme_override_font_sizes/normal_font_size = 64
+text = "Settings"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = -200.0
+offset_top = -157.0
+offset_right = 289.0
+offset_bottom = -61.0
+theme = ExtResource("1_f27m4")
+theme_override_font_sizes/normal_font_size = 64
+text = "Song volume"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+offset_left = -182.0
+offset_top = 7.0
+offset_right = 307.0
+offset_bottom = 103.0
+theme = ExtResource("1_f27m4")
+theme_override_font_sizes/normal_font_size = 64
+text = "Hit volume"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -20
+offset_left = -610.0
+offset_top = -497.0
+offset_right = 576.0
+offset_bottom = 455.0
+color = Color(0.09, 0.09, 0.09, 0.8392157)
+
+[node name="HSlider" type="HSlider" parent="."]
+offset_left = -214.0
+offset_top = -33.0
+offset_right = 214.0
+offset_bottom = -17.0
+max_value = 10.0
+value = 6.0
+tick_count = 11
+ticks_on_borders = true
+ticks_position = 3
+
+[node name="HSlider2" type="HSlider" parent="."]
+offset_left = -214.0
+offset_top = 103.0
+offset_right = 214.0
+offset_bottom = 119.0
+max_value = 10.0
+value = 6.0
+tick_count = 11
+ticks_on_borders = true
+ticks_position = 3
