@@ -31,6 +31,7 @@ func _process(delta: float) -> void:
 	if int(position[0]) in range(-24,10) and not caught and not Global.paused:
 		if Input.is_action_just_pressed(str(self.get_parent().name)[0]):
 			held = true
+			caught = true
 			if int(position[0]) in range(-15,1):
 				sco = 5
 				self_modulate += Color(0.47, 0.47, 0.47, 1.0)
@@ -41,9 +42,7 @@ func _process(delta: float) -> void:
 				self_modulate += Color(0.23, 0.23, 0.23, 1.0)
 				self.get_parent().get_parent().get_child(0).play()
 				self_modulate -= Color(0.23, 0.23, 0.23, 1.0)
-
 			Global.score += sco
-			caught = true
 	if not Input.is_action_pressed(str(self.get_parent().name)[0]) and held:
 		held = false
 	if int(position[0]) > 0 and not caught:

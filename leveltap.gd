@@ -11,6 +11,8 @@ func load_level(boop:String):
 	Global.song = Global.level_notes[0][1]
 	Global.offset = Global.level_notes[0][2]
 	Global.video = Global.level_notes[0][3]
+	for n in range(7):
+		Global.ms +=(FileAccess.open("res://images/score.txt",FileAccess.READ).get_as_text(true).replace("\n", ""))[n+bub*7]
 
 
 func _ready() -> void:
