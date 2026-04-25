@@ -11,20 +11,20 @@ var t:= 0.0
 signal lod
 # Called when the node enters the scene tree for the first time.
 func beep(v,a,b,c):
-	v.scale = Vector2.ONE/$Sprite2D/Camera2D.zoom*c
-	v.position = Vector2((-343.0+4.0*a)/$Sprite2D/Camera2D.zoom[0],(-343.0+4.0*b)/$Sprite2D/Camera2D.zoom[1])
+	v.scale = Vector2.ONE/$Camera2D.zoom*c
+	v.position = Vector2((-343.0+4.0*a)/$Camera2D.zoom[0],(-343.0+4.0*b)/$Camera2D.zoom[1])
 
 func w():
 	Global.paused = not Global.paused
 	if Global.paused:
-		$Sprite2D/Camera2D/VideoStreamPlayer.set_paused(true)
+		$Camera2D/VideoStreamPlayer.set_paused(true)
 	else:
-		$Sprite2D/Camera2D/VideoStreamPlayer.set_paused(false)
+		$Camera2D/VideoStreamPlayer.set_paused(false)
 func _ready():
 	load_()
 
 func load_() -> void:
-	$Sprite2D/Camera2D/VideoStreamPlayer.stream = load(Global.video)
+	$Camera2D/VideoStreamPlayer.stream = load(Global.video)
 	for k in Global.level_notes:
 		match k.pop_front():
 			"f":
@@ -42,23 +42,25 @@ func load_() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$Sprite2D/Camera2D/set.visible = Global.paused
-	beep($Sprite2D/Camera2D/score,20,20,1)
-	beep($Sprite2D/Camera2D/Pause,150,20,0.75)
-	beep($Sprite2D/Camera2D/fb,35,150,1)
-	beep($Sprite2D/Camera2D/vb,70,150,1)
-	beep($Sprite2D/Camera2D/nb,105,150,1)
-	beep($Sprite2D/Camera2D/set,86,86,1)
-	beep($Sprite2D/Camera2D/jb,140,150,1)
-	Global.plays = $Sprite2D/Camera2D/VideoStreamPlayer.get_stream_position()
-	$Sprite2D/Camera2D/VideoStreamPlayer.scale = Vector2.ONE / $Sprite2D/Camera2D.zoom
-	$Sprite2D/Camera2D/VideoStreamPlayer.position = (Vector2.ONE*-344.0) / $Sprite2D/Camera2D.zoom
-	$Sprite2D/Camera2D/VideoStreamPlayer.volume = Global.vol/3.0
+	$Camera2D/set.visible = Global.paused
+	beep($Camera2D/score,20,15,1)
+	beep($Camera2D/Node2D,85.7,85.75,1)
+	beep($Camera2D/Pause,150,20,0.75)
+	beep($Camera2D/fb,35,150,1)
+	beep($Camera2D/vb,70,150,1)
+	beep($Camera2D/nb,105,150,1)
+	beep($Camera2D/set,86,86,1)
+	beep($Camera2D/jb,140,150,1)
+	
+	Global.plays = $Camera2D/VideoStreamPlayer.get_stream_position()
+	$Camera2D/VideoStreamPlayer.scale = Vector2.ONE / $Camera2D.zoom
+	$Camera2D/VideoStreamPlayer.position = (Vector2.ONE*-344.0) / $Camera2D.zoom
+	$Camera2D/VideoStreamPlayer.volume = Global.vol/3.0
 	$Sprite2D/hit.volume_linear = Global.hvol*2.0
 	if Global.rady == 5:
-		$Sprite2D/Camera2D/VideoStreamPlayer.play()
+		$Camera2D/VideoStreamPlayer.play()
 		Global.rady = 0
-	$Sprite2D/Camera2D/score.text = ("Score: %07d") % int(Global.score*1000000/Global.max_score)
+	$Camera2D/score.text = ("Score: %07d") % int(Global.score*1000000/Global.max_score)
 	$Sprite2D/f.modulate = fcolor
 	$Sprite2D/v.modulate = vcolor
 	$Sprite2D/n.modulate = ncolor
@@ -88,6 +90,8 @@ func _process(delta: float) -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	$Sprite2D/Camera2D.rotation = Global.ro
-	$Sprite2D/Camera2D.zoom = Global.zo
-	$Sprite2D/Camera2D.position= Global.po
+	$Sprite2D.position = Global.pos
+	$Sprite2D.rotation = Global.rs
+	$Camera2D.rotation = Global.ro
+	$Camera2D.zoom = Global.zo
+	$Camera2D.position= Global.po
