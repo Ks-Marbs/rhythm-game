@@ -1,6 +1,9 @@
+RichTextLabel
+CheckBox
+CheckButton
+AudioStreamPlayer2D
 Sprite2D
 Camera2D
-RichTextLabel
 HSlider
 ColorRect
 AudioStreamPlayer
@@ -9,6 +12,3 @@ ConfirmationDialog
 TextureButton
 Button
 VideoStreamPlayer
-VScrollBar
-FileDialog
-NinePatchRect
