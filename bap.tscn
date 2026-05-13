@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://wqqso1shw5fo"]
+
+[ext_resource type="Theme" uid="uid://b5dxjrg5nt1f4" path="res://something.tres" id="1_d3147"]
+[ext_resource type="Script" uid="uid://dcc0j7j6bvq2t" path="res://bap.gd" id="2_hm3eg"]
+
+[node name="bap" type="RichTextLabel"]
+offset_left = -60.0
+offset_top = 60.0
+offset_right = 55.832047
+offset_bottom = 93.941315
+theme = ExtResource("1_d3147")
+theme_override_font_sizes/normal_font_size = 24
+horizontal_alignment = 1
+script = ExtResource("2_hm3eg")

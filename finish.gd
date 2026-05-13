@@ -1,18 +1,16 @@
 extends Node2D
 
 func end():
-	var s = ""
-	for i in range(Global.level_list.size()*7):
-		s += "0"
-	for i in range(7):
-		s[Global.selected*7+i] = (("%07d") % int(Global.ms))[i]
-	FileAccess.open("res://images/score.txt",FileAccess.WRITE).store_string(s)
+	var s = (("%07d") % int(Global.ms))
+	FileAccess.open("res://levels/"+Global.level_list[Global.selected][0]+"/score.txt",FileAccess.WRITE).store_string(s)
 	Global.selected = -1
 	Global.pop = 0
 	Global.plays = 0
 	Global.po = Vector2(0,0)
+	Global.pos = Vector2(0,0)
 	Global.zo = Vector2(4,4)
 	Global.ro = 0
+	Global.rs = 0
 	Global.score = 0
 	Global.max_score = 0
 	get_tree().change_scene_to_file("res://menu.tscn")

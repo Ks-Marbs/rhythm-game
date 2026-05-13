@@ -1,14 +1,7 @@
 extends Node2D
-var fcolor:= Color(0.592, 0.0, 0.0, 1.0)
-var vcolor:= Color(0.39, 0.274, 0.0, 1.0)
-var ncolor:= Color(0.0, 0.354, 0.259, 1.0)
-var jcolor:= Color(0.124, 0.0, 0.873, 1.0)
-var fcolo:= Color(0.592, 0.0, 0.0, 1.0)
-var vcolo:= Color(0.39, 0.274, 0.0, 1.0)
-var ncolo:= Color(0.0, 0.354, 0.259, 1.0)
-var jcolo:= Color(0.124, 0.0, 0.873, 1.0)
 var t:= 0.0
 signal lod
+signal bap(L,P)
 # Called when the node enters the scene tree for the first time.
 func beep(v,a,b,c):
 	v.scale = Vector2.ONE/$Camera2D.zoom*c
@@ -19,6 +12,7 @@ func w():
 	if Global.paused:
 		$Camera2D/VideoStreamPlayer.set_paused(true)
 	else:
+		$Camera2D/VideoStreamPlayer.set_stream_position(Global.plays)
 		$Camera2D/VideoStreamPlayer.set_paused(false)
 func _ready():
 	load_()
@@ -51,40 +45,47 @@ func _process(delta: float) -> void:
 	beep($Camera2D/nb,105,150,1)
 	beep($Camera2D/set,86,86,1)
 	beep($Camera2D/jb,140,150,1)
-	
 	Global.plays = $Camera2D/VideoStreamPlayer.get_stream_position()
 	$Camera2D/VideoStreamPlayer.scale = Vector2.ONE / $Camera2D.zoom
 	$Camera2D/VideoStreamPlayer.position = (Vector2.ONE*-344.0) / $Camera2D.zoom
-	$Camera2D/VideoStreamPlayer.volume = Global.vol/3.0
-	$Sprite2D/hit.volume_linear = Global.hvol*2.0
+	$Camera2D/VideoStreamPlayer.volume = Global.vol/7.0
+	$Sprite2D/hit.volume_linear = Global.hvol/15.0
 	if Global.rady == 5:
 		$Camera2D/VideoStreamPlayer.play()
 		Global.rady = 0
 	$Camera2D/score.text = ("Score: %07d") % int(Global.score*1000000/Global.max_score)
-	$Sprite2D/f.modulate = fcolor
-	$Sprite2D/v.modulate = vcolor
-	$Sprite2D/n.modulate = ncolor
-	$Sprite2D/j.modulate = jcolor
-	$Sprite2D/f.self_modulate = fcolo
-	$Sprite2D/v.self_modulate = vcolo
-	$Sprite2D/n.self_modulate = ncolo
-	$Sprite2D/j.self_modulate = jcolo
+	$Sprite2D/f.modulate = Global.fcolor
+	$Sprite2D/v.modulate = Global.vcolor
+	$Sprite2D/n.modulate = Global.ncolor
+	$Sprite2D/j.modulate = Global.jcolor
+	$Camera2D/fb.self_modulate = Global.fcolor
+	$Camera2D/vb.self_modulate = Global.vcolor
+	$Camera2D/nb.self_modulate = Global.ncolor
+	$Camera2D/jb.self_modulate = Global.jcolor
 	if Input.is_action_pressed("f"):
-		fcolo = Color(0.993, 0.732, 0.7, 1.0)
+		Global.fcolo = Color.from_hsv(0.0,Global.sat*0.3, 0.993, 1.0)
+		$Sprite2D/f.self_modulate = Global.fcolo
 	else:
-		fcolo = Color(0.488, 0.0, 0.0, 1.0)
+		Global.fcolo = Color.from_hsv(0.0, Global.sat, 0.488, 1.0)
+		$Sprite2D/f.self_modulate = Global.fcolo
 	if Input.is_action_pressed("v"):
-		vcolo = Color(0.981, 0.867, 0.637, 1.0)
+		Global.vcolo = Color.from_hsv(0.117, Global.sat*0.3, 0.993, 1.0)
+		$Sprite2D/v.self_modulate = Global.vcolo
 	else:
-		vcolo = Color(0.54, 0.378, 0.0, 1.0)
+		Global.vcolo = Color.from_hsv(0.117, Global.sat, 0.54, 1.0)
+		$Sprite2D/v.self_modulate = Global.vcolo
 	if Input.is_action_pressed("n"):
-		ncolo = Color(0.264, 0.923, 0.746, 1.0)
+		Global.ncolo = Color.from_hsv(0.455, Global.sat*0.3, 0.993, 1.0)
+		$Sprite2D/n.self_modulate = Global.ncolo
 	else:
-		ncolo = Color(0.0, 0.354, 0.259, 1.0)
+		Global.ncolo = Color.from_hsv(0.455, Global.sat, 0.354, 1.0)
+		$Sprite2D/n.self_modulate = Global.ncolo
 	if Input.is_action_pressed("j"):
-		jcolo = Color(0.4, 0.527, 0.999, 1.0)
+		Global.jcolo = Color.from_hsv(0.631, Global.sat*0.3, 0.993, 1.0)
+		$Sprite2D/j.self_modulate = Global.jcolo
 	else:
-		jcolo = Color(0.074, 0.0, 0.49, 1.0)
+		Global.jcolo = Color.from_hsv(0.631, Global.sat, 0.49, 1.0)
+		$Sprite2D/j.self_modulate = Global.jcolo
 	if Input.is_action_just_pressed("p"):
 		w()
 	pass

@@ -1,0 +1,147 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjkebmxfml0yf"]
+
+[ext_resource type="Script" uid="uid://d3nolq6a2e0as" path="res://sets.gd" id="1_ghifh"]
+[ext_resource type="Theme" uid="uid://b5dxjrg5nt1f4" path="res://something.tres" id="2_56s4n"]
+[ext_resource type="Texture2D" uid="uid://cil3uboyw7d3m" path="res://images/buttons.png" id="3_ghifh"]
+[ext_resource type="Script" uid="uid://yrkc1wykoat2" path="res://b.gd" id="4_lxf7m"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(1, -16)
+scale = Vector2(0.9, 0.9)
+script = ExtResource("1_ghifh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -166.11111
+offset_top = -315.44446
+offset_right = 182.88889
+offset_bottom = -219.44446
+mouse_filter = 2
+theme = ExtResource("2_56s4n")
+theme_override_font_sizes/normal_font_size = 64
+text = "Settings"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = -210.11113
+offset_top = -244.99997
+offset_right = 278.88885
+offset_bottom = -148.99997
+mouse_filter = 2
+theme = ExtResource("2_56s4n")
+theme_override_font_sizes/normal_font_size = 64
+text = "Song volume"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+offset_left = -192.11111
+offset_top = -148.77771
+offset_right = 296.8889
+offset_bottom = -52.77771
+mouse_filter = 2
+theme = ExtResource("2_56s4n")
+theme_override_font_sizes/normal_font_size = 64
+text = "Hit volume"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -20
+offset_left = -611.1111
+offset_top = -534.44446
+offset_right = 574.8889
+offset_bottom = 417.55554
+color = Color(0.039215688, 0.039215688, 0.039215688, 0.8901961)
+
+[node name="HSlider" type="HSlider" parent="."]
+offset_left = -224.11111
+offset_top = -149.88892
+offset_right = 203.88889
+offset_bottom = -133.88892
+max_value = 10.0
+value = 6.0
+tick_count = 11
+ticks_on_borders = true
+ticks_position = 3
+
+[node name="HSlider2" type="HSlider" parent="."]
+offset_left = -224.11111
+offset_top = -61.66668
+offset_right = 203.88889
+offset_bottom = -45.66668
+max_value = 10.0
+value = 6.0
+tick_count = 11
+ticks_on_borders = true
+ticks_position = 3
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="."]
+offset_left = -192.11113
+offset_top = -59.888824
+offset_right = 296.88885
+offset_bottom = 36.111176
+mouse_filter = 2
+theme = ExtResource("2_56s4n")
+theme_override_font_sizes/normal_font_size = 64
+text = "Saturation"
+
+[node name="HSlider3" type="HSlider" parent="."]
+offset_left = -224.11111
+offset_top = 27.222229
+offset_right = 203.88889
+offset_bottom = 43.22223
+min_value = 0.001
+max_value = 1.001
+step = 0.05
+value = 1.001
+tick_count = 11
+ticks_on_borders = true
+ticks_position = 3
+
+[node name="f" type="Sprite2D" parent="."]
+position = Vector2(-232.50002, 100)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_ghifh")
+region_enabled = true
+region_rect = Rect2(0, 0, 100, 100)
+script = ExtResource("4_lxf7m")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+offset_left = -192.50002
+offset_top = 52.00001
+offset_right = 20.499985
+offset_bottom = 148.0
+mouse_filter = 2
+theme = ExtResource("2_56s4n")
+theme_override_font_sizes/normal_font_size = 64
+text = "Retry"
+
+[node name="j" type="Sprite2D" parent="."]
+position = Vector2(61.499985, 99)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_ghifh")
+region_enabled = true
+region_rect = Rect2(0, 0, 100, 100)
+script = ExtResource("4_lxf7m")
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="."]
+offset_left = 103.499985
+offset_top = 50.000004
+offset_right = 316.5
+offset_bottom = 146.0
+mouse_filter = 2
+theme = ExtResource("2_56s4n")
+theme_override_font_sizes/normal_font_size = 64
+text = "Quit"
+
+[node name="Pause" type="Sprite2D" parent="."]
+position = Vector2(-114.72223, 203.22221)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_ghifh")
+region_enabled = true
+region_rect = Rect2(200, 0, 100, 100)
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="."]
+offset_left = -65.22223
+offset_top = 152.22223
+offset_right = 147.77777
+offset_bottom = 248.22223
+mouse_filter = 2
+theme = ExtResource("2_56s4n")
+theme_override_font_sizes/normal_font_size = 64
+text = "Back"

@@ -27,3 +27,25 @@ func _process(delta: float) -> void:
 	else:
 		region_rect = Rect2(a,b,100,100)
 	pass
+
+
+func _on_node_2d_bap(L: Variant, P: Variant) -> void:
+	if P == str(self.name)[0]:
+		var b = load("res://bap.tscn")
+		var i = b.instantiate()
+		i.position = Vector2(-55,55)
+		match L:
+			0:
+				i.modulate = Color.from_hsv(0.0, Global.sat, 1.0, 1.0)
+				i.text = "MISS!"
+			1:
+				i.modulate = Color.from_hsv(0.153, Global.sat, 1.0, 1.0)
+				i.text = "EARLY!"
+			2:
+				i.modulate = Color.from_hsv(0.264, Global.sat, 1.0, 1.0)
+				i.text = "PERFECT!"
+			3:
+				i.modulate = Color.from_hsv(0.153, Global.sat, 1.0, 1.0)
+				i.text = "LATE!"
+		add_child(i)
+	pass # Replace with function body.

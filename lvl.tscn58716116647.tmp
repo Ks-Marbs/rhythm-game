@@ -1,0 +1,284 @@
+[gd_scene load_steps=12 format=3 uid="uid://x3tlmph1ixql"]
+
+[ext_resource type="Texture2D" uid="uid://c4xs2ow0xp1ou" path="res://images/web.png" id="1_3rlxx"]
+[ext_resource type="Script" uid="uid://b38ir2sodpgvk" path="res://lvl.gd" id="1_4iw1c"]
+[ext_resource type="AudioStream" uid="uid://d35a5xc7u5vpb" path="res://levels/hit.mp3" id="3_2e6f6"]
+[ext_resource type="Texture2D" uid="uid://ujmhwsbgjqu3" path="res://images/p0.png" id="3_hx1ia"]
+[ext_resource type="Theme" uid="uid://b5dxjrg5nt1f4" path="res://something.tres" id="4_2a1lc"]
+[ext_resource type="Texture2D" uid="uid://cil3uboyw7d3m" path="res://images/buttons.png" id="4_f2dqo"]
+[ext_resource type="Script" uid="uid://dyovptx2dogol" path="res://f.gd" id="5_2a1lc"]
+[ext_resource type="Script" uid="uid://yrkc1wykoat2" path="res://b.gd" id="5_5ud41"]
+[ext_resource type="PackedScene" uid="uid://dxh36vqvlk2ma" path="res://finish.tscn" id="8_2e6f6"]
+[ext_resource type="PackedScene" uid="uid://bjkebmxfml0yf" path="res://sets.tscn" id="9_2e6f6"]
+
+[sub_resource type="GDScript" id="GDScript_kfp6p"]
+script/source = "extends Sprite2D
+var notes:= []
+signal end
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+ 
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _physics_process(delta: float) -> void:
+	if Global.dis:
+		for note in notes:
+			match note[0]:
+				\"r\":
+					if Global.plays*5.0*Global.bpm/12.0 > note[3]*25+(Global.offset) and\\
+					 Global.plays*5.0*Global.bpm/12.0 < (note[3]+note[4])*25+(Global.offset) :
+						rotate_camera(note[1],note[2],note[3],note[4],note[5])
+				\"rs\":
+					if Global.plays*5.0*Global.bpm/12.0 > note[3]*25+(Global.offset) and\\
+					 Global.plays*5.0*Global.bpm/12.0 < (note[3]+note[4])*25+(Global.offset) :
+						rotate_sq(note[1],note[2],note[3],note[4],note[5])
+				\"p\":
+					if Global.plays*5.0*Global.bpm/12.0 > note[5]*25+(Global.offset) and\\
+					 Global.plays*5.0*Global.bpm/12.0 < (note[5]+note[6])*25+(Global.offset) :
+						position_camera(note[1],note[2],note[3],note[4],note[5],note[6],note[7])
+				\"ps\":
+					if Global.plays*5.0*Global.bpm/12.0 > note[5]*25+(Global.offset) and\\
+					 Global.plays*5.0*Global.bpm/12.0 < (note[5]+note[6])*25+(Global.offset) :
+						position_sq(note[1],note[2],note[3],note[4],note[5],note[6],note[7])
+				\"z\":
+					if Global.plays*5.0*Global.bpm/12.0 > note[5]*25+(Global.offset) and\\
+					 Global.plays*5.0*Global.bpm/12.0 < (note[5]+note[6])*25+(Global.offset) :
+						zoom_camera(note[1],note[2],note[3],note[4],note[5],note[6],note[7])
+				\"e\":
+					if Global.plays*5.0*Global.bpm/12.0 > note[1]*25+(Global.offset):
+						emit_signal(\"end\")
+	else:
+		for note in notes:
+			match note[0]:
+				\"e\":
+					if Global.plays*5.0*Global.bpm/12.0 > note[1]*25+(Global.offset):
+						emit_signal(\"end\")
+	pass
+func _on_node_2d_lod() -> void:
+	Global.rady += 1
+	pass
+
+func rotate_camera(start,end:float,ts:float,t:float,ease):
+	start=float(start)
+	end=float(end)
+	var blue = Global.plays*5.0*Global.bpm/12.0
+	ts = ts*25.0+(Global.offset-4)
+	t = t*25
+	if (blue > ts-5) and (blue < ts+t):
+		var k = ((blue-ts)/t)
+		match ease:
+			\"line\":
+				Global.ro = lerp(start,end,k)
+			\"sin\":
+				Global.ro = lerp(start,end,-(cos(PI * k) - 1) / 2)
+			\"in-sin\":
+				Global.ro = lerp(start,end,1-(cos(PI * k) / 2))
+			\"out-sin\":
+				Global.ro = lerp(start,end,sin(PI * k / 2))
+
+func rotate_sq(start,end:float,ts:float,t:float,ease):
+	start=float(start)
+	end=float(end)
+	var blue = Global.plays*5.0*Global.bpm/12.0
+	ts = ts*25.0+(Global.offset-4)
+	t = t*25
+	if (blue > ts-5) and (blue < ts+t):
+		var k = ((blue-ts)/t)
+		match ease:
+			\"line\":
+				Global.rs = lerp(start,end,k)
+			\"sin\":
+				Global.rs = lerp(start,end,-(cos(PI * k) - 1) / 2)
+			\"in-sin\":
+				Global.rs = lerp(start,end,1-(cos(PI * k) / 2))
+			\"out-sin\":
+				Global.rs = lerp(start,end,sin(PI * k / 2))
+
+func position_sq(s1,s2,e1,e2,ts:float,t:float,ease):
+	var blue = Global.plays*5.0*Global.bpm/12.0
+	ts = ts*25.0+(Global.offset-4)
+	t = t*25
+	if (blue > ts-5) and (blue < ts+t):
+		var k = ((blue-ts)/t)
+		match ease:
+			\"line\":
+				Global.pos = Vector2(s1,s2).lerp(Vector2(e1,e2),k)
+			\"sin\":
+				Global.pos  = Vector2(s1,s2).lerp(Vector2(e1,e2),-(cos(PI * k) - 1) / 2)
+			\"in-sin\":
+				Global.pos =Vector2(s1,s2).lerp(Vector2(e1,e2),1-(cos(PI * k) / 2))
+			\"out-sin\":
+				Global.pos  = Vector2(s1,s2).lerp(Vector2(e1,e2),sin(PI * k / 2))
+
+
+func position_camera(s1,s2,e1,e2,ts:float,t:float,ease):
+	var blue = Global.plays*5.0*Global.bpm/12.0
+	ts = ts*25.0+(Global.offset-4)
+	t = t*25
+	if (blue > ts-5) and (blue < ts+t):
+		var k = ((blue-ts)/t)
+		match ease:
+			\"line\":
+				Global.po = Vector2(s1,s2).lerp(Vector2(e1,e2),k)
+			\"sin\":
+				Global.po  = Vector2(s1,s2).lerp(Vector2(e1,e2),-(cos(PI * k) - 1) / 2)
+			\"in-sin\":
+				Global.po  =Vector2(s1,s2).lerp(Vector2(e1,e2),1-(cos(PI * k) / 2))
+			\"out-sin\":
+				Global.po  = Vector2(s1,s2).lerp(Vector2(e1,e2),sin(PI * k / 2))
+
+
+func zoom_camera(s1,s2,e1,e2,ts:float,t:float,ease):
+	var blue = Global.plays*5.0*Global.bpm/12.0
+	ts = ts*25.0+(Global.offset-4)
+	t = t*25
+	if (blue > ts-5) and (blue < ts+t):
+		var k = ((blue-ts)/t)
+		match ease:
+			\"line\":
+				Global.zo = Vector2(s1,s2).lerp(Vector2(e1,e2),k)
+			\"sin\":
+				Global.zo  = Vector2(s1,s2).lerp(Vector2(e1,e2),-(cos(PI * k) - 1) / 2)
+			\"in-sin\":
+				Global.zo  = Vector2(s1,s2).lerp(Vector2(e1,e2),1-(cos(PI * k) / 2))
+			\"out-sin\":
+				Global.zo  = Vector2(s1,s2).lerp(Vector2(e1,e2),sin(PI * k / 2))
+"
+
+[node name="Node2D" type="Node2D"]
+process_physics_priority = 1
+script = ExtResource("1_4iw1c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+z_as_relative = false
+position = Vector2(0, 0.14208698)
+texture = ExtResource("1_3rlxx")
+
+[node name="hit" type="AudioStreamPlayer" parent="Sprite2D"]
+stream = ExtResource("3_2e6f6")
+max_polyphony = 1000
+
+[node name="f" type="Sprite2D" parent="Sprite2D"]
+z_as_relative = false
+position = Vector2(-7, 0)
+texture = ExtResource("3_hx1ia")
+script = ExtResource("5_2a1lc")
+
+[node name="c" type="Sprite2D" parent="Sprite2D"]
+visible = false
+z_as_relative = false
+position = Vector2(-7, 0)
+texture = ExtResource("3_hx1ia")
+script = SubResource("GDScript_kfp6p")
+
+[node name="v" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(0.07627869, 8.144165)
+rotation = -1.5707964
+texture = ExtResource("3_hx1ia")
+script = ExtResource("5_2a1lc")
+
+[node name="n" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(8.067886, 0.9916096)
+rotation = 3.1415927
+texture = ExtResource("3_hx1ia")
+script = ExtResource("5_2a1lc")
+
+[node name="j" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(1.0678864, -6.8474445)
+rotation = 1.5707964
+texture = ExtResource("3_hx1ia")
+script = ExtResource("5_2a1lc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 2
+z_as_relative = false
+position = Vector2(0, 20.142086)
+ignore_rotation = false
+zoom = Vector2(4, 4)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Camera2D"]
+modulate = Color(1, 1, 1, 0.15686275)
+z_index = -1000
+z_as_relative = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -368.22647
+offset_top = -113.840385
+offset_right = 319.77353
+offset_bottom = 574.1596
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="score" type="RichTextLabel" parent="Camera2D"]
+z_index = 4
+z_as_relative = false
+clip_contents = false
+offset_left = -248.76596
+offset_top = -300.17297
+offset_right = 372.58487
+offset_bottom = -228.60498
+theme = ExtResource("4_2a1lc")
+theme_override_font_sizes/normal_font_size = 48
+text = "Score:0000000000000"
+scroll_active = false
+
+[node name="fb" type="Sprite2D" parent="Camera2D"]
+position = Vector2(-50, 70)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_f2dqo")
+region_enabled = true
+region_rect = Rect2(0, 0, 100, 100)
+script = ExtResource("5_5ud41")
+
+[node name="Pause" type="Sprite2D" parent="Camera2D"]
+position = Vector2(56.685547, -65.47374)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_f2dqo")
+region_enabled = true
+region_rect = Rect2(200, 0, 100, 100)
+
+[node name="vb" type="Sprite2D" parent="Camera2D"]
+position = Vector2(-18, 70)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_f2dqo")
+region_enabled = true
+region_rect = Rect2(0, 100, 100, 100)
+script = ExtResource("5_5ud41")
+
+[node name="nb" type="Sprite2D" parent="Camera2D"]
+position = Vector2(18, 70)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_f2dqo")
+region_enabled = true
+region_rect = Rect2(100, 0, 100, 100)
+script = ExtResource("5_5ud41")
+
+[node name="jb" type="Sprite2D" parent="Camera2D"]
+position = Vector2(50, 70)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_f2dqo")
+region_enabled = true
+region_rect = Rect2(100, 100, 100, 100)
+script = ExtResource("5_5ud41")
+
+[node name="set" parent="Camera2D" instance=ExtResource("9_2e6f6")]
+z_index = 4096
+scale = Vector2(0.25, 0.25)
+
+[node name="Node2D" parent="Camera2D" instance=ExtResource("8_2e6f6")]
+visible = false
+z_index = 4096
+scale = Vector2(0.25, 0.25)
+
+[connection signal="lod" from="." to="Sprite2D/f" method="_on_node_2d_lod"]
+[connection signal="lod" from="." to="Sprite2D/c" method="_on_node_2d_lod"]
+[connection signal="lod" from="." to="Sprite2D/v" method="_on_node_2d_lod"]
+[connection signal="lod" from="." to="Sprite2D/n" method="_on_node_2d_lod"]
+[connection signal="lod" from="." to="Sprite2D/j" method="_on_node_2d_lod"]
+[connection signal="end" from="Sprite2D/c" to="Camera2D/Node2D" method="_on_c_end"]

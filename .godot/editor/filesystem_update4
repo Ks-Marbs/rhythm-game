@@ -1,9 +1,10 @@
-res://finish.tscn
-res://something.tres
-res://finish.gd
 res://lvl.tscn
-res://lvl.gd
-res://fnote.gd
+res://something.tres
+res://leveltap.tscn
+res://menu.tscn
 res://global.gd
-res://sprite_2d.gd
-res://node_2d.tscn
+res://set.tscn
+res://sets.tscn
+res://leveltap.gd
+res://menu.gd
+res://fnote.gd

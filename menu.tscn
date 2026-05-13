@@ -1,26 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://rr5g3s2w4d76"]
+[gd_scene load_steps=7 format=3 uid="uid://rr5g3s2w4d76"]
 
 [ext_resource type="Theme" uid="uid://b5dxjrg5nt1f4" path="res://something.tres" id="1_lti8b"]
 [ext_resource type="Script" uid="uid://m30tbhysxt7j" path="res://menu.gd" id="1_ouk20"]
 [ext_resource type="Texture2D" uid="uid://cil3uboyw7d3m" path="res://images/buttons.png" id="5_l48gv"]
 [ext_resource type="Script" uid="uid://yrkc1wykoat2" path="res://b.gd" id="6_ecwwl"]
+[ext_resource type="AudioStream" uid="uid://cmtdwcbsv0jbv" path="res://levels/bap.mp3" id="6_kk3ma"]
 [ext_resource type="PackedScene" uid="uid://dn3ov8ff7vr40" path="res://set.tscn" id="6_l48gv"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_ouk20")
 metadata/_edit_vertical_guides_ = [-394.0]
 
+[node name="set" parent="." instance=ExtResource("6_l48gv")]
+visible = false
+z_index = 1040
+z_as_relative = false
+position = Vector2(0, 83)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="score" type="RichTextLabel" parent="."]
 z_index = 4
 z_as_relative = false
-offset_left = -315.0
-offset_top = -317.0
-offset_right = -68.0
-offset_bottom = -113.0
+offset_left = -382.0
+offset_top = -329.0
+offset_right = 114.0
+offset_bottom = 8.0
 theme = ExtResource("1_lti8b")
-theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/normal_font_size = 72
 text = "UNNAMED
 RHYTHM
 GAME"
@@ -76,6 +83,7 @@ text = "Up[b]
 [/b]Settings"
 fit_content = true
 
-[node name="set" parent="." instance=ExtResource("6_l48gv")]
-z_index = 999
-position = Vector2(0, 83)
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_kk3ma")
+autoplay = true
+parameters/looping = true
