@@ -11,15 +11,22 @@ func load_level(boop:String):
 	Global.song = Global.level_notes[0][1]
 	Global.offset = Global.level_notes[0][2]
 	Global.video = Global.level_notes[0][3]
-	for n in range(7):
-		Global.ms +=(FileAccess.open("res://images/score.txt",FileAccess.READ).get_as_text(true).replace("\n", ""))[n+bub*7]
+	Global.ro = Global.level_notes[0][4]
+	Global.rs = Global.level_notes[0][5]
+	Global.po[0] = Global.level_notes[0][6]
+	Global.po[1] = Global.level_notes[0][7]
+	Global.pos[0] = Global.level_notes[0][8]
+	Global.pos[1] = Global.level_notes[0][9]
+	Global.zo[0] = Global.level_notes[0][10]
+	Global.zo[1] = Global.level_notes[0][11]
+	Global.plays = 0
+	Global.ms = FileAccess.open("res://levels/"+Global.level_list[bub][0]+"/score.txt",FileAccess.READ).get_as_text(true)
+
 
 
 func _ready() -> void:
 	$RichTextLabel.text = bap
-	var s = ""
-	for n in range(7):
-		s+=(FileAccess.open("res://images/score.txt",FileAccess.READ).get_as_text(true).replace("\n", ""))[n+bub*7]
+	var s = FileAccess.open("res://levels/"+Global.level_list[bub][0]+"/score.txt",FileAccess.READ).get_as_text(true)
 	$ColorRect/RichTextLabel.text = s
 	if int(s) == 0:
 		$ColorRect/Sprite2D.region_rect = Rect2(700,0,100,100)
@@ -48,14 +55,14 @@ func _process(delta: float) -> void:
 			$ColorRect.scale += Vector2(0,-abs(cos($ColorRect.scale[1]/2)/5))
 			await get_tree().create_timer(delta).timeout
 		if Global.pop - bub > 0.1 or Global.pop - bub < -0.2:
-			position = Vector2((150)-((bub-Global.pop)*60.0),(-120)+(90.0*(bub-Global.pop)))
+			position = Vector2((90)-((bub-Global.pop)*60.0),(-30)+(90.0*(bub-Global.pop)))
 		else:
-			position = Vector2(-140-((bub-Global.pop)*60.0),(-120)+(90.0*(bub-Global.pop)))
-			if Input.is_action_just_pressed("n"):
+			position = Vector2(-150-((bub-Global.pop)*60.0),(-30)+(90.0*(bub-Global.pop)))
+			if Input.is_action_just_pressed("n") and !Global.paused:
 				Global.selected = bub
 		busy = false
 	elif Global.selected == bub:
-		position = Vector2(-140,(-120))
+		position = Vector2(-140,(-30))
 		if !busy:
 			busy = true
 			var k = int(Global.pop)+10
@@ -64,12 +71,12 @@ func _process(delta: float) -> void:
 				await get_tree().create_timer(delta).timeout
 			Global.pop = k
 			Global.pop = float(int(Global.pop))
-			position = Vector2(-140,(-120))
+			position = Vector2(-140,(-30))
 			while $ColorRect.scale[1] < 3:
 				$ColorRect.scale += Vector2(0,cos($ColorRect.scale[1]/2)/5)
 				await get_tree().create_timer(delta).timeout
-		if Input.is_action_just_pressed("n"):
-			load_level("res://levels/"+Global.level_list[bub][3]+".txt")
+		if Input.is_action_just_pressed("n") and !Global.paused:
+			load_level("res://levels/"+Global.level_list[bub][0]+"/"+Global.level_list[bub][0]+".txt")
 			get_tree().change_scene_to_file("res://lvl.tscn")
 	else:
 		position = Vector2(150-((bub-Global.pop)*60.0),position[1])

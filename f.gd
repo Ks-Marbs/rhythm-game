@@ -2,7 +2,6 @@ extends Sprite2D
 var notes:= []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-
 	pass # Replace with function body.
 
 
@@ -12,7 +11,7 @@ func _process(delta: float) -> void:
 
 func _on_node_2d_lod() -> void:
 	for note in notes:
-		match note[1]:
+		match int(note[1]):
 			0:
 				var b = load("res://fnote.tscn")
 				var i = b.instantiate()
