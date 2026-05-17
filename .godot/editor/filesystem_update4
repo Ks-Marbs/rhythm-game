@@ -1,10 +1,5 @@
 res://lvl.tscn
 res://something.tres
-res://leveltap.tscn
-res://menu.tscn
+res://lvl.gdshader
+res://lvl.gd
 res://global.gd
-res://set.tscn
-res://sets.tscn
-res://leveltap.gd
-res://menu.gd
-res://fnote.gd
