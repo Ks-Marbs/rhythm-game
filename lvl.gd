@@ -38,6 +38,7 @@ func load_() -> void:
 func _process(delta: float) -> void:
 	$Camera2D/set.visible = Global.paused
 	beep($Camera2D/score,20,15,1)
+	beep($Camera2D/Glitch,0,0,1)
 	beep($Camera2D/Node2D,85.7,85.75,1)
 	beep($Camera2D/Pause,150,20,0.75)
 	beep($Camera2D/fb,35,150,1)
@@ -96,3 +97,4 @@ func _physics_process(delta: float) -> void:
 	$Camera2D.rotation = Global.ro
 	$Camera2D.zoom = Global.zo
 	$Camera2D.position= Global.po
+	$Camera2D/Glitch.modulate.a = Global.glitch

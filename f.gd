@@ -18,6 +18,7 @@ func _on_node_2d_lod() -> void:
 				i.position = Vector2((-7-Global.offset)-(25)*note[0],-0.142)
 				i.z_index = -4
 				i.beat = note[0]
+				i.use_parent_material = true
 				add_child(i)
 			1:
 				var b = load("res://hold.tscn")
@@ -25,6 +26,7 @@ func _on_node_2d_lod() -> void:
 				i.position = Vector2((-7-Global.offset)-(25)*note[0],-0.142)
 				i.z_index = -4
 				i.beat = note[0]
+				i.use_parent_material = true
 				i.hold_time = note[2]*25
 				add_child(i)
 	Global.rady += 1
