@@ -27,6 +27,7 @@ var paused = false
 var sat:=1.0
 var len:= 0.0
 var glitch:= 0.0
+var negate:= 0.0
 var po:= Vector2.ZERO
 var pos:= Vector2.ZERO
 var zo:= Vector2.ONE * 4

@@ -39,6 +39,7 @@ func _process(delta: float) -> void:
 	$Camera2D/set.visible = Global.paused
 	beep($Camera2D/score,20,15,1)
 	beep($Camera2D/Glitch,0,0,1)
+	beep($Camera2D/Negate,0,0,1)
 	beep($Camera2D/Node2D,85.7,85.75,1)
 	beep($Camera2D/Pause,150,20,0.75)
 	beep($Camera2D/fb,35,150,1)
@@ -59,6 +60,8 @@ func _process(delta: float) -> void:
 	$Sprite2D/v.modulate = Global.vcolor
 	$Sprite2D/n.modulate = Global.ncolor
 	$Sprite2D/j.modulate = Global.jcolor
+	$Camera2D/Glitch.modulate.a = Global.glitch
+	$Camera2D/Negate.modulate.a = Global.negate
 	$Camera2D/fb.self_modulate = Global.fcolor
 	$Camera2D/vb.self_modulate = Global.vcolor
 	$Camera2D/nb.self_modulate = Global.ncolor
@@ -97,4 +100,3 @@ func _physics_process(delta: float) -> void:
 	$Camera2D.rotation = Global.ro
 	$Camera2D.zoom = Global.zo
 	$Camera2D.position= Global.po
-	$Camera2D/Glitch.modulate.a = Global.glitch
