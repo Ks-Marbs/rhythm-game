@@ -1,5 +1,4 @@
 res://lvl.tscn
 res://something.tres
 res://lvl.gdshader
-res://lvl.gd
-res://global.gd
+res://negate.gdshader
