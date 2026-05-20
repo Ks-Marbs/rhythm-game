@@ -62,6 +62,7 @@ func _process(delta: float) -> void:
 	$Sprite2D/j.modulate = Global.jcolor
 	$Camera2D/Glitch.modulate.a = Global.glitch
 	$Camera2D/Negate.modulate.a = Global.negate
+
 	$Camera2D/fb.self_modulate = Global.fcolor
 	$Camera2D/vb.self_modulate = Global.vcolor
 	$Camera2D/nb.self_modulate = Global.ncolor
@@ -92,6 +93,10 @@ func _process(delta: float) -> void:
 		$Sprite2D/j.self_modulate = Global.jcolo
 	if Input.is_action_just_pressed("p"):
 		w()
+	if abs((Global.plays - $Camera2D/VideoStreamPlayer.get_stream_position()))>0.2: #anti-lag SOMEHOW
+		$Camera2D/VideoStreamPlayer.set_paused(true)
+		$Camera2D/VideoStreamPlayer.set_stream_position(Global.plays)
+		$Camera2D/VideoStreamPlayer.set_paused(false)
 	pass
 
 func _physics_process(delta: float) -> void:
