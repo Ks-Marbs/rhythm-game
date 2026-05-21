@@ -36,6 +36,7 @@ func load_() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	Global.plays = $Camera2D/VideoStreamPlayer.get_stream_position()
 	$Camera2D/set.visible = Global.paused
 	beep($Camera2D/score,20,15,1)
 	beep($Camera2D/Glitch,0,0,1)
@@ -93,15 +94,10 @@ func _process(delta: float) -> void:
 		$Sprite2D/j.self_modulate = Global.jcolo
 	if Input.is_action_just_pressed("p"):
 		w()
-	if abs(Global.plays - $Camera2D/VideoStreamPlayer.get_stream_position()) > 0.4:
-		$Camera2D/VideoStreamPlayer.set_paused(true)
-		$Camera2D/VideoStreamPlayer.set_stream_position(Global.plays)
-		$Camera2D/VideoStreamPlayer.set_paused(false)
-	pass
-
-func _physics_process(delta: float) -> void:
+	Global.plays = $Camera2D/VideoStreamPlayer.get_stream_position()
 	$Sprite2D.position = Global.pos
 	$Sprite2D.rotation = Global.rs
 	$Camera2D.rotation = Global.ro
 	$Camera2D.zoom = Global.zo
 	$Camera2D.position= Global.po
+	pass
