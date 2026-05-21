@@ -50,6 +50,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	if Global.selected == -1:
 		while $ColorRect.scale[1] > -0.1:
 			$ColorRect.scale += Vector2(0,-abs(cos($ColorRect.scale[1]/2)/5))
