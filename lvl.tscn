@@ -33,8 +33,7 @@ func easer(start,end,ease,k):
 			\"out-sin\":
 				return lerp(start, end, sin(PI * k / 2))
 			\"exp\":
-				if k < 0.5:
-					return lerp(start, end, pow(2.0, 20.0 * k - 10.0) / 2.0)
+				if k < 0.5: return lerp(start, end, pow(2.0, 20.0 * k - 10.0) / 2.0)
 				else: return lerp(start, end, 1.0 - pow(2.0, -20.0 * k + 10.0) / 2.0)
 			\"in-exp\":
 				return lerp(start, end, pow(2.0, 10.0 * k - 10.0))
