@@ -93,7 +93,7 @@ func _process(delta: float) -> void:
 		$Sprite2D/j.self_modulate = Global.jcolo
 	if Input.is_action_just_pressed("p"):
 		w()
-	if abs((Global.plays - $Camera2D/VideoStreamPlayer.get_stream_position()))>0.2: #anti-lag SOMEHOW
+	if abs(Global.plays - $Camera2D/VideoStreamPlayer.get_stream_position()) > 0.4:
 		$Camera2D/VideoStreamPlayer.set_paused(true)
 		$Camera2D/VideoStreamPlayer.set_stream_position(Global.plays)
 		$Camera2D/VideoStreamPlayer.set_paused(false)
