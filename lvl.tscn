@@ -44,45 +44,48 @@ func easer(start,end,ease,k):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	var bep = Global.plays*5.0*Global.bpm/12.0
 	if Global.dis:
 		for note in notes:
 			match note[0]:
 				\"r\":
-					if Global.plays*5.0*Global.bpm/12.0 > note[3]*25+(Global.offset) and\\
-					 Global.plays*5.0*Global.bpm/12.0 < (note[3]+note[4])*25+(Global.offset) :
+					if bep > note[3]*25+(Global.offset) and\\
+					 bep < (note[3]+note[4])*25+(Global.offset) :
 						rotate_camera(note[1],note[2],note[3],note[4],note[5])
 				\"rs\":
-					if Global.plays*5.0*Global.bpm/12.0 > note[3]*25+(Global.offset) and\\
-					 Global.plays*5.0*Global.bpm/12.0 < (note[3]+note[4])*25+(Global.offset) :
+					if bep > note[3]*25+(Global.offset) and\\
+					 bep < (note[3]+note[4])*25+(Global.offset) :
 						rotate_sq(note[1],note[2],note[3],note[4],note[5])
 				\"p\":
-					if Global.plays*5.0*Global.bpm/12.0 > note[5]*25+(Global.offset) and\\
-					 Global.plays*5.0*Global.bpm/12.0 < (note[5]+note[6])*25+(Global.offset) :
+					if bep > note[5]*25+(Global.offset) and\\
+					 bep < (note[5]+note[6])*25+(Global.offset) :
 						position_camera(note[1],note[2],note[3],note[4],note[5],note[6],note[7])
 				\"ps\":
-					if Global.plays*5.0*Global.bpm/12.0 > note[5]*25+(Global.offset) and\\
-					 Global.plays*5.0*Global.bpm/12.0 < (note[5]+note[6])*25+(Global.offset) :
+					if bep > note[5]*25+(Global.offset) and\\
+					 bep < (note[5]+note[6])*25+(Global.offset) :
 						position_sq(note[1],note[2],note[3],note[4],note[5],note[6],note[7])
 				\"z\":
-					if Global.plays*5.0*Global.bpm/12.0 > note[5]*25+(Global.offset) and\\
-					 Global.plays*5.0*Global.bpm/12.0 < (note[5]+note[6])*25+(Global.offset) :
+					if bep > note[5]*25+(Global.offset) and\\
+					 bep < (note[5]+note[6])*25+(Global.offset) :
 						zoom_camera(note[1],note[2],note[3],note[4],note[5],note[6],note[7])
 				\"g\":
-					if Global.plays*5.0*Global.bpm/12.0 > note[3]*25+(Global.offset) and\\
-					 Global.plays*5.0*Global.bpm/12.0 < (note[3]+note[4])*25+(Global.offset) :
+					if bep > note[3]*25+(Global.offset) and\\
+					 bep < (note[3]+note[4])*25+(Global.offset) :
 						glitch(note[1],note[2],note[3],note[4],note[5])
 				\"n\":
-					if Global.plays*5.0*Global.bpm/12.0 > note[3]*25+(Global.offset) and\\
-					 Global.plays*5.0*Global.bpm/12.0 < (note[3]+note[4])*25+(Global.offset) :
+					if bep > note[3]*25+(Global.offset) and\\
+					 bep < (note[3]+note[4])*25+(Global.offset) :
 						negate(note[1],note[2],note[3],note[4],note[5])
+				\"b\":
+					brrr(note[1],note[2],note[3])
 				\"e\":
-					if Global.plays*5.0*Global.bpm/12.0 > note[1]*25+(Global.offset):
+					if bep > note[1]*25+(Global.offset):
 						emit_signal(\"end\")
 	else:
 		for note in notes:
 			match note[0]:
 				\"e\":
-					if Global.plays*5.0*Global.bpm/12.0 > note[1]*25+(Global.offset):
+					if bep > note[1]*25+(Global.offset):
 						emit_signal(\"end\")
 	pass
 func _on_node_2d_lod() -> void:
@@ -98,7 +101,15 @@ func rotate_camera(start,end:float,ts:float,t:float,ease):
 	if (blue > ts-5) and (blue < ts+t):
 		var k = ((blue-ts)/t)
 		Global.ro = easer(start,end,ease,k)
-
+		
+func brrr(amount,ts:float,t:float):
+	var blue = Global.plays*5.0*Global.bpm/12.0
+	ts = ts*25.0+(Global.offset-4)
+	t = t*25
+	if (blue > ts-5) and (blue < ts+t):
+		Global.of = Vector2(randfn(0.0,amount),randfn(0.0,amount))
+	elif (blue < ts+t+10):
+		Global.of = Vector2(0,0)
 
 func glitch(start,end:float,ts:float,t:float,ease):
 	start=float(start)
@@ -179,7 +190,6 @@ script = ExtResource("1_4iw1c")
 z_index = 2
 z_as_relative = false
 use_parent_material = true
-position = Vector2(0, 0.14208698)
 texture = ExtResource("1_3rlxx")
 
 [node name="hit" type="AudioStreamPlayer" parent="Sprite2D"]
@@ -226,7 +236,6 @@ script = ExtResource("5_2a1lc")
 z_index = 2
 z_as_relative = false
 use_parent_material = true
-position = Vector2(0, 0.033161163)
 ignore_rotation = false
 zoom = Vector2(4, 4)
 
@@ -240,12 +249,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -367.54346
-offset_top = -132.28174
-offset_right = 320.45654
-offset_bottom = 555.71826
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 630.0
+offset_bottom = 630.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+expand = true
 metadata/_edit_use_anchors_ = true
 
 [node name="score" type="RichTextLabel" parent="Camera2D"]
@@ -319,25 +330,27 @@ use_parent_material = true
 scale = Vector2(0.25, 0.25)
 
 [node name="Negate" type="ColorRect" parent="Camera2D"]
+visible = false
 z_index = 999
 texture_filter = 2
 texture_repeat = 3
 material = SubResource("ShaderMaterial_0paeb")
 offset_left = -313.28708
 offset_top = -344.5174
-offset_right = 373.71292
-offset_bottom = 342.4826
+offset_right = 406.71292
+offset_bottom = 375.4826
 mouse_filter = 2
 
 [node name="Glitch" type="ColorRect" parent="Camera2D"]
+visible = false
 z_index = 999
 texture_filter = 2
 texture_repeat = 3
 material = SubResource("ShaderMaterial_dqmf8")
 offset_left = -313.28708
 offset_top = -344.5174
-offset_right = 373.71292
-offset_bottom = 342.4826
+offset_right = 406.71292
+offset_bottom = 375.4826
 mouse_filter = 2
 
 [connection signal="bap" from="." to="Camera2D/fb" method="_on_node_2d_bap"]

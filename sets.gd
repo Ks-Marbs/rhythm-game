@@ -26,29 +26,38 @@ func _process(delta: float) -> void:
 	if visible and Input.is_action_just_pressed("f"):
 		Global.plays = 0
 		Global.paused = false
-		Global.level_notes = Array(str_to_var(FileAccess.open("res://levels/"+Global.level_list[Global.selected][0]+"/"+Global.level_list[Global.selected][0]+".txt",FileAccess.READ).get_as_text(true).replace("\n", "")))
+		Global.level_notes = Array(str_to_var(FileAccess.open("res://levels/"+Global.level_list[Global.selected][3]+"/"+Global.level_list[Global.selected][3]+".txt",FileAccess.READ).get_as_text(true).replace("\n", "")))
 		Global.bpm = Global.level_notes[0][0]
 		Global.song = Global.level_notes[0][1]
 		Global.offset = Global.level_notes[0][2]
 		Global.video = Global.level_notes[0][3]
+		Global.ro = Global.level_notes[0][4]
+		Global.rs = Global.level_notes[0][5]
+		Global.po[0] = Global.level_notes[0][6]
+		Global.po[1] = Global.level_notes[0][7]
+		Global.pos[0] = Global.level_notes[0][8]
+		Global.pos[1] = Global.level_notes[0][9]
+		Global.zo[0] = Global.level_notes[0][10]
+		Global.zo[1] = Global.level_notes[0][11]
+		Global.negate = 0
 		Global.score = 0
-		Global.pos = Vector2.ZERO
-		Global.po = Vector2.ZERO
-		Global.zo = Vector2.ONE*4
-		Global.ro = 0.0
-		Global.rs = 0.0
-		Global.ms = FileAccess.open("res://levels/"+Global.level_list[Global.selected][0]+"/score.txt",FileAccess.READ).get_as_text(true)
+		Global.max_score = 0
+		Global.glitch = 0
+		Global.ms = FileAccess.open("res://levels/"+Global.level_list[Global.selected][3]+"/score.txt",FileAccess.READ).get_as_text(true)
 		get_tree().change_scene_to_file("res://lvl.tscn")
 	if visible and Input.is_action_just_pressed("j"):
 		Global.paused = false
 		Global.pop = 0
 		Global.selected = -1
 		Global.score = 0
+		Global.max_score = 0
 		Global.pos = Vector2.ZERO
 		Global.po = Vector2.ZERO
 		Global.zo = Vector2.ZERO
 		Global.ro = 0.0
 		Global.rs = 0.0
-		Global.ms = FileAccess.open("res://levels/"+Global.level_list[Global.selected][0]+"/score.txt",FileAccess.READ).get_as_text(true)
+		Global.negate = 0
+		Global.glitch = 0
+		Global.ms = FileAccess.open("res://levels/"+Global.level_list[Global.selected][3]+"/score.txt",FileAccess.READ).get_as_text(true)
 		get_tree().change_scene_to_file("res://menu.tscn")
 	pass

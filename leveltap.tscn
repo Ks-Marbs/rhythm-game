@@ -6,11 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://oqj1plwjo8f3" path="res://images/scores.png" id="4_gjuke"]
 
 [node name="ColorRect" type="ColorRect"]
-z_index = -999
+z_index = -935
 offset_right = 697.0
 offset_bottom = 90.0
 mouse_filter = 2
-color = Color(0.32172796, 0.32172796, 0.32172793, 1)
+color = Color(0.32156864, 0.32156864, 0.32156864, 1)
 script = ExtResource("1_yv4ho")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
@@ -39,15 +39,15 @@ expand_mode = 1
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -20
 layout_mode = 0
-offset_top = 89.99
+offset_top = 90.0
 offset_right = 697.0
-offset_bottom = 179.98999
-scale = Vector2(1, 0.01)
+offset_bottom = 180.0
+scale = Vector2(1, -0.1)
 mouse_filter = 2
 color = Color(0.40784314, 0.40784314, 0.40784314, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="ColorRect"]
-z_index = 10
+z_index = 15
 position = Vector2(55, 23.670002)
 scale = Vector2(1, 0.333)
 texture = ExtResource("4_gjuke")
@@ -55,14 +55,19 @@ region_enabled = true
 region_rect = Rect2(0, 0, 100, 100)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
-z_index = 10
+z_index = 15
 layout_mode = 0
-offset_left = 115.00001
-offset_top = 13.670001
-offset_right = 315.0
-offset_bottom = 53.670002
+offset_left = 113.0
+offset_top = 3.670001
+offset_right = 313.0
+offset_bottom = 103.67
 scale = Vector2(3, 1)
 mouse_filter = 2
 theme = ExtResource("1_8i4l8")
+theme_override_constants/paragraph_separation = -8
 theme_override_font_sizes/normal_font_size = 16
-text = "SCORE:1.000.000"
+theme_override_font_sizes/bold_font_size = 4
+bbcode_enabled = true
+text = "SCORE:1.000.000
+Top speed"
+tab_size = 2

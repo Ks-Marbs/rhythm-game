@@ -17,7 +17,10 @@ var pop = 0.0
 var ms = ""
 var bpm := 132
 var move = false
-var level_list = [["Prophecy","Creo",load("res://levels/Prophecy/Prophecy.jpg"),"Prophecy"],["drnfctn","Frums",load("res://levels/drnfctn/drnfctn.jpg"),"drnfctn"],["Headspace","Ash Astral",load("res://levels/Headspace/Headspace.jpg"),"Headspace"]]
+var level_list = [["Prophecy","Creo",load("res://levels/Prophecy/Prophecy.jpg"),"Prophecy"],\
+["drnfctn","Frums",load("res://levels/drnfctn/drnfctn.jpg"),"drnfctn"],\
+["Headspace","Ash Astral",load("res://levels/Headspace/Headspace.jpg"),"Headspace"],\
+["?","Artifyber",load("res://levels/ques/ques.jpg"),"ques"]]
 var level_notes:= []
 var song = ""
 var video = ""
@@ -26,6 +29,8 @@ var dis := true
 var paused = false
 var sat:=1.0
 var len:= 0.0
+var speed := 1.0
+var of := Vector2(0,0)
 var glitch:= 0.0
 var negate:= 0.0
 var po:= Vector2.ZERO

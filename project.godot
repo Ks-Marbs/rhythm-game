@@ -26,8 +26,8 @@ GlobalTimer="*res://timer.tscn"
 
 [display]
 
-window/size/viewport_width=687
-window/size/viewport_height=687
+window/size/viewport_width=720
+window/size/viewport_height=720
 window/stretch/scale_mode="integer"
 
 [editor_plugins]

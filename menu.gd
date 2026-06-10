@@ -23,9 +23,7 @@ func _ready() -> void:
 				o.append(["n", float(int(float(p[4])*64.0)/64.0)+1.0, 1,float(int(float(p[3])*64.0)/64.0)])
 			"B1":
 				o.append(["j", float(int(float(p[4])*64.0)/64.0)+1.0, 1,float(int(float(p[3])*64.0)/64.0)])
-
 	FileAccess.open("res://levels/bop.txt",FileAccess.WRITE).store_string(str(o))
-	
 	var i = -1
 	for lvl in Global.level_list:
 		i+=1
@@ -38,7 +36,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$AudioStreamPlayer2D.volume_linear = Global.vol/7.0
+	$VideoStreamPlayer.volume = Global.vol/7.0
+	$hit.volume_linear = Global.hvol/15.0
 	$set.visible = Global.paused
 	if Global.selected == -1:
 		$RichTextLabel.text = "Up[b]\n\n[/b]Down[b]\n\n[/b]Select[b]\n\n[/b]Settings"
@@ -46,6 +45,7 @@ func _process(delta: float) -> void:
 		$RichTextLabel.text = " [b]\n\n[/b] [b]\n\n[/b]Play[b]\n\n[/b]Back"
 	if Input.is_action_just_pressed("f") and !busy and (Global.pop > 0.0) and Global.selected == -1 and !Global.paused:
 		busy = true
+		$hit.play()
 		var k = int(Global.pop)-1.0
 		while Global.pop > k:
 			Global.pop += (k-0.1-Global.pop)/9
@@ -55,6 +55,7 @@ func _process(delta: float) -> void:
 		busy = false
 	if Input.is_action_just_pressed("v") and !busy and Global.selected == -1 and (Global.pop <Global.level_list.size()-1) and !Global.paused:
 		busy = true
+		$hit.play()
 		var k = int(Global.pop)+1.0
 		while Global.pop < k:
 			Global.pop += (k+0.1-Global.pop)/9
@@ -64,7 +65,11 @@ func _process(delta: float) -> void:
 		busy = false
 	if Input.is_action_just_pressed("j") and !busy:
 		busy = true
+		$hit.play()
 		if Global.selected != -1:
+			Global.video = "res://levels/Bap.ogv"
+			$VideoStreamPlayer.stream = load(Global.video)
+			$VideoStreamPlayer.play()
 			Global.selected = -1
 			var k = int(Global.pop)-10.0
 			while Global.pop > k:
