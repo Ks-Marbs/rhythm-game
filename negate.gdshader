@@ -7,8 +7,5 @@ void fragment() {
 	vec4 normal_col = texture(existing_screen_texture, UV);
 	vec4 col = texture(existing_screen_texture,UV);
 	col = col*mo;
-	col.r = (1.2 - col.r)/1.6;
-	col.g = (1.2 - col.g)/1.6;
-	col.b = (1.2 - col.b)/1.6;
 	COLOR = col;
 }

@@ -1,6 +1,9 @@
-res://lvl.tscn
+res://menu.tscn
 res://something.tres
 res://lvl.gdshader
 res://negate.gdshader
+res://lvl.tscn
+res://sets.gd
+res://menu.gd
 res://lvl.gd
 res://leveltap.gd

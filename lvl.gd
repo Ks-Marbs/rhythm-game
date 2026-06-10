@@ -5,7 +5,7 @@ signal bap(L,P)
 # Called when the node enters the scene tree for the first time.
 func beep(v,a,b,c):
 	v.scale = Vector2.ONE/$Camera2D.zoom*c
-	v.position = Vector2((-343.0+4.0*a)/$Camera2D.zoom[0],(-343.0+4.0*b)/$Camera2D.zoom[1])
+	v.position = Vector2((-360.0+4.0*a)/$Camera2D.zoom[0],(-360.0+4.0*b)/$Camera2D.zoom[1])
 
 func w():
 	Global.paused = not Global.paused
@@ -18,6 +18,7 @@ func _ready():
 	load_()
 
 func load_() -> void:
+	$Camera2D/VideoStreamPlayer.speed_scale = Global.speed
 	$Camera2D/VideoStreamPlayer.stream = load(Global.video)
 	for k in Global.level_notes:
 		match k.pop_front():
@@ -50,8 +51,8 @@ func _process(delta: float) -> void:
 	beep($Camera2D/jb,140,150,1)
 	Global.plays = $Camera2D/VideoStreamPlayer.get_stream_position()
 	$Camera2D/VideoStreamPlayer.scale = Vector2.ONE / $Camera2D.zoom
-	$Camera2D/VideoStreamPlayer.position = (Vector2.ONE*-344.0) / $Camera2D.zoom
-	$Camera2D/VideoStreamPlayer.volume = Global.vol/7.0
+	$Camera2D/VideoStreamPlayer.position = (Vector2.ONE*-360.0) / $Camera2D.zoom
+	$Camera2D/VideoStreamPlayer.volume = Global.vol/8.0
 	$Sprite2D/hit.volume_linear = Global.hvol/15.0
 	if Global.rady == 5:
 		$Camera2D/VideoStreamPlayer.play()
@@ -63,7 +64,6 @@ func _process(delta: float) -> void:
 	$Sprite2D/j.modulate = Global.jcolor
 	$Camera2D/Glitch.modulate.a = Global.glitch
 	$Camera2D/Negate.modulate.a = Global.negate
-
 	$Camera2D/fb.self_modulate = Global.fcolor
 	$Camera2D/vb.self_modulate = Global.vcolor
 	$Camera2D/nb.self_modulate = Global.ncolor
@@ -95,9 +95,9 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("p"):
 		w()
 	Global.plays = $Camera2D/VideoStreamPlayer.get_stream_position()
-	$Sprite2D.position = Global.pos
+	$Sprite2D.position = Global.pos 
 	$Sprite2D.rotation = Global.rs
 	$Camera2D.rotation = Global.ro
 	$Camera2D.zoom = Global.zo
-	$Camera2D.position= Global.po
+	$Camera2D.position= Global.po + Global.of
 	pass

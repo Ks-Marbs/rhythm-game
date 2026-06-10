@@ -48,8 +48,8 @@ void fragment() {
 		vec4 col = chroma(UV, existing_screen_texture);
 		col = col*mo;
 		col.a = col.a * alpha * 0.5;
-		vec2 id = floor(UV * 120.0);
-		float alpha_rand = Hash21(id + floor(TIME*70.0));
+		vec2 id = floor(UV * 200.0);
+		float alpha_rand = Hash21(id + floor(TIME*80.0));
 		col = col * (alpha_rand + (rand_strength * (1.0-alpha_rand)));
 		COLOR = col*1.5;
 	}
