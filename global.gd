@@ -17,6 +17,7 @@ var pop = 0.0
 var ms = ""
 var bpm := 132
 var move = false
+var ke := 0
 var level_list = [["Prophecy","Creo",load("res://levels/Prophecy/Prophecy.jpg"),"Prophecy"],\
 ["drnfctn","Frums",load("res://levels/drnfctn/drnfctn.jpg"),"drnfctn"],\
 ["Headspace","Ash Astral",load("res://levels/Headspace/Headspace.jpg"),"Headspace"],\
