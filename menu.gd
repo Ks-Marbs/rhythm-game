@@ -36,6 +36,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	get_window().position += Vector2i(1,0) 
 	$VideoStreamPlayer.volume = Global.vol/7.0
 	$hit.volume_linear = Global.hvol/15.0
 	$set.visible = Global.paused
