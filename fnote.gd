@@ -59,9 +59,9 @@ func _process(delta: float) -> void:
 		caught = true
 	if int(position[0]) > (6):
 		self.self_modulate = Color(0,0,0,0)
-		size = Vector2(1,position[0]*(2)-13)-Vector2.ONE
+		size = Vector2(2,position[0]*(2)-13)-Vector2.ONE
 		position = Vector2(position[0],size[1]/2)
 	else:
-		size = Vector2(1,position[0]*(-2)+13)+Vector2.ONE
+		size = Vector2(2,position[0]*(-2)+13)+Vector2.ONE
 		position = Vector2(position[0],-size[1]/2)
 	pass

@@ -30,6 +30,8 @@ func load_() -> void:
 				$Sprite2D/n.notes.append(k)
 			"j":
 				$Sprite2D/j.notes.append(k)
+			"w":
+				$Sprite2D/w.notes.append(k)
 			"c":
 				$Sprite2D/c.notes.append(k)
 	emit_signal("lod")
