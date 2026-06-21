@@ -2,7 +2,7 @@ extends Node2D
 var busy:=false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var j = FileAccess.open("res://levels/bap.txt",FileAccess.READ).get_as_text(true).replace("0,note_on,", "").strip_edges().split("\n")
+	var j = FileAccess.open("res://levels/bap.txt",FileAccess.READ).get_as_text().replace("0,note_on,", "").strip_edges().split("\n")
 	var o = []
 	for d in j:
 		var p = d.split(",")
@@ -36,7 +36,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	get_window().position += Vector2i(1,0) 
 	$VideoStreamPlayer.volume = Global.vol/7.0
 	$hit.volume_linear = Global.hvol/15.0
 	$set.visible = Global.paused

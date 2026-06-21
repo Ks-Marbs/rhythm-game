@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://rr5g3s2w4d76"]
+[gd_scene format=3 uid="uid://rr5g3s2w4d76"]
 
 [ext_resource type="Theme" uid="uid://b5dxjrg5nt1f4" path="res://something.tres" id="1_lti8b"]
 [ext_resource type="Script" uid="uid://m30tbhysxt7j" path="res://menu.gd" id="1_ouk20"]
@@ -8,11 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://dn3ov8ff7vr40" path="res://set.tscn" id="6_l48gv"]
 [ext_resource type="AudioStream" uid="uid://d35a5xc7u5vpb" path="res://levels/hit.mp3" id="7_ecwwl"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" unique_id=641137106]
 script = ExtResource("1_ouk20")
 metadata/_edit_vertical_guides_ = [-394.0]
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1342488277]
 modulate = Color(2.9601774, 2.9601774, 2.9601774, 0.35686275)
 z_index = -1029
 z_as_relative = false
@@ -34,19 +34,19 @@ autoplay = true
 expand = true
 metadata/_edit_use_anchors_ = true
 
-[node name="hit" type="AudioStreamPlayer" parent="."]
+[node name="hit" type="AudioStreamPlayer" parent="." unique_id=6378063]
 stream = ExtResource("7_ecwwl")
 max_polyphony = 1000
 
-[node name="set" parent="." instance=ExtResource("6_l48gv")]
+[node name="set" parent="." unique_id=1556483362 instance=ExtResource("6_l48gv")]
 visible = false
 z_index = 1040
 z_as_relative = false
 position = Vector2(0, 83)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=158935513]
 
-[node name="score" type="RichTextLabel" parent="."]
+[node name="score" type="RichTextLabel" parent="." unique_id=966271173]
 z_index = 4
 z_as_relative = false
 offset_left = -382.0
@@ -61,7 +61,7 @@ RHYTHM
 GAME"
 horizontal_alignment = 1
 
-[node name="f" type="Sprite2D" parent="."]
+[node name="f" type="Sprite2D" parent="." unique_id=925650110]
 position = Vector2(-290, 65)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_l48gv")
@@ -69,7 +69,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 100, 100)
 script = ExtResource("6_ecwwl")
 
-[node name="v" type="Sprite2D" parent="."]
+[node name="v" type="Sprite2D" parent="." unique_id=477494525]
 position = Vector2(-290, 140)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_l48gv")
@@ -77,7 +77,7 @@ region_enabled = true
 region_rect = Rect2(0, 100, 100, 100)
 script = ExtResource("6_ecwwl")
 
-[node name="n" type="Sprite2D" parent="."]
+[node name="n" type="Sprite2D" parent="." unique_id=2066496104]
 position = Vector2(-290, 218)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_l48gv")
@@ -85,7 +85,7 @@ region_enabled = true
 region_rect = Rect2(100, 0, 100, 100)
 script = ExtResource("6_ecwwl")
 
-[node name="j" type="Sprite2D" parent="."]
+[node name="j" type="Sprite2D" parent="." unique_id=1147125036]
 position = Vector2(-290, 296)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_l48gv")
@@ -93,7 +93,7 @@ region_enabled = true
 region_rect = Rect2(100, 100, 100, 100)
 script = ExtResource("6_ecwwl")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=240215753]
 offset_left = -247.0
 offset_top = 40.0
 offset_right = -48.0

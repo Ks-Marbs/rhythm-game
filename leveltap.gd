@@ -6,7 +6,7 @@ var busy := false
 var midi := false
 
 func load_level(boop:String):
-	Global.level_notes = Array(str_to_var(FileAccess.open(boop,FileAccess.READ).get_as_text(true).replace("\n", "")))
+	Global.level_notes = Array(str_to_var(FileAccess.open(boop,FileAccess.READ).get_as_text().replace("\n", "")))
 	Global.bpm = Global.level_notes[0][0]
 	Global.song = Global.level_notes[0][1]
 	Global.offset = Global.level_notes[0][2]
@@ -20,13 +20,13 @@ func load_level(boop:String):
 	Global.zo[0] = Global.level_notes[0][10]
 	Global.zo[1] = Global.level_notes[0][11]
 	Global.plays = 0
-	Global.ms = FileAccess.open("res://levels/"+Global.level_list[bub][3]+"/score.txt",FileAccess.READ).get_as_text(true)
+	Global.ms = FileAccess.open("res://levels/"+Global.level_list[bub][3]+"/score.txt",FileAccess.READ).get_as_text()
 
 
 
 func _ready() -> void:
 	$RichTextLabel.text = bap
-	var s = FileAccess.open("res://levels/"+Global.level_list[bub][3]+"/score.txt",FileAccess.READ).get_as_text(true)
+	var s = FileAccess.open("res://levels/"+Global.level_list[bub][3]+"/score.txt",FileAccess.READ).get_as_text()
 	$ColorRect/RichTextLabel.text = s
 	if int(s) == 0:
 		$ColorRect/Sprite2D.region_rect = Rect2(700,0,100,100)
