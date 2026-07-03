@@ -118,7 +118,7 @@ func _process(delta: float) -> void:
 
 
 func _on_node_2d_bap(L: Variant, P: Variant) -> void:
-	if P == str(self.name)[0]:
+	if P == str(self.name)[0] or P=="w":
 		var b = load("res://bap.tscn")
 		var i = b.instantiate()
 		i.position = Vector2(-55,55)

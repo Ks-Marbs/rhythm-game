@@ -6,12 +6,13 @@ var sco := 0
 var held:= false
 var blo:=0.0
 var cot := 0
+var speed := 1.0
 var a:=0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.max_score += 5
-	blo = (-7-Global.offset+11)-(25.0)*beat
-	for m in range(hold_time):
+	blo = (-7-Global.offset*speed+11)-(25.0)*beat*speed
+	for m in range(hold_time*speed):
 		var i = ColorRect.new()
 		i.set_script(load("res://held.gd"))
 		i.size = size+Vector2(2,0)
@@ -25,8 +26,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if (blo+Global.plays*5.0*Global.bpm/12.0) > -230:
-		position = Vector2(blo+(Global.plays*5.0*Global.bpm/12.0), 0)
+	if (blo+Global.plays*5.0*Global.bpm*speed/12.0) > -230:
+		position = Vector2(blo+(Global.plays*5.0*Global.bpm*speed/12.0), 0)
 	if position[0] > 15+hold_time*25:
 		queue_free()
 	if int(position[0]) in range(-16,2) and not caught and not Global.paused:

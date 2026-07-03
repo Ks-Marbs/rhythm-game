@@ -7,22 +7,24 @@ func _ready() -> void:
 	for d in j:
 		var p = d.split(",")
 		match p[1]:
+			"E0":
+				o.append(["w", float(int(float(p[4])*144.0)/144.0)+1.0, 0])
 			"F0":
-				o.append(["f", float(int(float(p[4])*64.0)/64.0)+1.0, 0])
+				o.append(["f", float(int(float(p[4])*144.0)/144.0)+1.0, 0])
 			"G0":
-				o.append(["v", float(int(float(p[4])*64.0)/64.0)+1.0, 0])
+				o.append(["v", float(int(float(p[4])*144.0)/144.0)+1.0, 0])
 			"A0":
-				o.append(["n", float(int(float(p[4])*64.0)/64.0)+1.0, 0])
+				o.append(["n", float(int(float(p[4])*144.0)/144.0)+1.0, 0])
 			"B0":
-				o.append(["j", float(int(float(p[4])*64.0)/64.0)+1.0, 0])
+				o.append(["j", float(int(float(p[4])*144.0)/144.0)+1.0, 0])
 			"F1":
-				o.append(["f",float(int(float(p[4])*64.0)/64.0)+1.0, 1,float(int(float(p[3])*64.0)/64.0)])
+				o.append(["f",float(int(float(p[4])*144.0)/144.0)+1.0, 1,float(int(float(p[3])*144.0)/144.0)])
 			"G1":
-				o.append(["v", float(int(float(p[4])*64.0)/64.0)+1.0, 1,float(int(float(p[3])*64.0)/64.0)])
+				o.append(["v", float(int(float(p[4])*144.0)/144.0)+1.0, 1,float(int(float(p[3])*144.0)/144.0)])
 			"A1":
-				o.append(["n", float(int(float(p[4])*64.0)/64.0)+1.0, 1,float(int(float(p[3])*64.0)/64.0)])
+				o.append(["n", float(int(float(p[4])*144.0)/144.0)+1.0, 1,float(int(float(p[3])*144.0)/144.0)])
 			"B1":
-				o.append(["j", float(int(float(p[4])*64.0)/64.0)+1.0, 1,float(int(float(p[3])*64.0)/64.0)])
+				o.append(["j", float(int(float(p[4])*144.0)/144.0)+1.0, 1,float(int(float(p[3])*144.0)/144.0)])
 	FileAccess.open("res://levels/bop.txt",FileAccess.WRITE).store_string(str(o))
 	var i = -1
 	for lvl in Global.level_list:

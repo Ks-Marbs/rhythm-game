@@ -10,9 +10,8 @@
 [ext_resource type="Script" uid="uid://dyovptx2dogol" path="res://f.gd" id="5_2a1lc"]
 [ext_resource type="Script" uid="uid://yrkc1wykoat2" path="res://b.gd" id="5_5ud41"]
 [ext_resource type="Script" uid="uid://cna1fqsc3tjmw" path="res://w.gd" id="6_0paeb"]
-[ext_resource type="Texture2D" uid="uid://d004eeicl1pnr" path="res://images/pause.png" id="6_dsptp"]
+[ext_resource type="Texture2D" uid="uid://j20fgxpq36d2" path="res://images/s.png" id="6_dsptp"]
 [ext_resource type="PackedScene" uid="uid://dxh36vqvlk2ma" path="res://finish.tscn" id="8_2e6f6"]
-[ext_resource type="PackedScene" uid="uid://d2tdcwrrrpxmu" path="res://wnote.tscn" id="8_heypf"]
 [ext_resource type="PackedScene" uid="uid://bjkebmxfml0yf" path="res://sets.tscn" id="9_2e6f6"]
 [ext_resource type="PackedScene" uid="uid://wqqso1shw5fo" path="res://bap.tscn" id="9_62trd"]
 [ext_resource type="Shader" uid="uid://dbblp1s7yuuf4" path="res://negate.gdshader" id="13_8ud87"]
@@ -21,6 +20,8 @@
 script/source = "extends Sprite2D
 var notes:= []
 signal end
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -71,6 +72,10 @@ func _physics_process(delta: float) -> void:
 					if bep > note[5]*25+(Global.offset) and\\
 					 bep < (note[5]+note[6])*25+(Global.offset) :
 						zoom_camera(note[1],note[2],note[3],note[4],note[5],note[6],note[7])
+				\"sc\":
+					if bep > note[5]*25+(Global.offset) and\\
+					 bep < (note[5]+note[6])*25+(Global.offset) :
+						scaler(note[1],note[2],note[3],note[4],note[5],note[6],note[7])
 				\"g\":
 					if bep > note[3]*25+(Global.offset) and\\
 					 bep < (note[3]+note[4])*25+(Global.offset) :
@@ -171,6 +176,14 @@ func zoom_camera(s1,s2,e1,e2,ts:float,t:float,ease):
 	if (blue > ts-5) and (blue < ts+t):
 		var k = ((blue-ts)/t)
 		Global.zo = easer(Vector2(s1,s2),Vector2(e1,e2),ease,k)
+
+func scaler(s1,s2,e1,e2,ts:float,t:float,ease):
+	var blue = Global.plays*5.0*Global.bpm/12.0
+	ts = ts*25.0+(Global.offset-4)
+	t = t*25
+	if (blue > ts-5) and (blue < ts+t):
+		var k = ((blue-ts)/t)
+		Global.sc = easer(Vector2(s1,s2),Vector2(e1,e2),ease,k)
 "
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0paeb"]
@@ -208,13 +221,13 @@ texture = ExtResource("3_hx1ia")
 script = ExtResource("5_2a1lc")
 
 [node name="w" type="Sprite2D" parent="Sprite2D" unique_id=1497366799]
+self_modulate = Color(1, 1, 1, 0)
 z_index = 3
 z_as_relative = false
 use_parent_material = true
+position = Vector2(3.9784431, 4.0258055)
 texture = ExtResource("6_dsptp")
 script = ExtResource("6_0paeb")
-
-[node name="wnote" parent="Sprite2D/w" unique_id=110025329 instance=ExtResource("8_heypf")]
 
 [node name="c" type="Sprite2D" parent="Sprite2D" unique_id=106841652]
 visible = false
@@ -257,7 +270,7 @@ ignore_rotation = false
 zoom = Vector2(4, 4)
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Camera2D" unique_id=979975164]
-modulate = Color(2.9601774, 2.9601774, 2.9601774, 0.35686275)
+modulate = Color(2.9601774, 2.9601774, 2.9601774, 0.80784315)
 z_index = -1000
 z_as_relative = false
 use_parent_material = true
@@ -308,7 +321,7 @@ position = Vector2(56.685547, -65.47374)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_f2dqo")
 region_enabled = true
-region_rect = Rect2(200, 0, 100, 100)
+region_rect = Rect2(1005, 5, 90, 90)
 
 [node name="vb" type="Sprite2D" parent="Camera2D" unique_id=1113908951]
 position = Vector2(-18, 70)
@@ -347,7 +360,6 @@ use_parent_material = true
 scale = Vector2(0.25, 0.25)
 
 [node name="Negate" type="ColorRect" parent="Camera2D" unique_id=1856469754]
-visible = false
 z_index = 999
 texture_filter = 2
 texture_repeat = 3
@@ -359,7 +371,6 @@ offset_bottom = 375.4826
 mouse_filter = 2
 
 [node name="Glitch" type="ColorRect" parent="Camera2D" unique_id=1775864242]
-visible = false
 z_index = 999
 texture_filter = 2
 texture_repeat = 3
@@ -375,6 +386,7 @@ mouse_filter = 2
 [connection signal="bap" from="." to="Camera2D/nb" method="_on_node_2d_bap"]
 [connection signal="bap" from="." to="Camera2D/jb" method="_on_node_2d_bap"]
 [connection signal="lod" from="." to="Sprite2D/f" method="_on_node_2d_lod"]
+[connection signal="lod" from="." to="Sprite2D/w" method="_on_node_2d_lod"]
 [connection signal="lod" from="." to="Sprite2D/c" method="_on_node_2d_lod"]
 [connection signal="lod" from="." to="Sprite2D/v" method="_on_node_2d_lod"]
 [connection signal="lod" from="." to="Sprite2D/n" method="_on_node_2d_lod"]
