@@ -1,3 +1,4 @@
+NinePatchRect
 ReferenceRect
 ColorRect
 OptionButton
@@ -11,5 +12,3 @@ HSlider
 AudioStreamPlayer
 TextureRect
 ConfirmationDialog
-TextureButton
-Button

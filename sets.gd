@@ -39,6 +39,8 @@ func _process(delta: float) -> void:
 		Global.pos[1] = Global.level_notes[0][9]
 		Global.zo[0] = Global.level_notes[0][10]
 		Global.zo[1] = Global.level_notes[0][11]
+		Global.sc[0] = Global.level_notes[0][12]
+		Global.sc[1] = Global.level_notes[0][13]
 		Global.negate = 0
 		Global.score = 0
 		Global.max_score = 0
@@ -54,6 +56,7 @@ func _process(delta: float) -> void:
 		Global.pos = Vector2.ZERO
 		Global.po = Vector2.ZERO
 		Global.zo = Vector2.ZERO
+		Global.sc = Vector2.ONE
 		Global.ro = 0.0
 		Global.rs = 0.0
 		Global.negate = 0

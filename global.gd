@@ -21,7 +21,9 @@ var ke := 0
 var level_list = [["Prophecy","Creo",load("res://levels/Prophecy/Prophecy.jpg"),"Prophecy"],\
 ["drnfctn","Frums",load("res://levels/drnfctn/drnfctn.jpg"),"drnfctn"],\
 ["Headspace","Ash Astral",load("res://levels/Headspace/Headspace.jpg"),"Headspace"],\
-["?","Artifyber",load("res://levels/ques/ques.jpg"),"ques"]]
+["?","Artifyber",load("res://levels/ques/ques.jpg"),"ques"],
+["e","Artifyber",load("res://levels/eps/eps.jpg"),"eps"],
+["FRACTURED//ANOMALY","FIREENTITY",load("res://levels/frac/frac.jpg"),"frac"]]
 var level_notes:= []
 var song = ""
 var video = ""
@@ -37,6 +39,7 @@ var negate:= 0.0
 var po:= Vector2.ZERO
 var pos:= Vector2.ZERO
 var zo:= Vector2.ONE * 4
+var sc:= Vector2.ONE
 var ro:= 0.0
 var rs:= 0.0
 var plays = 0.0

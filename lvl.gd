@@ -99,6 +99,7 @@ func _process(delta: float) -> void:
 	Global.plays = $Camera2D/VideoStreamPlayer.get_stream_position()
 	$Sprite2D.position = Global.pos 
 	$Sprite2D.rotation = Global.rs
+	$Sprite2D.scale = Global.sc
 	$Camera2D.rotation = Global.ro
 	$Camera2D.zoom = Global.zo
 	$Camera2D.position= Global.po + Global.of
