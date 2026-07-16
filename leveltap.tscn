@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://buc8pwg37dbur"]
+[gd_scene format=3 uid="uid://buc8pwg37dbur"]
 
 [ext_resource type="Theme" uid="uid://b5dxjrg5nt1f4" path="res://something.tres" id="1_8i4l8"]
 [ext_resource type="Script" uid="uid://b63gknks5jyhl" path="res://leveltap.gd" id="1_yv4ho"]
 [ext_resource type="Texture2D" uid="uid://7agf46jfppnx" path="res://levels/drnfctn/drnfctn.jpg" id="3_gjuke"]
 [ext_resource type="Texture2D" uid="uid://oqj1plwjo8f3" path="res://images/scores.png" id="4_gjuke"]
+[ext_resource type="Texture2D" uid="uid://c33mrw2uxtl4i" path="res://images/aaaaa.png" id="5_2wbi1"]
+[ext_resource type="Texture2D" uid="uid://b1shsx75uw6q" path="res://images/aaaa.png" id="6_txo4m"]
 
-[node name="ColorRect" type="ColorRect"]
+[node name="ColorRect" type="ColorRect" unique_id=334671421]
 z_index = -935
 offset_right = 697.0
 offset_bottom = 90.0
@@ -13,7 +15,7 @@ mouse_filter = 2
 color = Color(0.32156864, 0.32156864, 0.32156864, 1)
 script = ExtResource("1_yv4ho")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1990555661]
 layout_mode = 0
 offset_left = 94.0
 offset_right = 680.0
@@ -26,7 +28,7 @@ bbcode_enabled = true
 text = "[b]Drnfctn[/b]
 FRUMS"
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=803275068]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 5.0
@@ -36,17 +38,17 @@ mouse_filter = 2
 texture = ExtResource("3_gjuke")
 expand_mode = 1
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1748313550]
 z_index = -20
 layout_mode = 0
 offset_top = 90.0
 offset_right = 697.0
 offset_bottom = 180.0
-scale = Vector2(1, -0.1)
+scale = Vector2(1, 3)
 mouse_filter = 2
 color = Color(0.40784314, 0.40784314, 0.40784314, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="ColorRect"]
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect" unique_id=1905276872]
 z_index = 15
 position = Vector2(55, 23.670002)
 scale = Vector2(1, 0.333)
@@ -54,7 +56,7 @@ texture = ExtResource("4_gjuke")
 region_enabled = true
 region_rect = Rect2(0, 0, 100, 100)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect" unique_id=962316953]
 z_index = 15
 layout_mode = 0
 offset_left = 113.0
@@ -71,3 +73,101 @@ bbcode_enabled = true
 text = "SCORE:1.000.000
 Top speed"
 tab_size = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ColorRect" unique_id=2088193538]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 39.99995
+offset_right = 171.0
+offset_bottom = 197.15712
+scale = Vector2(1, 0.333)
+theme = ExtResource("1_8i4l8")
+theme_override_constants/line_separation = -8
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[wave amp=6.0 freq=1.0 connected=1][color=#00ffff]Speed[/color]
+[color=#ff00ff]Rhythms
+[color=#ffff00]Stamina
+[color=#000000]Length"
+tab_size = 2
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="ColorRect" unique_id=1868440686]
+layout_mode = 0
+offset_left = 430.0
+offset_top = 39.99995
+offset_right = 578.0
+offset_bottom = 197.15712
+scale = Vector2(1, 0.333)
+theme = ExtResource("1_8i4l8")
+theme_override_constants/line_separation = -8
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[wave amp=6.0 freq=1.0 connected=1][color=#00ffff]Speed[/color]
+[color=#ff00ff]Rhythms
+[color=#ffff00]Stamina
+[color=#000000]Length"
+tab_size = 2
+
+[node name="a1" type="TextureProgressBar" parent="ColorRect" unique_id=550061044]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 44.666626
+offset_right = 419.0
+offset_bottom = 52.666626
+max_value = 10.0
+step = 0.0
+nine_patch_stretch = true
+stretch_margin_left = 23
+stretch_margin_right = 23
+texture_under = ExtResource("5_2wbi1")
+texture_over = ExtResource("5_2wbi1")
+texture_progress = ExtResource("6_txo4m")
+tint_progress = Color(0, 1, 1, 1)
+
+[node name="a2" type="TextureProgressBar" parent="ColorRect" unique_id=859076353]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 55.333298
+offset_right = 419.0
+offset_bottom = 63.333298
+max_value = 10.0
+step = 0.0
+nine_patch_stretch = true
+stretch_margin_left = 23
+stretch_margin_right = 23
+texture_under = ExtResource("5_2wbi1")
+texture_over = ExtResource("5_2wbi1")
+texture_progress = ExtResource("6_txo4m")
+tint_progress = Color(1, 0, 1, 1)
+
+[node name="a3" type="TextureProgressBar" parent="ColorRect" unique_id=1390666972]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 65.99996
+offset_right = 419.0
+offset_bottom = 73.99996
+max_value = 10.0
+step = 0.0
+nine_patch_stretch = true
+stretch_margin_left = 23
+stretch_margin_right = 23
+texture_under = ExtResource("5_2wbi1")
+texture_over = ExtResource("5_2wbi1")
+texture_progress = ExtResource("6_txo4m")
+tint_progress = Color(1, 1, 0, 1)
+
+[node name="a4" type="TextureProgressBar" parent="ColorRect" unique_id=990766373]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 77.99996
+offset_right = 419.0
+offset_bottom = 85.99996
+max_value = 10.0
+step = 0.0
+nine_patch_stretch = true
+stretch_margin_left = 23
+stretch_margin_right = 23
+texture_under = ExtResource("5_2wbi1")
+texture_over = ExtResource("5_2wbi1")
+texture_progress = ExtResource("6_txo4m")
+tint_progress = Color(0, 0, 0, 1)

@@ -49,18 +49,19 @@ position = Vector2(0, 83)
 [node name="score" type="RichTextLabel" parent="." unique_id=966271173]
 z_index = 4
 z_as_relative = false
-offset_left = -402.0
-offset_top = -370.0
-offset_right = 94.0
-offset_bottom = -1.0
+offset_left = -413.0
+offset_top = -348.0
+offset_right = 83.0
+offset_bottom = 21.0
 mouse_filter = 2
 theme = ExtResource("1_lti8b")
-theme_override_constants/line_separation = -15
+theme_override_constants/line_separation = -35
 theme_override_font_sizes/normal_font_size = 72
-text = "THE
+bbcode_enabled = true
+text = "[wave amp=10.0 freq=4.0 connected=0]THE
 UNNAMED
-RHYTHM
-GAME"
+RHYTHM 
+GAME[/wave]"
 horizontal_alignment = 1
 
 [node name="f" type="Sprite2D" parent="." unique_id=925650110]

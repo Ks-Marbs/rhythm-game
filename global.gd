@@ -18,12 +18,13 @@ var ms = ""
 var bpm := 132
 var move = false
 var ke := 0
-var level_list = [["Prophecy","Creo",load("res://levels/Prophecy/Prophecy.jpg"),"Prophecy"],\
-["drnfctn","Frums",load("res://levels/drnfctn/drnfctn.jpg"),"drnfctn"],\
-["Headspace","Ash Astral",load("res://levels/Headspace/Headspace.jpg"),"Headspace"],\
-["?","Artifyber",load("res://levels/ques/ques.jpg"),"ques"],
-["e","Artifyber",load("res://levels/eps/eps.jpg"),"eps"],
-["FRACTURED//ANOMALY","FIREENTITY",load("res://levels/frac/frac.jpg"),"frac"]]
+var level_list = [["Prophecy","Creo",load("res://levels/Prophecy/Prophecy.jpg"),"Prophecy",1,2,1,3],\
+["drnfctn","Frums",load("res://levels/drnfctn/drnfctn.jpg"),"drnfctn",2,2,3,2],\
+["Headspace","Ash Astral",load("res://levels/Headspace/Headspace.jpg"),"Headspace",3,4,4,3.5],\
+["?","Artifyber",load("res://levels/ques/ques.jpg"),"ques",2,3,2,2.5],
+["e","Artifyber",load("res://levels/eps/eps.jpg"),"eps",3,4,5,2.5],
+["FRACTURED//ANOMALY","FIREENTITY",load("res://levels/frac/frac.jpg"),"frac",4,5,3,2.5]]
+#name,artist,img,file,speed,rhythm,stamina,length
 var level_notes:= []
 var song = ""
 var video = ""

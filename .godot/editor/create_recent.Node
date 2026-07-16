@@ -1,8 +1,10 @@
+RichTextLabel
+TextureProgressBar
+ColorRect
+ProgressBar
 NinePatchRect
 ReferenceRect
-ColorRect
 OptionButton
-RichTextLabel
 CheckBox
 CheckButton
 AudioStreamPlayer2D
@@ -10,5 +12,3 @@ Sprite2D
 Camera2D
 HSlider
 AudioStreamPlayer
-TextureRect
-ConfirmationDialog

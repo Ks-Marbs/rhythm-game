@@ -33,6 +33,10 @@ func _ready() -> void:
 		var b = a.instantiate()
 		b.bub = i
 		b.bap = "[b]"+lvl[0]+"[/b]\n"+lvl[1]
+		b.qa = float(lvl[4])
+		b.ra = float(lvl[5])
+		b.sa = float(lvl[6])
+		b.ta = float(lvl[7])
 		add_child(b)
 	pass # Replace with function body.
 
@@ -65,6 +69,10 @@ func _process(delta: float) -> void:
 		Global.pop = k
 		Global.pop = float(int(Global.pop))
 		busy = false
+	if Input.is_action_just_pressed("n") and !busy:
+		busy=true
+		await get_tree().create_timer(210*delta).timeout
+		busy=false
 	if Input.is_action_just_pressed("j") and !busy:
 		busy = true
 		$hit.play()
@@ -81,5 +89,6 @@ func _process(delta: float) -> void:
 			Global.pop = float(int(Global.pop))
 		else:
 			Global.paused = !Global.paused
+		await get_tree().create_timer(10*delta).timeout
 		busy = false
 	pass
