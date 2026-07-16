@@ -1,7 +1,7 @@
 extends Node2D
 
 func end():
-	var s = (("%07d") % int(Global.ms)+("%02d") % int(Global.speed*10))
+	var s = Global.ms
 	FileAccess.open("res://levels/"+Global.level_list[Global.selected][0]+"/score.txt",FileAccess.WRITE).store_string(s)
 	Global.selected = -1
 	Global.pop = 0
@@ -55,11 +55,9 @@ func _on_c_end() -> void:
 				$Sprite2D/RichTextLabel.text = ("Score: %07d \n[b]PERFECT!! LETS GO![/b]") % int(Global.score*1000000/Global.max_score)
 				$Sprite2D/Sprite2D.region_rect = Rect2(0,0,100,100)
 		else: $Sprite2D/RichTextLabel.text = ("Score: %07d \n[b]Speed < 1 doesn't count in saved score[/b]") % int(Global.score*1000000/Global.max_score)
-		if int(Global.score*100000000/Global.max_score) > int(Global.ms):
+		if int(Global.score*1000000/Global.max_score) > int(Global.ms):
 			if Global.speed > 0.95:
-				if Global.ms != "000000000":
-					$Sprite2D/RichTextLabel.text = ("Score: "+Global.ms+"\n[b]New best![/b]")
-				Global.ms = ("%07d") % (int(Global.score*1000000/Global.max_score))+Global.ms[7]+Global.ms[8]
-		if int(Global.speed*10) > int(Global.ms[7]+Global.ms[8]):
-			Global.ms = Global.ms[0]+Global.ms[1]+Global.ms[2]+Global.ms[3]+Global.ms[4]+Global.ms[5]+Global.ms[6]+("%02d") % (int(Global.speed*10))
+				if Global.ms != "0000000":
+					$Sprite2D/RichTextLabel.text += "\n[b]New best![/b]"
+				Global.ms = ("%07d") % (int(Global.score*1000000/Global.max_score))
 		visible = true

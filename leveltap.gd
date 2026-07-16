@@ -2,6 +2,10 @@ extends ColorRect
 var bub:=0
 var bap:=""
 var busy := false
+var qa:=0.0
+var ra:=0.0
+var sa:=0.0
+var ta:=0.0
 # Called when the node enters the scene tree for the first time.
 var midi := false
 
@@ -45,12 +49,20 @@ func _ready() -> void:
 	if int(s) == 1000000:
 		$ColorRect/Sprite2D.region_rect = Rect2(0,0,100,100)
 	$TextureRect.texture = Global.level_list[bub][2]
+	$ColorRect/a1.value = 0
+	$ColorRect/a2.value = 0
+	$ColorRect/a3.value = 0
+	$ColorRect/a4.value = 0
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Global.selected == -1:
+		$ColorRect/a1.value = 0
+		$ColorRect/a2.value = 0
+		$ColorRect/a3.value = 0
+		$ColorRect/a4.value = 0
 		while $ColorRect.scale[1] > -0.1:
 			$ColorRect.scale += Vector2(0,-abs(cos($ColorRect.scale[1]/2)/5))
 			await get_tree().create_timer(delta).timeout
@@ -66,6 +78,7 @@ func _process(delta: float) -> void:
 				Global.selected = bub
 		busy = false
 	elif Global.selected == bub:
+		$ColorRect/RichTextLabel3.text = "[color=#00ffff]"+str(int($ColorRect/a1.value*10.0)/10.0)+"\n[color=#ff00ff]"+str(int($ColorRect/a2.value*10.0)/10.0)+"\n[color=#ffff00]"+str(int($ColorRect/a3.value*10.0)/10.0)+"\n[color=#000000]"+str(int($ColorRect/a4.value*10.0)/10.0)
 		position = Vector2(-140,(-30))
 		if !busy:
 			busy = true
@@ -79,6 +92,28 @@ func _process(delta: float) -> void:
 			while $ColorRect.scale[1] < 3:
 				$ColorRect.scale += Vector2(0,cos($ColorRect.scale[1]/2)/5)
 				await get_tree().create_timer(delta).timeout
+
+		if $ColorRect.scale[1] > 2.98:
+			while $ColorRect/a1.value < qa-0.01:
+				$ColorRect/a1.value += (qa-$ColorRect/a1.value)/50.0
+				await get_tree().create_timer(5*delta).timeout
+			$ColorRect/a1.value = qa
+			if $ColorRect/a1.value == qa:
+				while $ColorRect/a2.value < ra-0.01:
+					$ColorRect/a2.value += (ra-$ColorRect/a2.value)/50.0
+					await get_tree().create_timer(15*delta).timeout
+				$ColorRect/a2.value = ra
+				if $ColorRect/a2.value == ra:
+					while $ColorRect/a3.value < sa-0.01:
+						$ColorRect/a3.value += (sa-$ColorRect/a3.value)/50.0
+						await get_tree().create_timer(25*delta).timeout
+					$ColorRect/a3.value = sa
+					if $ColorRect/a3.value == sa:
+						while $ColorRect/a4.value < ta-0.01:
+							$ColorRect/a4.value += (ta-$ColorRect/a4.value)/50.0
+							await get_tree().create_timer(35*delta).timeout
+						$ColorRect/a4.value = ta
+				
 		if Input.is_action_just_pressed("n") and !Global.paused:
 			load_level("res://levels/"+Global.level_list[bub][3]+"/"+Global.level_list[bub][3]+".txt")
 			get_tree().change_scene_to_file("res://lvl.tscn")
