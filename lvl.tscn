@@ -357,7 +357,7 @@ scale = Vector2(0.25, 0.25)
 visible = false
 z_index = 4096
 use_parent_material = true
-scale = Vector2(0.25, 0.25)
+position = Vector2(45.506042, 15.072235)
 
 [node name="Negate" type="ColorRect" parent="Camera2D" unique_id=1856469754]
 z_index = 999

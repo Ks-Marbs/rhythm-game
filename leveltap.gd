@@ -78,8 +78,8 @@ func _process(delta: float) -> void:
 				Global.selected = bub
 		busy = false
 	elif Global.selected == bub:
+		position = Vector2(-150,(-30))
 		$ColorRect/RichTextLabel3.text = "[color=#00ffff]"+str(int($ColorRect/a1.value*10.0)/10.0)+"\n[color=#ff00ff]"+str(int($ColorRect/a2.value*10.0)/10.0)+"\n[color=#ffff00]"+str(int($ColorRect/a3.value*10.0)/10.0)+"\n[color=#000000]"+str(int($ColorRect/a4.value*10.0)/10.0)
-		position = Vector2(-140,(-30))
 		if !busy:
 			busy = true
 			var k = int(Global.pop)+10
@@ -88,7 +88,7 @@ func _process(delta: float) -> void:
 				await get_tree().create_timer(delta).timeout
 			Global.pop = k
 			Global.pop = float(int(Global.pop))
-			position = Vector2(-140,(-30))
+			position = Vector2(-150,(-30))
 			while $ColorRect.scale[1] < 3:
 				$ColorRect.scale += Vector2(0,cos($ColorRect.scale[1]/2)/5)
 				await get_tree().create_timer(delta).timeout
