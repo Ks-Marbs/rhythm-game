@@ -65,7 +65,7 @@ GAME[/wave]"
 horizontal_alignment = 1
 
 [node name="f" type="Sprite2D" parent="." unique_id=925650110]
-position = Vector2(-290, 65)
+position = Vector2(-298, -6)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_l48gv")
 region_enabled = true
@@ -73,7 +73,7 @@ region_rect = Rect2(0, 0, 100, 100)
 script = ExtResource("6_ecwwl")
 
 [node name="v" type="Sprite2D" parent="." unique_id=477494525]
-position = Vector2(-290, 140)
+position = Vector2(-298, 69)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_l48gv")
 region_enabled = true
@@ -81,7 +81,7 @@ region_rect = Rect2(0, 100, 100, 100)
 script = ExtResource("6_ecwwl")
 
 [node name="n" type="Sprite2D" parent="." unique_id=2066496104]
-position = Vector2(-290, 218)
+position = Vector2(-298, 147)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_l48gv")
 region_enabled = true
@@ -89,7 +89,7 @@ region_rect = Rect2(100, 0, 100, 100)
 script = ExtResource("6_ecwwl")
 
 [node name="j" type="Sprite2D" parent="." unique_id=1147125036]
-position = Vector2(-290, 296)
+position = Vector2(-298, 225)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_l48gv")
 region_enabled = true
@@ -97,10 +97,10 @@ region_rect = Rect2(100, 100, 100, 100)
 script = ExtResource("6_ecwwl")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=240215753]
-offset_left = -247.0
-offset_top = 40.0
-offset_right = -48.0
-offset_bottom = 324.0
+offset_left = -255.0
+offset_top = -31.0
+offset_right = -56.0
+offset_bottom = 253.0
 mouse_filter = 2
 theme = ExtResource("1_lti8b")
 theme_override_font_sizes/normal_font_size = 32
@@ -113,4 +113,43 @@ text = "Up[b]
 [/b]Select[b]
 
 [/b]Settings"
+fit_content = true
+
+[node name="note2" type="RichTextLabel" parent="." unique_id=1386983839]
+offset_left = -331.0
+offset_top = 259.0
+offset_right = -59.0
+offset_bottom = 311.0
+mouse_filter = 2
+theme = ExtResource("1_lti8b")
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 25
+bbcode_enabled = true
+text = "v0.3.0-β"
+fit_content = true
+
+[node name="h" type="RichTextLabel" parent="." unique_id=273613881]
+offset_left = 38.0
+offset_top = -336.0
+offset_right = 273.0
+offset_bottom = -253.0
+mouse_filter = 2
+theme = ExtResource("1_lti8b")
+theme_override_font_sizes/normal_font_size = 54
+theme_override_font_sizes/bold_font_size = 25
+bbcode_enabled = true
+text = "[wave amp=6.0 freq=0.9 connected=0]  Easy>"
+fit_content = true
+
+[node name="note" type="RichTextLabel" parent="." unique_id=2066728227]
+offset_left = 28.0
+offset_top = -259.0
+offset_right = 300.0
+offset_bottom = -207.0
+mouse_filter = 2
+theme = ExtResource("1_lti8b")
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 25
+bbcode_enabled = true
+text = "*Values in the levels are currently placeholders"
 fit_content = true

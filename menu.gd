@@ -8,23 +8,23 @@ func _ready() -> void:
 		var p = d.split(",")
 		match p[1]:
 			"E0":
-				o.append(["w", float(int(float(p[4])*144.0)/144.0)+1.0, 0])
+				o.append(["w", float(int(float(p[4])*48.0)/48.0)+1.0, 0])
 			"F0":
-				o.append(["f", float(int(float(p[4])*144.0)/144.0)+1.0, 0])
+				o.append(["f", float(int(float(p[4])*48.0)/48.0)+1.0, 0])
 			"G0":
-				o.append(["v", float(int(float(p[4])*144.0)/144.0)+1.0, 0])
+				o.append(["v", float(int(float(p[4])*48.0)/48.0)+1.0, 0])
 			"A0":
-				o.append(["n", float(int(float(p[4])*144.0)/144.0)+1.0, 0])
+				o.append(["n", float(int(float(p[4])*48.0)/48.0)+1.0, 0])
 			"B0":
-				o.append(["j", float(int(float(p[4])*144.0)/144.0)+1.0, 0])
+				o.append(["j", float(int(float(p[4])*48.0)/48.0)+1.0, 0])
 			"F1":
-				o.append(["f",float(int(float(p[4])*144.0)/144.0)+1.0, 1,float(int(float(p[3])*144.0)/144.0)])
+				o.append(["f",float(int(float(p[4])*48.0)/48.0)+1.0, 1,float(int(float(p[3])*48.0)/48.0)])
 			"G1":
-				o.append(["v", float(int(float(p[4])*144.0)/144.0)+1.0, 1,float(int(float(p[3])*144.0)/144.0)])
+				o.append(["v", float(int(float(p[4])*48.0)/48.0)+1.0, 1,float(int(float(p[3])*48.0)/48.0)])
 			"A1":
-				o.append(["n", float(int(float(p[4])*144.0)/144.0)+1.0, 1,float(int(float(p[3])*144.0)/144.0)])
+				o.append(["n", float(int(float(p[4])*48.0)/48.0)+1.0, 1,float(int(float(p[3])*48.0)/48.0)])
 			"B1":
-				o.append(["j", float(int(float(p[4])*144.0)/144.0)+1.0, 1,float(int(float(p[3])*144.0)/144.0)])
+				o.append(["j", float(int(float(p[4])*48.0)/48.0)+1.0, 1,float(int(float(p[3])*48.0)/48.0)])
 	FileAccess.open("res://levels/bop.txt",FileAccess.WRITE).store_string(str(o))
 	var i = -1
 	for lvl in Global.level_list:
@@ -42,13 +42,18 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	match Global.hardness:
+		0:
+			$h.text = "[wave amp=6.0 freq=0.9 connected=0]  Easy>[/wave]"
+		1: 
+			$h.text = "[wave amp=6.0 freq=0.9 connected=0]<Hard  [/wave]"
 	$VideoStreamPlayer.volume = Global.vol/7.0
 	$hit.volume_linear = Global.hvol/15.0
 	$set.visible = Global.paused
 	if Global.selected == -1:
 		$RichTextLabel.text = "Up[b]\n\n[/b]Down[b]\n\n[/b]Select[b]\n\n[/b]Settings"
 	else:
-		$RichTextLabel.text = " [b]\n\n[/b] [b]\n\n[/b]Play[b]\n\n[/b]Back"
+		$RichTextLabel.text = "Left[b]\n\n[/b]Right[b]\n\n[/b]Play[b]\n\n[/b]Back"
 	if Input.is_action_just_pressed("f") and !busy and (Global.pop > 0.0) and Global.selected == -1 and !Global.paused:
 		busy = true
 		$hit.play()
