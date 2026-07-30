@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 	if visible and Input.is_action_just_pressed("f"):
 		Global.plays = 0
 		Global.paused = false
-		Global.level_notes = Array(str_to_var(FileAccess.open("res://levels/"+Global.level_list[Global.selected][3]+"/"+Global.level_list[Global.selected][3]+".txt",FileAccess.READ).get_as_text().replace("\n", "")))
+		Global.level_notes = Array(str_to_var(FileAccess.open("res://levels/"+Global.level_list[Global.selected][3]+"/"+Global.level_list[Global.selected][3]+str(Global.hardness)+".txt",FileAccess.READ).get_as_text().replace("\n", "")))
 		Global.bpm = Global.level_notes[0][0]
 		Global.song = Global.level_notes[0][1]
 		Global.offset = Global.level_notes[0][2]
@@ -45,7 +45,7 @@ func _process(delta: float) -> void:
 		Global.score = 0
 		Global.max_score = 0
 		Global.glitch = 0
-		Global.ms = FileAccess.open("res://levels/"+Global.level_list[Global.selected][3]+"/score.txt",FileAccess.READ).get_as_text()
+		Global.ms = FileAccess.open("res://levels/"+Global.level_list[Global.selected][3]+"/score"+str(Global.hardness)+".txt",FileAccess.READ).get_as_text()
 		get_tree().change_scene_to_file("res://lvl.tscn")
 	if visible and Input.is_action_just_pressed("j"):
 		Global.paused = false
@@ -61,6 +61,6 @@ func _process(delta: float) -> void:
 		Global.rs = 0.0
 		Global.negate = 0
 		Global.glitch = 0
-		Global.ms = FileAccess.open("res://levels/"+Global.level_list[Global.selected][3]+"/score.txt",FileAccess.READ).get_as_text()
+		Global.ms = FileAccess.open("res://levels/"+Global.level_list[Global.selected][3]+"/score"+str(Global.hardness)+".txt",FileAccess.READ).get_as_text()
 		get_tree().change_scene_to_file("res://menu.tscn")
 	pass

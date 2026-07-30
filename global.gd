@@ -18,12 +18,15 @@ var ms = ""
 var bpm := 132
 var move = false
 var ke := 0
-var level_list = [["Prophecy","Creo",load("res://levels/Prophecy/Prophecy.jpg"),"Prophecy",1,2,1,3], #aaaaaaaaaaaaaaaaaaaa \
-["Headspace","Ash Astral",load("res://levels/Headspace/Headspace.jpg"),"Headspace",3,4,4,3.5],\
-["drnfctn","Frums",load("res://levels/drnfctn/drnfctn.jpg"),"drnfctn",2,4,4,2],\
-["?","Artifyber",load("res://levels/ques/ques.jpg"),"ques",2,3,2,2.5],
-["e","Artifyber",load("res://levels/eps/eps.jpg"),"eps",3,4,5,2.5],
-["FRACTURED//ANOMALY","FIREENTITY",load("res://levels/frac/frac.jpg"),"frac",4,5,3,2.5]]
+var hardness:= 0
+var level_list = [
+["Prophecy","Creo",load("res://levels/Prophecy/Prophecy.jpg"),"Prophecy",0,1,2,3,4,5,6,7], #aaaaaaaaaaaaaaaaaaaa \
+["Headspace","Ash Astral",load("res://levels/Headspace/Headspace.jpg"),"Headspace",0,1,2,3,4,5,6,7],\
+["drnfctn","Frums",load("res://levels/drnfctn/drnfctn.jpg"),"drnfctn",0,1,2,3,4,5,6,7],\
+["?","Artifyber",load("res://levels/ques/ques.jpg"),"ques",0,1,2,3,4,5,6,7],
+["ε","Artifyber",load("res://levels/eps/eps.jpg"),"eps",0,1,2,3,4,5,6,7],
+["FRACTURED//ANOMALY","FIREENTITY",load("res://levels/frac/frac.jpg"),"frac",0,1,2,3,4,5,6,7
+]]
 #name,artist,img,file,speed,rhythm,stamina,length
 var level_notes:= []
 var song = ""

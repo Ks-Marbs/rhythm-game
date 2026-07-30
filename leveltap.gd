@@ -24,13 +24,12 @@ func load_level(boop:String):
 	Global.zo[0] = Global.level_notes[0][10]
 	Global.zo[1] = Global.level_notes[0][11]
 	Global.plays = 0
-	Global.ms = FileAccess.open("res://levels/"+Global.level_list[bub][3]+"/score.txt",FileAccess.READ).get_as_text()
+	Global.ms = FileAccess.open("res://levels/"+Global.level_list[bub][3]+"/score"+str(Global.hardness)+".txt",FileAccess.READ).get_as_text()
 
 
 
 func _ready() -> void:
-	$RichTextLabel.text = bap
-	var s = FileAccess.open("res://levels/"+Global.level_list[bub][3]+"/score.txt",FileAccess.READ).get_as_text()
+	var s = FileAccess.open("res://levels/"+Global.level_list[bub][3]+"/score"+str(Global.hardness)+".txt",FileAccess.READ).get_as_text()
 	$ColorRect/RichTextLabel.text = s
 	if int(s) == 0:
 		$ColorRect/Sprite2D.region_rect = Rect2(700,0,100,100)
@@ -48,6 +47,7 @@ func _ready() -> void:
 		$ColorRect/Sprite2D.region_rect = Rect2(100,0,100,100)
 	if int(s) == 1000000:
 		$ColorRect/Sprite2D.region_rect = Rect2(0,0,100,100)
+	$RichTextLabel.text = bap
 	$TextureRect.texture = Global.level_list[bub][2]
 	$ColorRect/a1.value = 0
 	$ColorRect/a2.value = 0
@@ -94,29 +94,77 @@ func _process(delta: float) -> void:
 				await get_tree().create_timer(delta).timeout
 
 		if $ColorRect.scale[1] > 2.98:
-			while $ColorRect/a1.value < qa-0.01:
+			while $ColorRect/a1.value < qa-0.01 or $ColorRect/a1.value > qa+0.01:
 				$ColorRect/a1.value += (qa-$ColorRect/a1.value)/50.0
 				await get_tree().create_timer(5*delta).timeout
 			$ColorRect/a1.value = qa
 			if $ColorRect/a1.value == qa:
-				while $ColorRect/a2.value < ra-0.01:
+				while $ColorRect/a2.value < ra-0.01 or $ColorRect/a2.value > ra+0.01:
 					$ColorRect/a2.value += (ra-$ColorRect/a2.value)/50.0
 					await get_tree().create_timer(15*delta).timeout
 				$ColorRect/a2.value = ra
 				if $ColorRect/a2.value == ra:
-					while $ColorRect/a3.value < sa-0.01:
+					while $ColorRect/a3.value < sa-0.01 or $ColorRect/a3.value > sa+0.01:
 						$ColorRect/a3.value += (sa-$ColorRect/a3.value)/50.0
 						await get_tree().create_timer(25*delta).timeout
 					$ColorRect/a3.value = sa
 					if $ColorRect/a3.value == sa:
-						while $ColorRect/a4.value < ta-0.01:
+						while $ColorRect/a4.value < ta-0.01 or $ColorRect/a4.value > ta+0.01:
 							$ColorRect/a4.value += (ta-$ColorRect/a4.value)/50.0
 							await get_tree().create_timer(35*delta).timeout
 						$ColorRect/a4.value = ta
 				
 		if Input.is_action_just_pressed("n") and !Global.paused:
-			load_level("res://levels/"+Global.level_list[bub][3]+"/"+Global.level_list[bub][3]+".txt")
+			load_level("res://levels/"+Global.level_list[bub][3]+"/"+Global.level_list[bub][3]+str(Global.hardness)+".txt")
 			get_tree().change_scene_to_file("res://lvl.tscn")
+		if Input.is_action_just_pressed("f") and !Global.paused:
+			Global.hardness = 0
+			var s = FileAccess.open("res://levels/"+Global.level_list[bub][3]+"/score"+str(Global.hardness)+".txt",FileAccess.READ).get_as_text()
+			$ColorRect/RichTextLabel.text = s
+			if int(s) == 0:
+				$ColorRect/Sprite2D.region_rect = Rect2(700,0,100,100)
+			if int(s) in range(1,299999):
+				$ColorRect/Sprite2D.region_rect = Rect2(600,0,100,100)
+			if int(s) in range(300000,399999):
+				$ColorRect/Sprite2D.region_rect = Rect2(500,0,100,100)
+			if int(s) in range(400000,499999):
+				$ColorRect/Sprite2D.region_rect = Rect2(400,0,100,100)
+			if int(s) in range(500000,599999):
+				$ColorRect/Sprite2D.region_rect = Rect2(300,0,100,100)
+			if int(s) in range(600000,799999):
+				$ColorRect/Sprite2D.region_rect = Rect2(200,0,100,100)
+			if int(s) in range(800000,999999):
+				$ColorRect/Sprite2D.region_rect = Rect2(100,0,100,100)
+			if int(s) == 1000000:
+				$ColorRect/Sprite2D.region_rect = Rect2(0,0,100,100)
+			qa = Global.level_list[bub][4+Global.hardness*4]
+			ra = Global.level_list[bub][5+Global.hardness*4]
+			sa = Global.level_list[bub][6+Global.hardness*4]
+			ta = Global.level_list[bub][7+Global.hardness*4]
+		if Input.is_action_just_pressed("v") and !Global.paused:
+			Global.hardness = 1
+			var s = FileAccess.open("res://levels/"+Global.level_list[bub][3]+"/score"+str(Global.hardness)+".txt",FileAccess.READ).get_as_text()
+			$ColorRect/RichTextLabel.text = s
+			if int(s) == 0:
+				$ColorRect/Sprite2D.region_rect = Rect2(700,0,100,100)
+			if int(s) in range(1,299999):
+				$ColorRect/Sprite2D.region_rect = Rect2(600,0,100,100)
+			if int(s) in range(300000,399999):
+				$ColorRect/Sprite2D.region_rect = Rect2(500,0,100,100)
+			if int(s) in range(400000,499999):
+				$ColorRect/Sprite2D.region_rect = Rect2(400,0,100,100)
+			if int(s) in range(500000,599999):
+				$ColorRect/Sprite2D.region_rect = Rect2(300,0,100,100)
+			if int(s) in range(600000,799999):
+				$ColorRect/Sprite2D.region_rect = Rect2(200,0,100,100)
+			if int(s) in range(800000,999999):
+				$ColorRect/Sprite2D.region_rect = Rect2(100,0,100,100)
+			if int(s) == 1000000:
+				$ColorRect/Sprite2D.region_rect = Rect2(0,0,100,100)
+			qa = Global.level_list[bub][4+Global.hardness*4]
+			ra = Global.level_list[bub][5+Global.hardness*4]
+			sa = Global.level_list[bub][6+Global.hardness*4]
+			ta = Global.level_list[bub][7+Global.hardness*4]
 	else:
 		position = Vector2(150-((bub-Global.pop)*60.0),position[1])
 	pass
