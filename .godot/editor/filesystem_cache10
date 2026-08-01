@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1785595755
+::res://::1785596208
 b.gd::GDScript::1720238811344433201::1785019952::0::1::::<>Sprite2D<><>0<>0<><>::
 bap.gd::GDScript::7305304186888916801::1782403413::0::1::::<>RichTextLabel<><>0<>0<><>::
 bap.tscn::PackedScene::1578188996596128784::1778189822::0::1::::<><><>0<>0<><>::uid://b5dxjrg5nt1f4::::res://something.tres<>uid://dcc0j7j6bvq2t::::res://bap.gd
@@ -8,7 +8,7 @@ c.gd::GDScript::2919712141058085120::1777002171::0::1::::<>Sprite2D<><>0<>0<><>:
 editnote.gd::GDScript::6864137138888511942::1771290186::0::1::::<>ColorRect<><>0<>0<><>::
 editor.gd::GDScript::8818127242236041046::1773357537::0::1::::<>Node2D<><>0<>0<><>::
 editor.tscn::PackedScene::6343253459346214828::1774996018::0::1::::<><><>0<>0<><>::uid://dxvtjdblsipp3::::res://editor.gd<>uid://g4bib5gt3elu::::res://images/editor strip.png<>uid://dnofes6e12754::::res://stripe.gd<>uid://b5dxjrg5nt1f4::::res://something.tres<>uid://c42blog4ark1c::::res://editnote.gd<>uid://cikhggd1fabn3::::res://preview.tscn
-export_presets.cfg::TextFile::-1::1785595753::0::1::::<><><>0<>0<><>::
+export_presets.cfg::TextFile::-1::1785596208::0::1::::<><><>0<>0<><>::
 f.gd::GDScript::8873998465411063871::1782781922::0::1::::<>Sprite2D<><>0<>0<><>::
 finish.gd::GDScript::3529366006108557318::1784205350::0::1::::<>Node2D<><>0<>0<><>::
 finish.tscn::PackedScene::8789812663117471140::1784205350::0::1::::<><><>0<>0<><>::uid://bqjwe3x13wila::::res://finish.gd<>uid://dthmagnemy6iv::::res://images/y.png<>uid://b5dxjrg5nt1f4::::res://something.tres<>uid://oqj1plwjo8f3::::res://images/scores.png
@@ -150,3 +150,7 @@ note.gd::GDScript::7271925609175614861::1776556061::0::1::::<>Control<><>0<>1<><
 note.tscn::PackedScene::6068067824573083375::1776556061::0::1::::<><><>0<>0<><>::res://addons/godot_midi/views/note.gd
 track.gd::GDScript::4320625434331229452::1776556061::0::1::::<>Control<><>0<>1<><>::
 track.tscn::PackedScene::3861387928898908789::1776556061::0::1::::<><><>0<>0<><>::res://addons/godot_midi/views/track.gd<>res://addons/godot_midi/views/checkerboard.gdshader
+::res://web/::1785596210
+index.apple-touch-icon.png::CompressedTexture2D::8203957181632511568::1785596210::1785596215::1::::<><><>0<>0<>26e7f8377c87631ee25edbbfa1fc21cf<>res://.godot/imported/index.apple-touch-icon.png-939ec69c79bbf504b92ad8ceed469d51.ctex::
+index.icon.png::CompressedTexture2D::3027488113443772687::1785596210::1785596215::1::::<><><>0<>0<>f8ab2d883ad6f58c5de87970cc7352bc<>res://.godot/imported/index.icon.png-c615af856eabc03ca93d51f6a8f07b60.ctex::
+index.png::CompressedTexture2D::5261290699719152033::1785596210::1785596215::1::::<><><>0<>0<>d4b5e3a937bce12744d91677db322624<>res://.godot/imported/index.png-80964ad67552d78b1e33f58ad16188ff.ctex::
