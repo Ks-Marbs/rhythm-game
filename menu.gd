@@ -2,6 +2,7 @@ extends Node2D
 var busy:=false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	get_viewport().set_embedding_subwindows(false)
 	var j = FileAccess.open("res://levels/bap.txt",FileAccess.READ).get_as_text().replace("0,note_on,", "").strip_edges().split("\n")
 	var o = []
 	for d in j:
@@ -42,6 +43,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	get_window().size = Global.ws * 480
+	get_window().position=Global.wp+Vector2(DisplayServer.screen_get_size()/2 - get_window().size/2)
 	match Global.hardness:
 		0:
 			$h.text = "[wave amp=6.0 freq=0.9 connected=0]  Easy>[/wave]"

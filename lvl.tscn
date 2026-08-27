@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://x3tlmph1ixql"]
 
-[ext_resource type="Texture2D" uid="uid://c4xs2ow0xp1ou" path="res://images/web.png" id="1_3rlxx"]
+[ext_resource type="Texture2D" uid="uid://c4xs2ow0xp1ou" path="res://web/images/web.png" id="1_3rlxx"]
 [ext_resource type="Script" uid="uid://b38ir2sodpgvk" path="res://lvl.gd" id="1_4iw1c"]
 [ext_resource type="Shader" uid="uid://cxlyuaexm4s6x" path="res://lvl.gdshader" id="1_dqmf8"]
-[ext_resource type="AudioStream" uid="uid://d35a5xc7u5vpb" path="res://levels/hit.mp3" id="3_2e6f6"]
-[ext_resource type="Texture2D" uid="uid://ujmhwsbgjqu3" path="res://images/p0.png" id="3_hx1ia"]
+[ext_resource type="AudioStream" uid="uid://d35a5xc7u5vpb" path="res://web/levels/hit.mp3" id="3_2e6f6"]
+[ext_resource type="Texture2D" uid="uid://ujmhwsbgjqu3" path="res://web/images/p0.png" id="3_hx1ia"]
 [ext_resource type="Theme" uid="uid://b5dxjrg5nt1f4" path="res://something.tres" id="4_2a1lc"]
-[ext_resource type="Texture2D" uid="uid://cil3uboyw7d3m" path="res://images/buttons.png" id="4_f2dqo"]
+[ext_resource type="Texture2D" uid="uid://cil3uboyw7d3m" path="res://web/images/buttons.png" id="4_f2dqo"]
 [ext_resource type="Script" uid="uid://dyovptx2dogol" path="res://f.gd" id="5_2a1lc"]
 [ext_resource type="Script" uid="uid://yrkc1wykoat2" path="res://b.gd" id="5_5ud41"]
 [ext_resource type="Script" uid="uid://cna1fqsc3tjmw" path="res://w.gd" id="6_0paeb"]
-[ext_resource type="Texture2D" uid="uid://j20fgxpq36d2" path="res://images/s.png" id="6_dsptp"]
+[ext_resource type="Texture2D" uid="uid://j20fgxpq36d2" path="res://web/images/s.png" id="6_dsptp"]
 [ext_resource type="PackedScene" uid="uid://dxh36vqvlk2ma" path="res://finish.tscn" id="8_2e6f6"]
 [ext_resource type="PackedScene" uid="uid://bjkebmxfml0yf" path="res://sets.tscn" id="9_2e6f6"]
 [ext_resource type="PackedScene" uid="uid://wqqso1shw5fo" path="res://bap.tscn" id="9_62trd"]
@@ -30,6 +30,13 @@ func easer(start,end,ease,k):
 	match ease:
 			\"line\":
 				return lerp(start, end, k)
+			\"circ\":
+				if k < 0.5: return lerp(start, end, (1 - sqrt(1 - pow(2 * k, 2.0))) / 2.0)
+				else: return lerp(start, end, (sqrt(1 - pow(-2 * k + 2, 2.0)) + 1) / 2.0)
+			\"in-circ\":
+				return lerp(start, end,  1 - sqrt(1 - k**2))
+			\"out-circ\":
+				return lerp(start, end,  1 - sqrt(1 - (k-1)**2))
 			\"sin\":
 				return lerp(start, end, -(cos(PI * k) - 1) / 2)
 			\"in-sin\":
@@ -68,6 +75,10 @@ func _physics_process(delta: float) -> void:
 					if bep > note[5]*25+(Global.offset) and\\
 					 bep < (note[5]+note[6])*25+(Global.offset) :
 						position_sq(note[1],note[2],note[3],note[4],note[5],note[6],note[7])
+				\"pw\":
+					if bep > note[5]*25+(Global.offset) and\\
+					 bep < (note[5]+note[6])*25+(Global.offset) :
+						position_win(note[1],note[2],note[3],note[4],note[5],note[6],note[7],note[8])
 				\"z\":
 					if bep > note[5]*25+(Global.offset) and\\
 					 bep < (note[5]+note[6])*25+(Global.offset) :
@@ -75,7 +86,11 @@ func _physics_process(delta: float) -> void:
 				\"sc\":
 					if bep > note[5]*25+(Global.offset) and\\
 					 bep < (note[5]+note[6])*25+(Global.offset) :
-						scaler(note[1],note[2],note[3],note[4],note[5],note[6],note[7])
+						scaler(note[1],note[2],note[3],note[4],note[5],note[6],note[7],note[8])
+				\"sw\":
+					if bep > note[5]*25+(Global.offset) and\\
+					 bep < (note[5]+note[6])*25+(Global.offset) :
+						sc_win(note[1],note[2],note[3],note[4],note[5],note[6],note[7],note[8])
 				\"g\":
 					if bep > note[3]*25+(Global.offset) and\\
 					 bep < (note[3]+note[4])*25+(Global.offset) :
@@ -159,6 +174,15 @@ func position_sq(s1,s2,e1,e2,ts:float,t:float,ease):
 		var k = ((blue-ts)/t)
 		Global.pos = easer(Vector2(s1,s2),Vector2(e1,e2),ease,k)
 
+func position_win(s1,s2,e1,e2,ts:float,t:float,ease1,ease2):
+	var blue = Global.plays*5.0*Global.bpm/12.0
+	ts = ts*25.0+(Global.offset-4)
+	t = t*25
+	if (blue > ts-5) and (blue < ts+t):
+		var k = ((blue-ts)/t)
+		Global.wp[0] = easer(s1,e1,ease1,k)
+		Global.wp[1] = easer(s2,e2,ease2,k)
+
 
 func position_camera(s1,s2,e1,e2,ts:float,t:float,ease):
 	var blue = Global.plays*5.0*Global.bpm/12.0
@@ -177,13 +201,23 @@ func zoom_camera(s1,s2,e1,e2,ts:float,t:float,ease):
 		var k = ((blue-ts)/t)
 		Global.zo = easer(Vector2(s1,s2),Vector2(e1,e2),ease,k)
 
-func scaler(s1,s2,e1,e2,ts:float,t:float,ease):
+func scaler(s1,s2,e1,e2,ts:float,t:float,ease1,ease2):
 	var blue = Global.plays*5.0*Global.bpm/12.0
 	ts = ts*25.0+(Global.offset-4)
 	t = t*25
 	if (blue > ts-5) and (blue < ts+t):
 		var k = ((blue-ts)/t)
-		Global.sc = easer(Vector2(s1,s2),Vector2(e1,e2),ease,k)
+		Global.sc[0] = easer(s1,e1,ease1,k)
+		Global.sc[1] = easer(s2,e2,ease2,k)
+
+func sc_win(s1,s2,e1,e2,ts:float,t:float,ease1,ease2):
+	var blue = Global.plays*5.0*Global.bpm/12.0
+	ts = ts*25.0+(Global.offset-4)
+	t = t*25
+	if (blue > ts-5) and (blue < ts+t):
+		var k = ((blue-ts)/t)
+		Global.ws[0] = easer(s1,e1,ease1,k)
+		Global.ws[1] = easer(s2,e2,ease2,k)
 "
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0paeb"]
@@ -357,7 +391,7 @@ scale = Vector2(0.25, 0.25)
 visible = false
 z_index = 4096
 use_parent_material = true
-position = Vector2(45.506042, 15.072235)
+position = Vector2(101.00598, 54.915436)
 
 [node name="Negate" type="ColorRect" parent="Camera2D" unique_id=1856469754]
 z_index = 999

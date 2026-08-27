@@ -20,7 +20,8 @@ var move = false
 var ke := 0
 var hardness:= 0
 var level_list = [
-["Prophecy","Creo",load("res://levels/Prophecy/Prophecy.jpg"),"Prophecy",0,1,2,3,4,5,6,7], #aaaaaaaaaaaaaaaaaaaa \
+["Welcome","Ks",load("res://levels/Welcome/Welcome.jpg"),"Welcome",0,1,2,3,4,5,6,7],
+["Prophecy","Creo",load("res://levels/Prophecy/Prophecy.jpg"),"Prophecy",0,1,2,3,4,5,6,7], #aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa \
 ["Headspace","Ash Astral",load("res://levels/Headspace/Headspace.jpg"),"Headspace",0,1,2,3,4,5,6,7],\
 ["drnfctn","Frums",load("res://levels/drnfctn/drnfctn.jpg"),"drnfctn",0,1,2,3,4,5,6,7],\
 ["?","Artifyber",load("res://levels/ques/ques.jpg"),"ques",0,1,2,3,4,5,6,7],
@@ -46,6 +47,8 @@ var zo:= Vector2.ONE * 4
 var sc:= Vector2.ONE
 var ro:= 0.0
 var rs:= 0.0
+var wp:= Vector2.ZERO
+var ws:= Vector2.ONE
 var plays = 0.0
 
 func _ready() -> void:

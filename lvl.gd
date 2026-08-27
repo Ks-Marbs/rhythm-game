@@ -39,6 +39,8 @@ func load_() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	get_window().size = Global.ws * 480
+	get_window().position=Global.wp+Vector2(DisplayServer.screen_get_size()/2 - get_window().size/2)
 	Global.plays = $Camera2D/VideoStreamPlayer.get_stream_position()
 	$Camera2D/set.visible = Global.paused
 	beep($Camera2D/score,20,15,1)
