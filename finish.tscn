@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://dxh36vqvlk2ma"]
 
 [ext_resource type="Script" uid="uid://bqjwe3x13wila" path="res://finish.gd" id="1_bt3yw"]
-[ext_resource type="Texture2D" uid="uid://dthmagnemy6iv" path="res://images/y.png" id="2_se5xy"]
+[ext_resource type="Texture2D" uid="uid://dthmagnemy6iv" path="res://web/images/y.png" id="2_se5xy"]
 [ext_resource type="Theme" uid="uid://b5dxjrg5nt1f4" path="res://something.tres" id="3_se5xy"]
-[ext_resource type="Texture2D" uid="uid://oqj1plwjo8f3" path="res://images/scores.png" id="4_xfp72"]
+[ext_resource type="Texture2D" uid="uid://oqj1plwjo8f3" path="res://web/images/scores.png" id="4_xfp72"]
 
 [node name="Node2D" type="Node2D" unique_id=501930342]
 script = ExtResource("1_bt3yw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=821106316]
+scale = Vector2(1.1, 1.1)
 texture = ExtResource("2_se5xy")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Sprite2D" unique_id=1327786153]

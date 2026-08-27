@@ -16,6 +16,7 @@ func _on_node_2d_lod() -> void:
 			0:
 				var b = load("res://fnote.tscn")
 				var i = b.instantiate()
+				
 				i.position = Vector2((-7-Global.offset)-(25)*note[0],-0.142)
 				i.z_index = -4
 				i.beat = note[0]
