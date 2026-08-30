@@ -17,7 +17,7 @@ func w():
 func _ready():
 	load_()
 
-func load_() -> void:
+func load_():
 	$Camera2D/VideoStreamPlayer.speed_scale = Global.speed
 	$Camera2D/VideoStreamPlayer.stream = load(Global.video)
 	for k in Global.level_notes:
@@ -39,6 +39,8 @@ func load_() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var effect = AudioServer.get_bus_effect(AudioServer.get_bus_index("Pitch"), 0)
+	effect.set_pitch_scale(1/Global.speed)
 	get_window().size = Global.ws * 480
 	get_window().position=Global.wp+Vector2(DisplayServer.screen_get_size()/2 - get_window().size/2)
 	Global.plays = $Camera2D/VideoStreamPlayer.get_stream_position()

@@ -2,8 +2,11 @@
 
 [ext_resource type="Script" uid="uid://d3nolq6a2e0as" path="res://sets.gd" id="1_ghifh"]
 [ext_resource type="Theme" uid="uid://b5dxjrg5nt1f4" path="res://something.tres" id="2_56s4n"]
-[ext_resource type="Texture2D" uid="uid://cil3uboyw7d3m" path="res://images/buttons.png" id="3_ghifh"]
+[ext_resource type="Texture2D" uid="uid://cil3uboyw7d3m" path="res://web/images/buttons.png" id="3_ghifh"]
 [ext_resource type="Script" uid="uid://yrkc1wykoat2" path="res://b.gd" id="4_lxf7m"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ghifh"]
+load_path = "res://.godot/imported/buttons.png-6004e1542ba25de93859d3a4af26408a.ctex"
 
 [node name="Node2D" type="Node2D" unique_id=1132256485]
 scale = Vector2(0.9, 0.9)
@@ -131,9 +134,9 @@ text = "Quit"
 [node name="Pause" type="Sprite2D" parent="." unique_id=1867888259]
 position = Vector2(-114.72223, 203.22221)
 scale = Vector2(0.75, 0.75)
-texture = ExtResource("3_ghifh")
+texture = SubResource("CompressedTexture2D_ghifh")
 region_enabled = true
-region_rect = Rect2(200, 0, 100, 100)
+region_rect = Rect2(1001, 1, 99, 98)
 
 [node name="RichTextLabel6" type="RichTextLabel" parent="." unique_id=208436570]
 offset_left = -65.22223

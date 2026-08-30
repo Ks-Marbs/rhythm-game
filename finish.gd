@@ -2,7 +2,7 @@ extends Node2D
 
 func end():
 	var s = Global.ms
-	FileAccess.open("res://levels/"+Global.level_list[Global.selected][0]+"/score.txt",FileAccess.WRITE).store_string(s)
+	FileAccess.open("res://levels/"+Global.level_list[Global.selected][3]+"/score"+str(Global.hardness)+".txt",FileAccess.WRITE).store_string(s)
 	Global.selected = -1
 	Global.pop = 0
 	Global.plays = 0

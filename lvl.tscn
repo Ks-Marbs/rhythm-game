@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://cna1fqsc3tjmw" path="res://w.gd" id="6_0paeb"]
 [ext_resource type="Texture2D" uid="uid://j20fgxpq36d2" path="res://web/images/s.png" id="6_dsptp"]
 [ext_resource type="PackedScene" uid="uid://dxh36vqvlk2ma" path="res://finish.tscn" id="8_2e6f6"]
+[ext_resource type="VideoStream" uid="uid://dbtylacc40cq4" path="res://web/levels/Bap.ogv" id="8_heypf"]
 [ext_resource type="PackedScene" uid="uid://bjkebmxfml0yf" path="res://sets.tscn" id="9_2e6f6"]
 [ext_resource type="PackedScene" uid="uid://wqqso1shw5fo" path="res://bap.tscn" id="9_62trd"]
 [ext_resource type="Shader" uid="uid://dbblp1s7yuuf4" path="res://negate.gdshader" id="13_8ud87"]
@@ -244,6 +245,7 @@ texture = ExtResource("1_3rlxx")
 
 [node name="hit" type="AudioStreamPlayer" parent="Sprite2D" unique_id=949501898]
 stream = ExtResource("3_2e6f6")
+pitch_scale = 0.7
 max_polyphony = 1000
 
 [node name="f" type="Sprite2D" parent="Sprite2D" unique_id=1589779623]
@@ -320,7 +322,9 @@ offset_bottom = 624.8628
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.25, 0.25)
+stream = ExtResource("8_heypf")
 expand = true
+bus = &"Pitch"
 metadata/_edit_use_anchors_ = true
 
 [node name="score" type="RichTextLabel" parent="Camera2D" unique_id=88026154]

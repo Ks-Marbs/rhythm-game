@@ -2,11 +2,11 @@ extends Node
 var fcolor:= Color(0.76, 0.0, 0.0, 1.0)
 var vcolor:= Color(0.76, 0.532, 0.0, 1.0)
 var ncolor:= Color(0.0, 0.78, 0.234, 1.0)
-var jcolor:= Color(0.114, 0.0, 0.76, 1.0)
+var jcolor:= Color(0.05, 0.352, 0.72, 1.0)
 var fcolo:= Color(0.592, 0.0, 0.0, 1.0)
 var vcolo:= Color(0.39, 0.274, 0.0, 1.0)
 var ncolo:= Color(0.0, 0.354, 0.259, 1.0)
-var jcolo:= Color(0.124, 0.0, 0.873, 1.0)
+var jcolo:= Color(0.0, 0.27, 0.49, 1.0)
 var score = 0.0
 var max_score = 0.0
 var selected = -1
