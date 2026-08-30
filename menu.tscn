@@ -32,10 +32,13 @@ mouse_filter = 2
 stream = ExtResource("2_l48gv")
 autoplay = true
 expand = true
+loop = true
+bus = &"Pitch"
 metadata/_edit_use_anchors_ = true
 
 [node name="hit" type="AudioStreamPlayer" parent="." unique_id=6378063]
 stream = ExtResource("7_ecwwl")
+pitch_scale = 0.7
 max_polyphony = 1000
 
 [node name="set" parent="." unique_id=1556483362 instance=ExtResource("6_l48gv")]
@@ -125,7 +128,7 @@ theme = ExtResource("1_lti8b")
 theme_override_font_sizes/normal_font_size = 36
 theme_override_font_sizes/bold_font_size = 25
 bbcode_enabled = true
-text = "v0.3.0 - α"
+text = "v0.3.0"
 fit_content = true
 
 [node name="h" type="RichTextLabel" parent="." unique_id=273613881]

@@ -30,11 +30,11 @@ func _process(delta: float) -> void:
 		position = Vector2(blo+(Global.plays*5.0*Global.bpm*speed/12.0), 0)
 	if position[0] > 15+hold_time*25:
 		queue_free()
-	if int(position[0]) in range(-14,0) and not caught and not Global.paused:
+	if int(position[0]) in range(-7-2*int(Global.speed*4),-7+2*int(Global.speed*4)) and not caught and not Global.paused:
 		if Input.is_action_just_pressed(str(self.get_parent().name)[0]):
 			held = true
 			caught = true
-			if int(position[0]) in range(-9,-3):
+			if int(position[0]) in range(-7-1*int(Global.speed*4),-7+1*int(Global.speed*4)):
 				sco = 5
 				self.get_parent().get_parent().get_parent().emit_signal("bap",2,self.get_parent().name)
 				a=2

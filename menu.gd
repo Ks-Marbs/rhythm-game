@@ -43,6 +43,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var effect = AudioServer.get_bus_effect(AudioServer.get_bus_index("Pitch"), 0)
+	effect.set_pitch_scale(1/Global.speed)
+	$VideoStreamPlayer.speed_scale = Global.speed
+	$f.self_modulate = Global.fcolor
+	$v.self_modulate = Global.vcolor
+	$n.self_modulate = Global.ncolor
+	$j.self_modulate = Global.jcolor
 	get_window().size = Global.ws * 480
 	get_window().position=Global.wp+Vector2(DisplayServer.screen_get_size()/2 - get_window().size/2)
 	match Global.hardness:

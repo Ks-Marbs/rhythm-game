@@ -55,46 +55,48 @@ func _process(delta: float) -> void:
 					a=100 
 		3:
 			match str(self.name)[0]:
-				"f":
-					b=0
+				"v":
+					b=100
 					a=200 
-				"n":
+				"f":
 					b=0
 					a=300
-				"v":
-					b=100
-					a=200 
-				"j":
-					b=100
-					a=300 
-		4:
-			match str(self.name)[0]:
-				"f":
-					b=0
-					a=800 
 				"n":
 					b=100
-					a=800
+					a=300 
+				"j":
+					b=0
+					a=200
+
+		4:
+			match str(self.name)[0]:
 				"v":
 					b=0
 					a=900 
-				"j":
+				"f":
+					b=100
+					a=800
+				"n":
 					b=100
 					a=900 
+				"j":
+					b=0
+					a=800 
+
 		5:
 			match str(self.name)[0]:
-				"f":
-					b=0
-					a=600 
 				"v":
+					b=0
+					a=700 
+				"f":
 					b=100
 					a=600
 				"n":
-					b=0
-					a=700 
-				"j":
 					b=100
 					a=700 
+				"j":
+					b=0
+					a=600 
 		6:
 			match str(self.name)[0]:
 				"f":
