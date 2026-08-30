@@ -1,15 +1,11 @@
 ## Hey!
 ### This is a rhythm game
-### You utilize the buttons F,V,N,J to hit the colored notes at the right time!
+### You utilize the buttons F,V,N,J(now editable :0) to hit the colored notes at the right time!
 ### There's not alot i can talk about here, I just wanted to make the most generic rhythm game possible so it can be re-made by others
 ### Although it is definitly still far from being easily editable, I hope by the 1.0.0 release, it serves as a mini helper for rhythm games
 ### This was not intended to be a game, just a preset that anyone can edit
 
 ## FAQ:
-### Why not WASD/Arrows?
-FVNJ or DFJK are the default hand positions for rhythm games, where your hands are at rest, notice that both F and J usually have markings
-### Why can’t we change keys?
-Working on it, but that would involve… checks notes 250 new sprites
 ### Why is it square?
 𝓪𝓮𝓼𝓽𝓱𝓮𝓽𝓲𝓬𝓼
 ### Why no penalty?
@@ -23,7 +19,7 @@ This was not the plan, and I am working on better explanations that also do not 
 
 ## If you're on phone, the releases have videos so you can see 
 
-### Music: Bap by Ks, Prophecy by Creo (http://faq.creo-music.com), drnfctn by Frums (https://www.frums.xyz), Headspace by Ash Astral (https://ashastral.com)
+### Music: Bap by Ks, Welcome by Ks, Prophecy by Creo (http://faq.creo-music.com), drnfctn by Frums (https://www.frums.xyz), Headspace by Ash Astral (https://ashastral.com), ? and ε by artifyber (https://artifyber.xyz), FRACTURED//ANOMALY by fireentity (fireentity.space)
 ### Ai: none
 ### Covers by respective producers
-Feel free to give ideas and stuff to me!
+Feel free to send ideas and stuff to me!
