@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d3nolq6a2e0as" path="res://sets.gd" id="1_ghifh"]
 [ext_resource type="Theme" uid="uid://b5dxjrg5nt1f4" path="res://something.tres" id="2_56s4n"]
-[ext_resource type="Texture2D" uid="uid://cil3uboyw7d3m" path="res://web/images/buttons.png" id="3_ghifh"]
+[ext_resource type="Texture2D" uid="uid://cil3uboyw7d3m" path="res://images/buttons.png" id="3_ghifh"]
 [ext_resource type="Script" uid="uid://yrkc1wykoat2" path="res://b.gd" id="4_lxf7m"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ghifh"]
@@ -13,48 +13,48 @@ scale = Vector2(0.9, 0.9)
 script = ExtResource("1_ghifh")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=8857345]
-offset_left = -166.11111
-offset_top = -315.44446
-offset_right = 182.88889
-offset_bottom = -219.44446
+offset_left = -130.55548
+offset_top = -333.22235
+offset_right = 218.44452
+offset_bottom = -237.22235
 mouse_filter = 2
 theme = ExtResource("2_56s4n")
 theme_override_font_sizes/normal_font_size = 64
 text = "Settings"
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1080223584]
-offset_left = -210.11113
-offset_top = -244.99997
-offset_right = 278.88885
-offset_bottom = -148.99997
-mouse_filter = 2
-theme = ExtResource("2_56s4n")
-theme_override_font_sizes/normal_font_size = 64
-text = "Song volume"
-
-[node name="RichTextLabel3" type="RichTextLabel" parent="." unique_id=73238293]
-offset_left = -192.11111
-offset_top = -148.77771
-offset_right = 296.8889
-offset_bottom = -52.77771
-mouse_filter = 2
-theme = ExtResource("2_56s4n")
-theme_override_font_sizes/normal_font_size = 64
-text = "Hit volume"
-
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1507097229]
 z_index = -20
-offset_left = -611.1111
-offset_top = -534.44446
-offset_right = 574.8889
-offset_bottom = 417.55554
+offset_left = -575.5554
+offset_top = -490.00012
+offset_right = 610.4446
+offset_bottom = 461.99988
 color = Color(0.039215688, 0.039215688, 0.039215688, 0.8901961)
 
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1080223584]
+offset_left = -103.4444
+offset_top = -253.88867
+offset_right = 178.88898
+offset_bottom = -157.88867
+mouse_filter = 2
+theme = ExtResource("2_56s4n")
+theme_override_font_sizes/normal_font_size = 64
+text = "Volume:"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="." unique_id=73238293]
+offset_left = -227.66684
+offset_top = -193.22192
+offset_right = 364.4443
+offset_bottom = -121.111084
+mouse_filter = 2
+theme = ExtResource("2_56s4n")
+theme_override_font_sizes/normal_font_size = 48
+text = "Song                      Hit"
+
 [node name="HSlider" type="HSlider" parent="." unique_id=2132310696]
-offset_left = -224.11111
-offset_top = -149.88892
-offset_right = 203.88889
-offset_bottom = -133.88892
+offset_left = -313.00006
+offset_top = -123.22223
+offset_right = 7.999939
+offset_bottom = -107.22223
 max_value = 10.0
 value = 6.0
 tick_count = 11
@@ -62,41 +62,95 @@ ticks_on_borders = true
 ticks_position = 3
 
 [node name="HSlider2" type="HSlider" parent="." unique_id=339087361]
-offset_left = -224.11111
-offset_top = -61.66668
-offset_right = 203.88889
-offset_bottom = -45.66668
+offset_left = 33.666748
+offset_top = -123.88901
+offset_right = 354.66675
+offset_bottom = -107.88901
 max_value = 10.0
 value = 6.0
 tick_count = 11
 ticks_on_borders = true
 ticks_position = 3
 
-[node name="RichTextLabel7" type="RichTextLabel" parent="." unique_id=2125894684]
-offset_left = -192.11113
-offset_top = -59.888824
-offset_right = 296.88885
-offset_bottom = 36.111176
+[node name="RichTextLabel7" type="RichTextLabel" parent="." unique_id=81267609]
+offset_left = -200.11108
+offset_top = -129.44426
+offset_right = 250.0
+offset_bottom = -33.44426
 mouse_filter = 2
 theme = ExtResource("2_56s4n")
 theme_override_font_sizes/normal_font_size = 64
-text = "Saturation"
+text = "Background:"
 
-[node name="HSlider3" type="HSlider" parent="." unique_id=1998566669]
-offset_left = -224.11111
-offset_top = 27.222229
-offset_right = 203.88889
-offset_bottom = 43.22223
-min_value = 0.001
-max_value = 1.001
-step = 0.05
-value = 1.001
+[node name="RichTextLabel8" type="RichTextLabel" parent="." unique_id=79219162]
+offset_left = -103.555725
+offset_top = -60.0
+offset_right = 114.44441
+offset_bottom = 12.11084
+mouse_filter = 2
+theme = ExtResource("2_56s4n")
+theme_override_font_sizes/normal_font_size = 48
+text = "Opacity"
+
+[node name="HSlider3" type="HSlider" parent="." unique_id=1514449483]
+offset_left = -153.33333
+offset_top = 9.999638
+offset_right = 167.66667
+offset_bottom = 25.999638
+max_value = 1.0
+step = 0.1
+value = 1.0
+tick_count = 11
+ticks_on_borders = true
+ticks_position = 3
+
+[node name="RichTextLabel9" type="RichTextLabel" parent="." unique_id=1584670997]
+offset_left = -121.22218
+offset_top = 3.8890686
+offset_right = 161.11119
+offset_bottom = 99.88907
+mouse_filter = 2
+theme = ExtResource("2_56s4n")
+theme_override_font_sizes/normal_font_size = 64
+text = "Board:"
+
+[node name="RichTextLabel10" type="RichTextLabel" parent="." unique_id=1784953956]
+offset_left = -263.2224
+offset_top = 64.55589
+offset_right = 358.88892
+offset_bottom = 136.66672
+mouse_filter = 2
+theme = ExtResource("2_56s4n")
+theme_override_font_sizes/normal_font_size = 48
+text = "Opacity         Saturation"
+
+[node name="HSlider5" type="HSlider" parent="." unique_id=1610029629]
+offset_left = -313.00006
+offset_top = 134.55551
+offset_right = 7.999939
+offset_bottom = 150.55551
+max_value = 1.0
+step = 0.1
+value = 1.0
+tick_count = 11
+ticks_on_borders = true
+ticks_position = 3
+
+[node name="HSlider6" type="HSlider" parent="." unique_id=1254667274]
+offset_left = 33.666748
+offset_top = 133.88876
+offset_right = 354.66675
+offset_bottom = 149.88876
+min_value = 0.01
+max_value = 1.0
+step = 0.1
+value = 1.0
 tick_count = 11
 ticks_on_borders = true
 ticks_position = 3
 
 [node name="f" type="Sprite2D" parent="." unique_id=934401052]
-position = Vector2(-232.50002, 100)
+position = Vector2(-282.5, 306.88895)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("3_ghifh")
 region_enabled = true
@@ -104,17 +158,17 @@ region_rect = Rect2(0, 0, 100, 100)
 script = ExtResource("4_lxf7m")
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="." unique_id=1019763342]
-offset_left = -192.50002
-offset_top = 52.00001
-offset_right = 20.499985
-offset_bottom = 148.0
+offset_left = -242.50012
+offset_top = 258.8889
+offset_right = -29.500122
+offset_bottom = 354.88885
 mouse_filter = 2
 theme = ExtResource("2_56s4n")
-theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/normal_font_size = 48
 text = "Retry"
 
 [node name="j" type="Sprite2D" parent="." unique_id=159277679]
-position = Vector2(61.499985, 99)
+position = Vector2(-42.50006, 306.77765)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("3_ghifh")
 region_enabled = true
@@ -122,28 +176,28 @@ region_rect = Rect2(0, 0, 100, 100)
 script = ExtResource("4_lxf7m")
 
 [node name="RichTextLabel5" type="RichTextLabel" parent="." unique_id=660363542]
-offset_left = 103.499985
-offset_top = 50.000004
-offset_right = 316.5
-offset_bottom = 146.0
+offset_left = -0.49987793
+offset_top = 257.77783
+offset_right = 212.50012
+offset_bottom = 353.77783
 mouse_filter = 2
 theme = ExtResource("2_56s4n")
-theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/normal_font_size = 48
 text = "Quit"
 
 [node name="Pause" type="Sprite2D" parent="." unique_id=1867888259]
-position = Vector2(-114.72223, 203.22221)
+position = Vector2(152.30556, 306.55524)
 scale = Vector2(0.75, 0.75)
 texture = SubResource("CompressedTexture2D_ghifh")
 region_enabled = true
 region_rect = Rect2(1001, 1, 99, 98)
 
 [node name="RichTextLabel6" type="RichTextLabel" parent="." unique_id=208436570]
-offset_left = -65.22223
-offset_top = 152.22223
-offset_right = 147.77777
-offset_bottom = 248.22223
+offset_left = 201.80554
+offset_top = 255.55542
+offset_right = 414.80554
+offset_bottom = 351.55542
 mouse_filter = 2
 theme = ExtResource("2_56s4n")
-theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/normal_font_size = 48
 text = "Back"

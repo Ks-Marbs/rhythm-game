@@ -5,14 +5,16 @@ extends Node2D
 func _ready() -> void:
 	$HSlider.value = Global.vol
 	$HSlider2.value = Global.hvol
-	$HSlider3.value = Global.sat
+	$HSlider3.value = Global.op
+	$HSlider5.value = Global.bop
+	$HSlider6.value = Global.sat
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if $HSlider3.value_changed:
-		Global.sat = $HSlider3.value
+	if $HSlider6.value_changed:
+		Global.sat = $HSlider6.value
 		Global.fcolor.s = Global.sat
 		Global.vcolor.s = Global.sat
 		Global.ncolor.s = Global.sat
@@ -23,6 +25,8 @@ func _process(delta: float) -> void:
 		Global.jcolo.s = Global.sat
 	Global.vol=$HSlider.value
 	Global.hvol = $HSlider2.value 
+	Global.op = $HSlider3.value
+	Global.bop = $HSlider5.value
 	if visible and Input.is_action_just_pressed("f"):
 		Global.plays = 0
 		Global.paused = false

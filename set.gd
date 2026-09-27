@@ -6,6 +6,7 @@ func _ready() -> void:
 	$HSlider.value = Global.vol
 	$HSlider2.value = Global.hvol
 	$HSlider3.value = Global.speed
+	$HSlider4.value = Global.graey
 	$CheckBox.button_pressed = Global.dis
 	Global.ke = int(FileAccess.open("res://keys.txt",FileAccess.READ).get_as_text())
 
@@ -115,6 +116,7 @@ func _process(delta: float) -> void:
 	Global.vol=$HSlider.value
 	Global.hvol = $HSlider2.value 
 	Global.speed = $HSlider3.value
+	Global.graey = $HSlider4.value
 	$RichTextLabel5.text = "Speed: x"+str(Global.speed)
 	pass
 

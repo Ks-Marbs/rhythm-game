@@ -13,12 +13,15 @@ var selected = -1
 var vol:=6
 var hvol:=6
 var rady = 0
+var bop = 0.8
+var op = 1.0
 var pop = 0.0
 var ms = ""
 var bpm := 132
 var move = false
 var ke := 0
 var hardness:= 0
+var graey := 0.0
 var level_list = [
 ["Welcome","Ks",load("res://levels/Welcome/Welcome.jpg"),"Welcome",0,1,2,3,4,5,6,7],
 ["Prophecy","Creo",load("res://levels/Prophecy/Prophecy.jpg"),"Prophecy",0,1,2,3,4,5,6,7], #aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa \

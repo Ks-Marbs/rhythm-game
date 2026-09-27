@@ -3,17 +3,24 @@
 [ext_resource type="Theme" uid="uid://b5dxjrg5nt1f4" path="res://something.tres" id="1_lti8b"]
 [ext_resource type="Script" uid="uid://m30tbhysxt7j" path="res://menu.gd" id="1_ouk20"]
 [ext_resource type="VideoStream" uid="uid://dbtylacc40cq4" path="res://web/levels/Bap.ogv" id="2_l48gv"]
-[ext_resource type="Texture2D" uid="uid://cil3uboyw7d3m" path="res://web/images/buttons.png" id="5_l48gv"]
+[ext_resource type="Texture2D" uid="uid://cil3uboyw7d3m" path="res://images/buttons.png" id="5_l48gv"]
 [ext_resource type="Script" uid="uid://yrkc1wykoat2" path="res://b.gd" id="6_ecwwl"]
 [ext_resource type="PackedScene" uid="uid://dn3ov8ff7vr40" path="res://set.tscn" id="6_l48gv"]
 [ext_resource type="AudioStream" uid="uid://d35a5xc7u5vpb" path="res://web/levels/hit.mp3" id="7_ecwwl"]
+[ext_resource type="Shader" uid="uid://hk78f41hk4i7" path="res://graey.gdshader" id="8_nrnbx"]
+[ext_resource type="Script" uid="uid://ccm4tbpj21kd5" path="res://graey.gd" id="9_iqepy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h1wq0"]
+shader = ExtResource("8_nrnbx")
+shader_parameter/mono_color = Color(1, 1, 1, 1)
+shader_parameter/contrast = 1.0
 
 [node name="Node2D" type="Node2D" unique_id=641137106]
 script = ExtResource("1_ouk20")
 metadata/_edit_vertical_guides_ = [-394.0]
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1342488277]
-modulate = Color(2.9601774, 2.9601774, 2.9601774, 0.35686275)
+modulate = Color(0.78319997, 0.78319997, 0.88, 0.6745098)
 z_index = -1029
 z_as_relative = false
 use_parent_material = true
@@ -42,7 +49,6 @@ pitch_scale = 0.7
 max_polyphony = 1000
 
 [node name="set" parent="." unique_id=1556483362 instance=ExtResource("6_l48gv")]
-visible = false
 z_index = 1040
 z_as_relative = false
 position = Vector2(0, 83)
@@ -156,3 +162,16 @@ theme_override_font_sizes/bold_font_size = 25
 bbcode_enabled = true
 text = "*Values in the levels are currently placeholders"
 fit_content = true
+
+[node name="Graey" type="ColorRect" parent="." unique_id=643920849]
+z_index = 999
+texture_filter = 2
+texture_repeat = 3
+material = SubResource("ShaderMaterial_h1wq0")
+offset_left = -731.0
+offset_top = -612.0
+offset_right = 749.2871
+offset_bottom = 717.51733
+mouse_filter = 2
+color = Color(1, 1, 1, 0.93333334)
+script = ExtResource("9_iqepy")

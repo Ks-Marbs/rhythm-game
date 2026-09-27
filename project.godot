@@ -17,7 +17,12 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="rhythm_game"
 run/main_scene="uid://rr5g3s2w4d76"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/bg_color=Color(0.096204825, 0.09620472, 0.09620472, 1)
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://dmn68ctsd3t83"
 
 [autoload]
 

@@ -39,6 +39,8 @@ func load_():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	$Camera2D/VideoStreamPlayer.modulate.a = Global.op
+	$Sprite2D.modulate.a = Global.bop
 	var effect = AudioServer.get_bus_effect(AudioServer.get_bus_index("Pitch"), 0)
 	effect.set_pitch_scale(1/Global.speed)
 	get_window().size = Global.ws * 480
@@ -48,6 +50,7 @@ func _process(delta: float) -> void:
 	beep($Camera2D/score,20,15,1)
 	beep($Camera2D/Glitch,0,0,1)
 	beep($Camera2D/Negate,0,0,1)
+	beep($Camera2D/Graey,0,0,1)
 	beep($Camera2D/Node2D,85.7,85.75,1)
 	beep($Camera2D/Pause,150,20,0.75)
 	beep($Camera2D/fb,35,150,1)
@@ -70,6 +73,7 @@ func _process(delta: float) -> void:
 	$Sprite2D/j.modulate = Global.jcolor
 	$Camera2D/Glitch.modulate.a = Global.glitch
 	$Camera2D/Negate.modulate.a = Global.negate
+	$Camera2D/Graey.color.a = Global.graey
 	$Camera2D/fb.self_modulate = Global.fcolor
 	$Camera2D/vb.self_modulate = Global.vcolor
 	$Camera2D/nb.self_modulate = Global.ncolor
