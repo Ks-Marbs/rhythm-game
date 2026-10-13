@@ -29,8 +29,9 @@ var level_list = [
 ["drnfctn","Frums",load("res://levels/drnfctn/drnfctn.jpg"),"drnfctn",0,1,2,3,4,5,6,7],\
 ["?","Artifyber",load("res://levels/ques/ques.jpg"),"ques",0,1,2,3,4,5,6,7],
 ["ε","Artifyber",load("res://levels/eps/eps.jpg"),"eps",0,1,2,3,4,5,6,7],
-["FRACTURED//ANOMALY","FIREENTITY",load("res://levels/frac/frac.jpg"),"frac",0,1,2,3,4,5,6,7
-]]
+["FRACTURED//ANOMALY","FIREENTITY",load("res://levels/frac/frac.jpg"),"frac",0,1,2,3,4,5,6,7],
+["TERA-I/O","Cametek",load("res://levels/frac/frac.jpg"),"Tera",0,1,2,3,4,5,6,7]
+]
 #name,artist,img,file,speed,rhythm,stamina,length
 var level_notes:= []
 var song = ""
