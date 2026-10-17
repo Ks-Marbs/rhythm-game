@@ -53,11 +53,11 @@ func _process(delta: float) -> void:
 	beep($Camera2D/Graey,0,0,1)
 	beep($Camera2D/Node2D,85.7,85.75,1)
 	beep($Camera2D/Pause,150,20,0.75)
-	beep($Camera2D/fb,35,150,1)
-	beep($Camera2D/vb,70,150,1)
-	beep($Camera2D/nb,105,150,1)
+	beep($Camera2D/fb,59,160,0.75)
+	beep($Camera2D/vb,78,160,0.75)
+	beep($Camera2D/nb,40,160,0.75)
+	beep($Camera2D/jb,21,160,0.75)
 	beep($Camera2D/set,86,86,1)
-	beep($Camera2D/jb,140,150,1)
 	Global.plays = $Camera2D/VideoStreamPlayer.get_stream_position()
 	$Camera2D/VideoStreamPlayer.scale = Vector2.ONE / $Camera2D.zoom
 	$Camera2D/VideoStreamPlayer.position = (Vector2.ONE*-360.0) / $Camera2D.zoom

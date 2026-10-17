@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://j20fgxpq36d2" path="res://images/s.png" id="6_dsptp"]
 [ext_resource type="PackedScene" uid="uid://dxh36vqvlk2ma" path="res://finish.tscn" id="8_2e6f6"]
 [ext_resource type="VideoStream" uid="uid://dbtylacc40cq4" path="res://web/levels/Bap.ogv" id="8_heypf"]
+[ext_resource type="Texture2D" uid="uid://bt256evkcbpnv" path="res://images/web0.png" id="8_xfunc"]
 [ext_resource type="PackedScene" uid="uid://bjkebmxfml0yf" path="res://sets.tscn" id="9_2e6f6"]
 [ext_resource type="PackedScene" uid="uid://wqqso1shw5fo" path="res://bap.tscn" id="9_62trd"]
 [ext_resource type="Shader" uid="uid://dbblp1s7yuuf4" path="res://negate.gdshader" id="13_8ud87"]
@@ -303,6 +304,12 @@ position = Vector2(1.0678864, -6.8474445)
 rotation = 1.5707964
 texture = ExtResource("3_hx1ia")
 script = ExtResource("5_2a1lc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D" unique_id=1288790580]
+z_index = -99
+z_as_relative = false
+use_parent_material = true
+texture = ExtResource("8_xfunc")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=652629021]
 z_index = 2

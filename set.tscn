@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dj7ora5co14mq" path="res://set.gd" id="1_64a2g"]
 [ext_resource type="Theme" uid="uid://b5dxjrg5nt1f4" path="res://something.tres" id="1_f27m4"]
+[ext_resource type="Texture2D" uid="uid://cil3uboyw7d3m" path="res://images/buttons.png" id="3_tb532"]
+[ext_resource type="Script" uid="uid://b0of1y1qbq6ol" path="res://q.gd" id="4_tb532"]
 
 [node name="Node2D" type="Node2D" unique_id=1115070941]
 script = ExtResource("1_64a2g")
@@ -15,6 +17,15 @@ theme = ExtResource("1_f27m4")
 theme_override_font_sizes/normal_font_size = 64
 text = "Settings"
 
+[node name="Key" type="RichTextLabel" parent="." unique_id=1259152412]
+offset_left = 930.0
+offset_top = -429.0
+offset_right = 1137.0
+offset_bottom = -333.0
+theme = ExtResource("1_f27m4")
+theme_override_font_sizes/normal_font_size = 64
+text = "Keys:"
+
 [node name="RichTextLabel7" type="RichTextLabel" parent="." unique_id=1372814651]
 offset_left = -204.99994
 offset_top = -205.0
@@ -25,19 +36,19 @@ theme_override_font_sizes/normal_font_size = 64
 text = "Graeyscale"
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="." unique_id=886193432]
-offset_left = -215.99994
+offset_left = -230.99994
 offset_top = -82.0
-offset_right = 129.00006
+offset_right = 151.0
 offset_bottom = 14.0
 theme = ExtResource("1_f27m4")
 theme_override_font_sizes/normal_font_size = 64
-text = "Movement"
+text = "Movement:"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1657818645]
 z_index = -20
 offset_left = -610.0
 offset_top = -565.0
-offset_right = 576.0
+offset_right = 2251.0
 offset_bottom = 387.0
 color = Color(0.038397163, 0.038397174, 0.038397145, 0.8901961)
 
@@ -67,7 +78,7 @@ offset_right = 246.00006
 offset_bottom = 218.0
 theme = ExtResource("1_f27m4")
 theme_override_font_sizes/normal_font_size = 64
-text = "Keyset:"
+text = "Edit keys:"
 
 [node name="HSlider3" type="HSlider" parent="." unique_id=804424751]
 z_index = 999
@@ -94,32 +105,6 @@ step = 0.1
 tick_count = 11
 ticks_on_borders = true
 ticks_position = 3
-
-[node name="OptionButton" type="OptionButton" parent="." unique_id=1013728556]
-offset_left = 29.000061
-offset_top = 122.0
-offset_right = 219.00006
-offset_bottom = 213.0
-theme = ExtResource("1_f27m4")
-theme_override_font_sizes/font_size = 60
-flat = true
-selected = 0
-allow_reselect = true
-item_count = 7
-popup/item_0/text = "FVNJ"
-popup/item_0/id = 0
-popup/item_1/text = "DFJK"
-popup/item_1/id = 1
-popup/item_2/text = "FGHJ"
-popup/item_2/id = 2
-popup/item_3/text = "ASDW"
-popup/item_3/id = 3
-popup/item_4/text = "<v>^"
-popup/item_4/id = 6
-popup/item_5/text = "4628"
-popup/item_5/id = 5
-popup/item_6/text = "K"
-popup/item_6/id = 4
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=132182098]
 offset_left = -114.444336
@@ -163,5 +148,46 @@ tick_count = 11
 ticks_on_borders = true
 ticks_position = 3
 
+[node name="Button" type="Button" parent="." unique_id=1424964349]
+offset_left = 110.0
+offset_top = 154.0
+offset_right = 149.0
+offset_bottom = 195.0
+theme = ExtResource("1_f27m4")
+theme_override_font_sizes/font_size = 24
+text = ">>"
+
+[node name="f" type="Sprite2D" parent="." unique_id=1016925411]
+position = Vector2(808.5, -255.5)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_tb532")
+region_enabled = true
+region_rect = Rect2(0, 0, 100, 100)
+script = ExtResource("4_tb532")
+
+[node name="v" type="Sprite2D" parent="." unique_id=1608227119]
+position = Vector2(808.5, -180.5)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_tb532")
+region_enabled = true
+region_rect = Rect2(0, 100, 100, 100)
+script = ExtResource("4_tb532")
+
+[node name="n" type="Sprite2D" parent="." unique_id=1928605567]
+position = Vector2(808.5, -102.5)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_tb532")
+region_enabled = true
+region_rect = Rect2(100, 0, 100, 100)
+script = ExtResource("4_tb532")
+
+[node name="j" type="Sprite2D" parent="." unique_id=1181046937]
+position = Vector2(808.5, -24.5)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_tb532")
+region_enabled = true
+region_rect = Rect2(100, 100, 100, 100)
+script = ExtResource("4_tb532")
+
 [connection signal="toggled" from="CheckBox" to="." method="_on_check_box_toggled"]
-[connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

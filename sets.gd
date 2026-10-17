@@ -50,7 +50,7 @@ func _process(delta: float) -> void:
 		Global.max_score = 0
 		Global.glitch = 0
 		Global.ms = FileAccess.open("res://levels/"+Global.level_list[Global.selected][3]+"/score"+str(Global.hardness)+".txt",FileAccess.READ).get_as_text()
-		get_tree().change_scene_to_file("res://lvl.tscn")
+		get_tree().change_scene_to_file("res://lvl_8.tscn")
 	if visible and Input.is_action_just_pressed("j"):
 		Global.paused = false
 		Global.pop = 0

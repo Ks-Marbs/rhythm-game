@@ -1,6 +1,6 @@
 extends Node2D
 
-
+var m := 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$HSlider.value = Global.vol
@@ -8,104 +8,24 @@ func _ready() -> void:
 	$HSlider3.value = Global.speed
 	$HSlider4.value = Global.graey
 	$CheckBox.button_pressed = Global.dis
-	Global.ke = int(FileAccess.open("res://keys.txt",FileAccess.READ).get_as_text())
+	Global.ke = Array(str_to_var(FileAccess.open("res://keys.txt",FileAccess.READ).get_as_text()))
 
 	InputMap.action_erase_events("f")
 	InputMap.action_erase_events("v")
 	InputMap.action_erase_events("n")
 	InputMap.action_erase_events("j")
-	match Global.ke:
-		0:
-			var f = InputEventKey.new()
-			f.keycode = KEY_F
-			InputMap.action_add_event("f", f)
-			var v = InputEventKey.new()
-			v.keycode = KEY_V
-			InputMap.action_add_event("v", v)
-			var n = InputEventKey.new()
-			n.keycode = KEY_N
-			InputMap.action_add_event("n", n)
-			var j = InputEventKey.new()
-			j.keycode = KEY_J
-			InputMap.action_add_event("j", j)
-		1:
-			var f = InputEventKey.new()
-			f.keycode = KEY_D
-			InputMap.action_add_event("f", f)
-			var v = InputEventKey.new()
-			v.keycode = KEY_F
-			InputMap.action_add_event("v", v)
-			var n = InputEventKey.new()
-			n.keycode = KEY_J
-			InputMap.action_add_event("n", n)
-			var j = InputEventKey.new()
-			j.keycode = KEY_K
-			InputMap.action_add_event("j", j)
-		2:
-			var f = InputEventKey.new()
-			f.keycode = KEY_F
-			InputMap.action_add_event("f", f)
-			var v = InputEventKey.new()
-			v.keycode = KEY_G
-			InputMap.action_add_event("v", v)
-			var n = InputEventKey.new()
-			n.keycode = KEY_H
-			InputMap.action_add_event("n", n)
-			var j = InputEventKey.new()
-			j.keycode = KEY_J
-			InputMap.action_add_event("j", j)
-		3:
-			var f = InputEventKey.new()
-			f.keycode = KEY_A
-			InputMap.action_add_event("f", f)
-			var v = InputEventKey.new()
-			v.keycode = KEY_S
-			InputMap.action_add_event("v", v)
-			var n = InputEventKey.new()
-			n.keycode = KEY_D
-			InputMap.action_add_event("n", n)
-			var j = InputEventKey.new()
-			j.keycode = KEY_W
-			InputMap.action_add_event("j", j)
-		6:
-			var f = InputEventKey.new()
-			f.keycode = KEY_K
-			InputMap.action_add_event("f", f)
-			var v = InputEventKey.new()
-			v.keycode = KEY_K
-			InputMap.action_add_event("v", v)
-			var n = InputEventKey.new()
-			n.keycode = KEY_K
-			InputMap.action_add_event("n", n)
-			var j = InputEventKey.new()
-			j.keycode = KEY_K
-			InputMap.action_add_event("j", j)
-		4:
-			var f = InputEventKey.new()
-			f.keycode = KEY_LEFT
-			InputMap.action_add_event("f", f)
-			var v = InputEventKey.new()
-			v.keycode = KEY_DOWN
-			InputMap.action_add_event("v", v)
-			var n = InputEventKey.new()
-			n.keycode = KEY_RIGHT
-			InputMap.action_add_event("n", n)
-			var j = InputEventKey.new()
-			j.keycode = KEY_UP
-			InputMap.action_add_event("j", j)
-		5:
-			var f = InputEventKey.new()
-			f.keycode = KEY_KP_4
-			InputMap.action_add_event("f", f)
-			var v = InputEventKey.new()
-			v.keycode = KEY_KP_2
-			InputMap.action_add_event("v", v)
-			var n = InputEventKey.new()
-			n.keycode = KEY_KP_6
-			InputMap.action_add_event("n", n)
-			var j = InputEventKey.new()
-			j.keycode = KEY_KP_8
-			InputMap.action_add_event("j", j)
+	var f = InputEventKey.new()
+	f.keycode = Global.ke[0]
+	InputMap.action_add_event("f", f)
+	var v = InputEventKey.new()
+	v.keycode = Global.ke[1]
+	InputMap.action_add_event("v", v)
+	var n = InputEventKey.new()
+	n.keycode = Global.ke[2]
+	InputMap.action_add_event("n", n)
+	var j = InputEventKey.new()
+	j.keycode = Global.ke[3]
+	InputMap.action_add_event("j", j)
 	FileAccess.open("res://levels/keys.txt",FileAccess.WRITE).store_string(str(Global.ke))
 
 	pass # Replace with function body.
@@ -118,6 +38,11 @@ func _process(delta: float) -> void:
 	Global.speed = $HSlider3.value
 	Global.graey = $HSlider4.value
 	$RichTextLabel5.text = "Speed: x"+str(Global.speed)
+	if m == 1:
+		if position.x > -1000:
+			position.x += (-1100-position.x)/8
+		else:
+			m = 2
 	pass
 
 
@@ -126,103 +51,7 @@ func _on_check_box_toggled(toggled_on: bool) -> void:
 	pass # Replace with function body.
 
 
-func _on_option_button_item_selected(index: int) -> void:
-	InputMap.action_erase_events("f")
-	InputMap.action_erase_events("v")
-	InputMap.action_erase_events("n")
-	InputMap.action_erase_events("j")
-	match index:
-		0:
-			var f = InputEventKey.new()
-			f.keycode = KEY_F
-			InputMap.action_add_event("f", f)
-			var v = InputEventKey.new()
-			v.keycode = KEY_V
-			InputMap.action_add_event("v", v)
-			var n = InputEventKey.new()
-			n.keycode = KEY_N
-			InputMap.action_add_event("n", n)
-			var j = InputEventKey.new()
-			j.keycode = KEY_J
-			InputMap.action_add_event("j", j)
-		1:
-			var f = InputEventKey.new()
-			f.keycode = KEY_D
-			InputMap.action_add_event("f", f)
-			var v = InputEventKey.new()
-			v.keycode = KEY_F
-			InputMap.action_add_event("v", v)
-			var n = InputEventKey.new()
-			n.keycode = KEY_J
-			InputMap.action_add_event("n", n)
-			var j = InputEventKey.new()
-			j.keycode = KEY_K
-			InputMap.action_add_event("j", j)
-		2:
-			var f = InputEventKey.new()
-			f.keycode = KEY_F
-			InputMap.action_add_event("f", f)
-			var v = InputEventKey.new()
-			v.keycode = KEY_G
-			InputMap.action_add_event("v", v)
-			var n = InputEventKey.new()
-			n.keycode = KEY_H
-			InputMap.action_add_event("n", n)
-			var j = InputEventKey.new()
-			j.keycode = KEY_J
-			InputMap.action_add_event("j", j)
-		3:
-			var f = InputEventKey.new()
-			f.keycode = KEY_A
-			InputMap.action_add_event("f", f)
-			var v = InputEventKey.new()
-			v.keycode = KEY_S
-			InputMap.action_add_event("v", v)
-			var n = InputEventKey.new()
-			n.keycode = KEY_D
-			InputMap.action_add_event("n", n)
-			var j = InputEventKey.new()
-			j.keycode = KEY_W
-			InputMap.action_add_event("j", j)
-		6:
-			var f = InputEventKey.new()
-			f.keycode = KEY_K
-			InputMap.action_add_event("f", f)
-			var v = InputEventKey.new()
-			v.keycode = KEY_K
-			InputMap.action_add_event("v", v)
-			var n = InputEventKey.new()
-			n.keycode = KEY_K
-			InputMap.action_add_event("n", n)
-			var j = InputEventKey.new()
-			j.keycode = KEY_K
-			InputMap.action_add_event("j", j)
-		4:
-			var f = InputEventKey.new()
-			f.keycode = KEY_LEFT
-			InputMap.action_add_event("f", f)
-			var v = InputEventKey.new()
-			v.keycode = KEY_DOWN
-			InputMap.action_add_event("v", v)
-			var n = InputEventKey.new()
-			n.keycode = KEY_RIGHT
-			InputMap.action_add_event("n", n)
-			var j = InputEventKey.new()
-			j.keycode = KEY_UP
-			InputMap.action_add_event("j", j)
-		5:
-			var f = InputEventKey.new()
-			f.keycode = KEY_KP_4
-			InputMap.action_add_event("f", f)
-			var v = InputEventKey.new()
-			v.keycode = KEY_KP_2
-			InputMap.action_add_event("v", v)
-			var n = InputEventKey.new()
-			n.keycode = KEY_KP_6
-			InputMap.action_add_event("n", n)
-			var j = InputEventKey.new()
-			j.keycode = KEY_KP_8
-			InputMap.action_add_event("j", j)
-	Global.ke = index
-	FileAccess.open("res://keys.txt",FileAccess.WRITE).store_string(str(index))
+
+func _on_button_pressed() -> void:
+	m=1
 	pass # Replace with function body.

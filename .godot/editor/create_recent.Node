@@ -1,8 +1,10 @@
+TextureButton
+Button
+ColorRect
 GPUParticlesAttractorSphere3D
 Window
 RichTextLabel
 TextureProgressBar
-ColorRect
 ProgressBar
 NinePatchRect
 ReferenceRect
@@ -11,5 +13,3 @@ CheckBox
 CheckButton
 AudioStreamPlayer2D
 Sprite2D
-Camera2D
-HSlider
