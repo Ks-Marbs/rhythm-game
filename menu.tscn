@@ -134,7 +134,7 @@ theme = ExtResource("1_lti8b")
 theme_override_font_sizes/normal_font_size = 36
 theme_override_font_sizes/bold_font_size = 25
 bbcode_enabled = true
-text = "v0.3.0"
+text = "v0.4.0 - γ"
 fit_content = true
 
 [node name="h" type="RichTextLabel" parent="." unique_id=273613881]

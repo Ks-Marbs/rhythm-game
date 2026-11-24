@@ -19,7 +19,7 @@ This was not the plan, and I am working on better explanations that also do not 
 
 ## If you're on phone, the releases have videos so you can see 
 
-### Music: Bap by Ks, Welcome by Ks, Prophecy by Creo (http://faq.creo-music.com), drnfctn by Frums (https://www.frums.xyz), Headspace by Ash Astral (https://ashastral.com), ? and ε by artifyber (https://artifyber.xyz), FRACTURED//ANOMALY by fireentity (fireentity.space)
+### Music: Bap by Ks, Welcome by Ks, Prophecy by Creo (http://faq.creo-music.com), drnfctn by Frums (https://www.frums.xyz), Headspace by Ash Astral (https://ashastral.com), ? and ε by artifyber (https://artifyber.xyz), FRACTURED//ANOMALY by fireentity (fireentity.space), TERA-1/0 by Cametek (https://cametek.jp) [WIP]
 ### Ai: none
 ### Covers by respective producers
 Feel free to send ideas and stuff to me!
