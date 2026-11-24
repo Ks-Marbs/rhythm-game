@@ -43,7 +43,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var effect = AudioServer.get_bus_effect(AudioServer.get_bus_index("Pitch"), 0)
+	var effect = AudioServer.get_bus_effect(AudioServer.get_bus_index("Master"), 0)
 	effect.set_pitch_scale(1/Global.speed)
 	$VideoStreamPlayer.speed_scale = Global.speed
 	$f.self_modulate = Global.fcolor

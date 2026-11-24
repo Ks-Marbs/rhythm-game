@@ -14,7 +14,7 @@ func _ready() -> void:
 	blo = (-7-Global.offset*speed+11)-(25.0)*beat*speed
 	for m in range(hold_time*speed):
 		var i = ColorRect.new()
-		i.set_script(load("res://held.gd"))
+		i.set_script(load("res://held8.gd"))
 		i.size = size+Vector2(1,0)
 		i.self_modulate = Color(1.0, 1.0, 1.0, 0.7)
 		i.position = Vector2(-m-1,-m-1)
@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 	if position[0] > 15+hold_time*25:
 		queue_free()
 	if int(position[0]) in range(-7-2*int(Global.speed*4),-7+2*int(Global.speed*4)) and not caught and not Global.paused:
-		if Input.is_action_just_pressed(str(self.get_parent().name)[0]):
+		if Input.is_action_just_pressed(str(self.get_parent().name)[0]+"8"):
 			held = true
 			caught = true
 			if int(position[0]) in range(-7-1*int(Global.speed*4),-7+1*int(Global.speed*4)):

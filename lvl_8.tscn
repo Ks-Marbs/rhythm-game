@@ -1,19 +1,19 @@
 [gd_scene format=3 uid="uid://bybkm871jsvum"]
 
 [ext_resource type="Script" uid="uid://by8rrfqb5e43u" path="res://lvl_8.gd" id="1_dmkyr"]
-[ext_resource type="Texture2D" uid="uid://cbpfb4710tv1a" path="res://images/web2.png" id="2_5esod"]
-[ext_resource type="AudioStream" uid="uid://d35a5xc7u5vpb" path="res://web/levels/hit.mp3" id="3_if70f"]
-[ext_resource type="Texture2D" uid="uid://disfpxd25gi1k" path="res://images/p1.png" id="4_if70f"]
+[ext_resource type="Texture2D" uid="uid://b4voec4p5rhvg" path="res://images/web2.png" id="2_5esod"]
+[ext_resource type="AudioStream" uid="uid://dgnkiwi5n7jsf" path="res://web/levels/hit.mp3" id="3_if70f"]
+[ext_resource type="Texture2D" uid="uid://c40tkarkb47xj" path="res://images/p1.png" id="4_if70f"]
 [ext_resource type="Texture2D" uid="uid://ujmhwsbgjqu3" path="res://images/p0.png" id="4_ph1jf"]
 [ext_resource type="Script" uid="uid://vuqxu5vcxjc2" path="res://f8.gd" id="5_5esod"]
-[ext_resource type="Texture2D" uid="uid://j20fgxpq36d2" path="res://images/s.png" id="6_7k682"]
+[ext_resource type="Texture2D" uid="uid://5mwaq61vhaap" path="res://images/s.png" id="6_7k682"]
 [ext_resource type="Script" uid="uid://cna1fqsc3tjmw" path="res://w.gd" id="7_sjw0l"]
 [ext_resource type="VideoStream" uid="uid://dbtylacc40cq4" path="res://web/levels/Bap.ogv" id="9_1ulhe"]
-[ext_resource type="Texture2D" uid="uid://7s0ke37f36ig" path="res://images/p2.png" id="9_dmkyr"]
-[ext_resource type="Texture2D" uid="uid://diuoea6a8axbf" path="res://images/web20.png" id="9_ph1jf"]
+[ext_resource type="Texture2D" uid="uid://boc1abdvni5kj" path="res://images/p2.png" id="9_dmkyr"]
+[ext_resource type="Texture2D" uid="uid://d2cy8frn2il60" path="res://images/web20.png" id="9_ph1jf"]
 [ext_resource type="Script" uid="uid://bevy471iiwiua" path="res://k8.gd" id="10_7k682"]
 [ext_resource type="Theme" uid="uid://b5dxjrg5nt1f4" path="res://something.tres" id="10_uxoy3"]
-[ext_resource type="Texture2D" uid="uid://cil3uboyw7d3m" path="res://images/buttons.png" id="11_7f2j5"]
+[ext_resource type="Texture2D" uid="uid://dxt2pxwx6uhlq" path="res://images/buttons.png" id="11_7f2j5"]
 [ext_resource type="PackedScene" uid="uid://wqqso1shw5fo" path="res://bap.tscn" id="13_1ffjy"]
 [ext_resource type="Script" uid="uid://7h0at08yuetk" path="res://pause.gd" id="13_if70f"]
 [ext_resource type="PackedScene" uid="uid://bjkebmxfml0yf" path="res://sets.tscn" id="14_vytdt"]
@@ -372,7 +372,6 @@ grow_vertical = 2
 scale = Vector2(0.25, 0.25)
 stream = ExtResource("9_1ulhe")
 expand = true
-bus = &"Pitch"
 metadata/_edit_use_anchors_ = true
 
 [node name="score" type="RichTextLabel" parent="Camera2D" unique_id=88026154]
@@ -523,20 +522,20 @@ mouse_filter = 2
 color = Color(1, 1, 1, 0.93333334)
 
 [connection signal="bap" from="." to="Camera2D/sb" method="_on_node_2d_bap"]
+[connection signal="bap" from="." to="Camera2D/db" method="_on_node_2d_bap"]
+[connection signal="bap" from="." to="Camera2D/fb" method="_on_node_2d_bap"]
 [connection signal="bap" from="." to="Camera2D/vb" method="_on_node_2d_bap"]
 [connection signal="bap" from="." to="Camera2D/nb" method="_on_node_2d_bap"]
 [connection signal="bap" from="." to="Camera2D/jb" method="_on_node_2d_bap"]
-[connection signal="bap" from="." to="Camera2D/db" method="_on_node_2d_bap"]
-[connection signal="bap" from="." to="Camera2D/fb" method="_on_node_2d_bap"]
 [connection signal="bap" from="." to="Camera2D/kb" method="_on_node_2d_bap"]
 [connection signal="bap" from="." to="Camera2D/lb" method="_on_node_2d_bap"]
 [connection signal="lod" from="." to="Sprite2D/c" method="_on_node_2d_lod"]
 [connection signal="lod" from="." to="Sprite2D/s" method="_on_node_2d_lod"]
+[connection signal="lod" from="." to="Sprite2D/d" method="_on_node_2d_lod"]
 [connection signal="lod" from="." to="Sprite2D/f" method="_on_node_2d_lod"]
+[connection signal="lod" from="." to="Sprite2D/v" method="_on_node_2d_lod"]
 [connection signal="lod" from="." to="Sprite2D/n" method="_on_node_2d_lod"]
+[connection signal="lod" from="." to="Sprite2D/j" method="_on_node_2d_lod"]
 [connection signal="lod" from="." to="Sprite2D/k" method="_on_node_2d_lod"]
 [connection signal="lod" from="." to="Sprite2D/l" method="_on_node_2d_lod"]
-[connection signal="lod" from="." to="Sprite2D/j" method="_on_node_2d_lod"]
-[connection signal="lod" from="." to="Sprite2D/d" method="_on_node_2d_lod"]
-[connection signal="lod" from="." to="Sprite2D/v" method="_on_node_2d_lod"]
 [connection signal="end" from="Sprite2D/c" to="Camera2D/Node2D" method="_on_c_end"]

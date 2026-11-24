@@ -24,7 +24,7 @@ func _on_node_2d_lod() -> void:
 				if note.size()> 2 and Global.dis: i.speed = note[2]
 				add_child(i)
 			1:
-				var b = load("res://hold.tscn")
+				var b = load("res://fnote_8.tscn")
 				var i = b.instantiate()
 				i.position = Vector2((-7-Global.offset)-(25)*note[0],-0.142)
 				i.z_index = -4

@@ -41,7 +41,7 @@ func load_():
 func _process(delta: float) -> void:
 	$Camera2D/VideoStreamPlayer.modulate.a = Global.op
 	$Sprite2D.modulate.a = Global.bop
-	var effect = AudioServer.get_bus_effect(AudioServer.get_bus_index("Pitch"), 0)
+	var effect = AudioServer.get_bus_effect(AudioServer.get_bus_index("Master"), 0)
 	effect.set_pitch_scale(1/Global.speed)
 	get_window().size = Global.ws * 480
 	get_window().position=Global.wp+Vector2(DisplayServer.screen_get_size()/2 - get_window().size/2)

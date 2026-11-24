@@ -38,15 +38,14 @@ var move = false
 var ke := [70,86,78,74,80,83,68,70,86,78,74,75,76]
 var hardness:= 0
 var graey := 0.0
-var level_list = [
+var level_list = [["TERA-I/O","Cametek",load("res://levels/frac/frac.jpg"),"Tera",0,1,2,3,4,5,6,7,1],
 ["Welcome","Ks",load("res://levels/Welcome/Welcome.jpg"),"Welcome",0,1,2,3,4,5,6,7,0],
 ["Prophecy","Creo",load("res://levels/Prophecy/Prophecy.jpg"),"Prophecy",0,1,2,3,4,5,6,7,0], #aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa \
 ["Headspace","Ash Astral",load("res://levels/Headspace/Headspace.jpg"),"Headspace",0,1,2,3,4,5,6,7,0],\
 ["drnfctn","Frums",load("res://levels/drnfctn/drnfctn.jpg"),"drnfctn",0,1,2,3,4,5,6,7,0],\
 ["?","Artifyber",load("res://levels/ques/ques.jpg"),"ques",0,1,2,3,4,5,6,7,0],
 ["ε","Artifyber",load("res://levels/eps/eps.jpg"),"eps",0,1,2,3,4,5,6,7,0],
-["FRACTURED//ANOMALY","FIREENTITY",load("res://levels/frac/frac.jpg"),"frac",0,1,2,3,4,5,6,7,0],
-["TERA-I/O","Cametek",load("res://levels/frac/frac.jpg"),"Tera",0,1,2,3,4,5,6,7,1]
+["FRACTURED//ANOMALY","FIREENTITY",load("res://levels/frac/frac.jpg"),"frac",0,1,2,3,4,5,6,7,0]
 ]
 #name,artist,img,file,speed,rhythm,stamina,length
 var level_notes:= []

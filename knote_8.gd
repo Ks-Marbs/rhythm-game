@@ -15,7 +15,7 @@ func _ready() -> void:
 	blo = (4-Global.offset*speed)-(25.0)*beat*speed
 	for m in range(hold_time*speed):
 		var i = ColorRect.new()
-		i.set_script(load("res://held.gd"))
+		i.set_script(load("res://held8.gd"))
 		i.size = size+Vector2(1,0)
 		i.self_modulate = Color(1.0, 1.0, 1.0, 0.7)
 		i.position = Vector2(-m-1,-m-1)
@@ -33,11 +33,11 @@ func _process(delta: float) -> void:
 		position = -Vector2.from_angle(PI/4).normalized()*d
 	if d > 15+hold_time*25:
 		queue_free()
-	if 4-2*int(Global.speed*4)< d and d < 4+2*int(Global.speed*4) and not caught and not Global.paused:
-		if Input.is_action_just_pressed(str(self.get_parent().name)[0]):
+	if -7-2*int(Global.speed*4)< d and d < -7+2*int(Global.speed*4) and not caught and not Global.paused:
+		if Input.is_action_just_pressed(str(self.get_parent().name)[0]+"8"):
 			held = true
 			caught = true
-			if 4-1*int(Global.speed*4)< d and d < 4+1*int(Global.speed*4):
+			if -7-1*int(Global.speed*4)< d and d < -7+1*int(Global.speed*4):
 				sco = 5
 				self.get_parent().get_parent().get_parent().emit_signal("bap",2,self.get_parent().name)
 				a=2
@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 			else:
 				sco = 4
 				self_modulate += Color(0.23, 0.23, 0.23, 1.0)
-				if d < 4:
+				if d < -7:
 					self.get_parent().get_parent().get_parent().emit_signal("bap",1,self.get_parent().name)
 					a=1
 				else:
@@ -58,13 +58,13 @@ func _process(delta: float) -> void:
 			Global.score += sco
 	if not Input.is_action_pressed(str(self.get_parent().name)[0]+"8") and held:
 		held = false
-	if int(d) > (6) and not caught:
+	if d > 6 and not caught:
 		self.get_parent().get_parent().get_parent().emit_signal("bap",0,self.get_parent().name)
 		caught = true
-	if d > 2.5:
+	if d > 6:
 		self.self_modulate = Color(0,0,0,0)
-		size = Vector2(2,d*(1)+3)-Vector2.ONE
-		position = -Vector2.from_angle(PI/4).normalized()*d + Vector2(1,-1).normalized()* (size[1]/2)
+		size = -Vector2(3,d/(-1.23)+5)
+		position = Vector2.from_angle(PI/4).normalized()*d + Vector2(1,-1).normalized() * (size[1]/2)
 	else:
 		size = Vector2(3,d/(-1.23)+5)
 		position = Vector2.from_angle(PI/4).normalized()*d + Vector2(1,-1).normalized() * (size[1]/2)
