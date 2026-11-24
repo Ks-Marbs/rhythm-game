@@ -9,28 +9,47 @@ func _ready() -> void:
 func b():
 	match str(self.name):
 		"f":
-			a = (Global.ke[0] - 65)*100
+			a = (Global.ke[0] - 33)*100
+			num = 0
 		"v":
-			a = (Global.ke[1] - 65)*100
+			a = (Global.ke[1] - 33)*100
 			num = 1
 		"n":
-			a = (Global.ke[2] - 65)*100
+			a = (Global.ke[2] - 33)*100
 			num = 2
 		"j":
-			a = (Global.ke[3] - 65)*100
+			a = (Global.ke[3] - 33)*100
 			num = 3
+		"p":
+			a = (Global.ke[4] - 33)*100
+			num = 4
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 
 	if get_parent().m == 0:
 		b()
-	if Input.is_action_pressed(str(self.name)):
-		region_rect = Rect2(a,100,100,100)
+	if Input.is_action_just_released(str(self.name)) and not x:
 		if get_parent().m == 2:
-			a = 4000
-			x = true
-			Global.ke[num] = 0
+			var e = true
+			for k in Global.ke:
+				if k == 105: e = false
+			if e:
+				InputMap.action_erase_events(str(self.name))
+				x = true
+				Global.ke[num] = 105
+				a = (Global.ke[num] - 33)*100
+				region_rect = Rect2(a,100,100,100)
 	else:
 		region_rect = Rect2(a,0,100,100)
 	pass # Replace with function body.
 	
+func _unhandled_key_input(event: InputEvent) -> void:
+	if x and event is InputEventKey:
+		Global.ke[num] = event.keycode
+		var f = InputEventKey.new()
+		f.keycode = Global.ke[num]
+		InputMap.action_add_event(str(self.name), event)
+		a = (Global.ke[num] - 33)*100
+		region_rect = Rect2(a,100,100,100)
+		x = false
+		b()

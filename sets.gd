@@ -13,6 +13,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	$f.self_modulate = Global.fcolor
+	$j.self_modulate = Global.jcolor
 	if $HSlider6.value_changed:
 		Global.sat = $HSlider6.value
 		Global.fcolor.s = Global.sat
@@ -50,7 +52,8 @@ func _process(delta: float) -> void:
 		Global.max_score = 0
 		Global.glitch = 0
 		Global.ms = FileAccess.open("res://levels/"+Global.level_list[Global.selected][3]+"/score"+str(Global.hardness)+".txt",FileAccess.READ).get_as_text()
-		get_tree().change_scene_to_file("res://lvl_8.tscn")
+		get_tree().change_scene_to_file(get_parent().get_parent().scene_file_path)
+		
 	if visible and Input.is_action_just_pressed("j"):
 		Global.paused = false
 		Global.pop = 0

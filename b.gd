@@ -5,18 +5,29 @@ var a:=0
 func _ready() -> void:
 	match str(self.name)[0]:
 		"f":
-			a = (Global.ke[0] - 65)*100
+			a = (Global.ke[0] - 33)*100
 		"v":
-			a = (Global.ke[1] - 65)*100
+			a = (Global.ke[1] - 33)*100
 		"n":
-			a = (Global.ke[2] - 65)*100
+			a = (Global.ke[2] - 33)*100
 		"j":
-			a = (Global.ke[3] - 65)*100
+			a = (Global.ke[3] - 33)*100
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+
+	match str(self.name)[0]:
+		"f":
+			a = (Global.ke[0] - 33)*100
+		"v":
+			a = (Global.ke[1] - 33)*100
+		"n":
+			a = (Global.ke[2] - 33)*100
+		"j":
+			a = (Global.ke[3] - 33)*100
+
 
 	if Input.is_action_pressed(str(self.name)[0]):
 		region_rect = Rect2(a,100,100,100)

@@ -116,7 +116,10 @@ func _process(delta: float) -> void:
 				
 		if Input.is_action_just_pressed("n") and !Global.paused:
 			load_level("res://levels/"+Global.level_list[bub][3]+"/"+Global.level_list[bub][3]+str(Global.hardness)+".txt")
-			get_tree().change_scene_to_file("res://lvl_8.tscn")
+			if Global.level_list[bub][12] == 0:
+				get_tree().change_scene_to_file("res://lvl.tscn")
+			else:
+				get_tree().change_scene_to_file("res://lvl_8.tscn")
 		if Input.is_action_just_pressed("f") and !Global.paused:
 			Global.hardness = 0
 			var s = FileAccess.open("res://levels/"+Global.level_list[bub][3]+"/score"+str(Global.hardness)+".txt",FileAccess.READ).get_as_text()

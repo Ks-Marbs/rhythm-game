@@ -102,7 +102,7 @@ func _process(delta: float) -> void:
 				await get_tree().create_timer(delta).timeout
 			Global.pop = k
 			Global.pop = float(int(Global.pop))
-		else:
+		elif !Global.paused:
 			Global.paused = !Global.paused
 		await get_tree().create_timer(10*delta).timeout
 		busy = false

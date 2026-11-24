@@ -53,7 +53,7 @@ func _process(delta: float) -> void:
 				self.get_parent().get_parent().get_child(0).play()
 				self_modulate -= Color(0.23, 0.23, 0.23, 1.0)
 			Global.score += sco
-	if not Input.is_action_pressed(str(self.get_parent().name)[0]) and held:
+	if not Input.is_action_pressed(str(self.get_parent().name)[0]+"8") and held:
 		held = false
 	if int(position[0]) > (6) and not caught:
 		self.get_parent().get_parent().get_parent().emit_signal("bap",0,self.get_parent().name)

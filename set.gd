@@ -3,13 +3,16 @@ extends Node2D
 var m := 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$f.self_modulate = Global.fcolor
+	$v.self_modulate = Global.vcolor
+	$n.self_modulate = Global.ncolor
+	$j.self_modulate = Global.jcolor
 	$HSlider.value = Global.vol
 	$HSlider2.value = Global.hvol
 	$HSlider3.value = Global.speed
 	$HSlider4.value = Global.graey
 	$CheckBox.button_pressed = Global.dis
 	Global.ke = Array(str_to_var(FileAccess.open("res://keys.txt",FileAccess.READ).get_as_text()))
-
 	InputMap.action_erase_events("f")
 	InputMap.action_erase_events("v")
 	InputMap.action_erase_events("n")
@@ -40,9 +43,14 @@ func _process(delta: float) -> void:
 	$RichTextLabel5.text = "Speed: x"+str(Global.speed)
 	if m == 1:
 		if position.x > -1000:
-			position.x += (-1100-position.x)/8
+			position.x += (-1050-position.x)/6
 		else:
 			m = 2
+	if m == 3:
+		if position.x < 0:
+			position.x += (50-position.x)/6
+		else:
+			m = 0
 	pass
 
 
@@ -53,5 +61,10 @@ func _on_check_box_toggled(toggled_on: bool) -> void:
 
 
 func _on_button_pressed() -> void:
-	m=1
+	if m%2 == 0: m+=1
+	pass # Replace with function body.
+
+
+func _on_button_3_pressed() -> void:
+	Global.paused = !Global.paused
 	pass # Replace with function body.

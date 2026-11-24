@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://b5dxjrg5nt1f4" path="res://something.tres" id="1_8i4l8"]
 [ext_resource type="Script" uid="uid://b63gknks5jyhl" path="res://leveltap.gd" id="1_yv4ho"]
-[ext_resource type="Texture2D" uid="uid://7agf46jfppnx" path="res://levels/drnfctn/drnfctn.jpg" id="3_gjuke"]
+[ext_resource type="Texture2D" uid="uid://7agf46jfppnx" path="res://web/levels/drnfctn/drnfctn.jpg" id="3_gjuke"]
 [ext_resource type="Texture2D" uid="uid://oqj1plwjo8f3" path="res://images/scores.png" id="4_gjuke"]
 [ext_resource type="Texture2D" uid="uid://c33mrw2uxtl4i" path="res://images/aaaaa.png" id="5_2wbi1"]
 [ext_resource type="Texture2D" uid="uid://b1shsx75uw6q" path="res://images/aaaa.png" id="6_txo4m"]
