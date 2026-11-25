@@ -10,7 +10,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	size = Vector2(2,(get_parent().position + position).length()/(1.23)+5)
+	size = Vector2(2,(get_parent().position + position).length()/(1.23))
 	position = Vector2(-b,-b/2.0)
 	if b % 12 == 0 and self.get_parent().cot != 100 and self.get_parent().held and\
 	position[0]+self.get_parent().position[0] > self.get_parent().cot and !on:
@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 			self.get_parent().get_parent().get_parent().get_parent().emit_signal("bap",self.get_parent().a,self.get_parent().get_parent().name)
 	if !self.get_parent().held and self.get_parent().caught and !n:
 		self_modulate=Color(0.0, 0.0, 0.0, 0.4)
-	if size.y < 30:
+	if size.y < 5:
 		n = true
 	if n:
 		modulate = Color(0,0,0,0)

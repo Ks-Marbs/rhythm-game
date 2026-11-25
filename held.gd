@@ -16,6 +16,9 @@ func _process(delta: float) -> void:
 		Global.score += self.get_parent().sco
 		if b % 24==0:
 			self.get_parent().get_parent().get_parent().get_parent().emit_signal("bap",self.get_parent().a,self.get_parent().get_parent().name)
+	if size.y < 5:
+		self_modulate = Color(0,0,0,0)
+		return
 	if !self.get_parent().held and self.get_parent().caught:
 		self_modulate=Color(0.0, 0.0, 0.0, 0.4)
 	pass

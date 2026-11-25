@@ -61,11 +61,9 @@ func _process(delta: float) -> void:
 	if d > 6 and not caught:
 		self.get_parent().get_parent().get_parent().emit_signal("bap",0,self.get_parent().name)
 		caught = true
-	if d > 6:
-		self.self_modulate = Color(0,0,0,0)
-		size = -Vector2(3,d/(-1.23)+5)
+	if d > 1:
 		position = Vector2.from_angle(PI/4).normalized()*d + Vector2(1,-1).normalized() * (size[1]/2)
 	else:
-		size = Vector2(3,d/(-1.23)+5)
+		size = Vector2(3,d/(-1.23)+3)
 		position = Vector2.from_angle(PI/4).normalized()*d + Vector2(1,-1).normalized() * (size[1]/2)
 	pass
