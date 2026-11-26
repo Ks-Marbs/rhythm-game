@@ -36,6 +36,7 @@ custom_minimum_size = Vector2(200, 25)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
+text = "5eb16309-bfa2-4394-9210-0e8f095de609"
 placeholder_text = "Provide Your Wakatime API Key"
 expand_to_text_length = true
 secret = true

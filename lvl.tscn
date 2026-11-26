@@ -3,20 +3,19 @@
 [ext_resource type="Texture2D" uid="uid://c4xs2ow0xp1ou" path="res://images/web.png" id="1_3rlxx"]
 [ext_resource type="Script" uid="uid://b38ir2sodpgvk" path="res://lvl.gd" id="1_4iw1c"]
 [ext_resource type="Shader" uid="uid://cxlyuaexm4s6x" path="res://lvl.gdshader" id="1_dqmf8"]
-[ext_resource type="AudioStream" uid="uid://dgnkiwi5n7jsf" path="res://web/levels/hit.mp3" id="3_2e6f6"]
+[ext_resource type="AudioStream" uid="uid://1hh5cahsec4p" path="res://web/levels/hit.mp3" id="3_2e6f6"]
 [ext_resource type="Texture2D" uid="uid://ujmhwsbgjqu3" path="res://images/p0.png" id="3_hx1ia"]
 [ext_resource type="Theme" uid="uid://b5dxjrg5nt1f4" path="res://something.tres" id="4_2a1lc"]
-[ext_resource type="Texture2D" uid="uid://dxt2pxwx6uhlq" path="res://images/buttons.png" id="4_f2dqo"]
+[ext_resource type="Texture2D" uid="uid://nmmymijxc78k" path="res://images/buttons.png" id="4_f2dqo"]
 [ext_resource type="Script" uid="uid://dyovptx2dogol" path="res://f.gd" id="5_2a1lc"]
 [ext_resource type="Script" uid="uid://yrkc1wykoat2" path="res://b.gd" id="5_5ud41"]
 [ext_resource type="Script" uid="uid://cna1fqsc3tjmw" path="res://w.gd" id="6_0paeb"]
-[ext_resource type="Texture2D" uid="uid://5mwaq61vhaap" path="res://images/s.png" id="6_dsptp"]
+[ext_resource type="Texture2D" uid="uid://dkaetx2v5orpg" path="res://images/s.png" id="6_dsptp"]
 [ext_resource type="PackedScene" uid="uid://dxh36vqvlk2ma" path="res://finish.tscn" id="8_2e6f6"]
 [ext_resource type="VideoStream" uid="uid://dbtylacc40cq4" path="res://web/levels/Bap.ogv" id="8_heypf"]
-[ext_resource type="Texture2D" uid="uid://22r7hd2j1t38" path="res://images/web0.png" id="8_xfunc"]
+[ext_resource type="Texture2D" uid="uid://bt256evkcbpnv" path="res://images/web0.png" id="8_xfunc"]
 [ext_resource type="PackedScene" uid="uid://bjkebmxfml0yf" path="res://sets.tscn" id="9_2e6f6"]
 [ext_resource type="PackedScene" uid="uid://wqqso1shw5fo" path="res://bap.tscn" id="9_62trd"]
-[ext_resource type="Shader" uid="uid://dbblp1s7yuuf4" path="res://negate.gdshader" id="13_8ud87"]
 [ext_resource type="Script" uid="uid://7h0at08yuetk" path="res://pause.gd" id="14_2sh22"]
 [ext_resource type="Shader" uid="uid://hk78f41hk4i7" path="res://graey.gdshader" id="17_2j74v"]
 
@@ -224,8 +223,7 @@ func sc_win(s1,s2,e1,e2,ts:float,t:float,ease1,ease2):
 		Global.ws[1] = easer(s2,e2,ease2,k)
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0paeb"]
-shader = ExtResource("13_8ud87")
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yblgd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2j74v"]
 shader = ExtResource("1_dqmf8")
@@ -413,9 +411,7 @@ position = Vector2(101.00598, 54.915436)
 
 [node name="Negate" type="ColorRect" parent="Camera2D" unique_id=1856469754]
 z_index = 999
-texture_filter = 2
-texture_repeat = 3
-material = SubResource("ShaderMaterial_0paeb")
+material = SubResource("CanvasItemMaterial_yblgd")
 offset_left = -313.28708
 offset_top = -344.5174
 offset_right = 406.71292

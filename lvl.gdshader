@@ -14,16 +14,16 @@ float random (vec2 uv) {
         vec2(12.9898,78.233))) * 43758.5451);
 }
 
-vec4 chroma(vec2 uv, sampler2D tex) {
-	vec4 col = texture(tex, uv);
+vec4 chroma(vec2 uv) {
+	vec4 col = texture(existing_screen_texture, uv);
 	if (abs(red_offset.x) + abs(red_offset.y) > 0.001) {
-		col.r = texture(tex, vec2(uv.x + red_offset.x * 0.1, uv.y + red_offset.y * 0.1)).r;
+		col.r = texture(existing_screen_texture, vec2(uv.x + red_offset.x * 0.1, uv.y + red_offset.y * 0.1)).r;
 	}
 	if (abs(green_offset.x) + abs(green_offset.y) > 0.001) {
-		col.g = texture(tex, vec2(uv.x + green_offset.x * 0.1 , uv.y + green_offset.y * 0.1)).g;	
+		col.g = texture(existing_screen_texture, vec2(uv.x + green_offset.x * 0.1 , uv.y + green_offset.y * 0.1)).g;	
 	}
 	if (abs(blue_offset.x) + abs(blue_offset.y) > 0.001) {
-		col.b = texture(tex, vec2(uv.x + blue_offset.x * 0.1, uv.y + blue_offset.y * 0.1)).b;
+		col.b = texture(existing_screen_texture, vec2(uv.x + blue_offset.x * 0.1, uv.y + blue_offset.y * 0.1)).b;
 	}
 	
 	return col;
@@ -45,7 +45,7 @@ void fragment() {
 		COLOR = normal_col;
 	}
 	else {
-		vec4 col = chroma(UV, existing_screen_texture);
+		vec4 col = chroma(UV);
 		col = col*mo;
 		col.a = col.a * alpha * 0.5;
 		vec2 id = floor(UV * 200.0);
