@@ -46,11 +46,11 @@ void fragment() {
 	}
 	else {
 		vec4 col = chroma(UV);
-		col = col*mo;
+		col = col * mo;
 		col.a = col.a * alpha * 0.5;
 		vec2 id = floor(UV * 200.0);
-		float alpha_rand = Hash21(id + floor(TIME*80.0));
-		col = col * (alpha_rand + (rand_strength * (1.0-alpha_rand)));
-		COLOR = col*1.5;
+		float alpha_rand = Hash21(id + floor(TIME * 80.0));
+		col = col * (alpha_rand + (rand_strength * (1.0 - alpha_rand)));
+		COLOR = col * 1.5;
 	}
 }

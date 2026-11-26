@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bt256evkcbpnv" path="res://images/web0.png" id="8_xfunc"]
 [ext_resource type="PackedScene" uid="uid://bjkebmxfml0yf" path="res://sets.tscn" id="9_2e6f6"]
 [ext_resource type="PackedScene" uid="uid://wqqso1shw5fo" path="res://bap.tscn" id="9_62trd"]
+[ext_resource type="Shader" uid="uid://dbblp1s7yuuf4" path="res://negate.gdshader" id="13_8ud87"]
 [ext_resource type="Script" uid="uid://7h0at08yuetk" path="res://pause.gd" id="14_2sh22"]
 [ext_resource type="Shader" uid="uid://hk78f41hk4i7" path="res://graey.gdshader" id="17_2j74v"]
 
@@ -223,7 +224,8 @@ func sc_win(s1,s2,e1,e2,ts:float,t:float,ease1,ease2):
 		Global.ws[1] = easer(s2,e2,ease2,k)
 "
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yblgd"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hd5p8"]
+shader = ExtResource("13_8ud87")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2j74v"]
 shader = ExtResource("1_dqmf8")
@@ -411,11 +413,11 @@ position = Vector2(101.00598, 54.915436)
 
 [node name="Negate" type="ColorRect" parent="Camera2D" unique_id=1856469754]
 z_index = 999
-material = SubResource("CanvasItemMaterial_yblgd")
+material = SubResource("ShaderMaterial_hd5p8")
 offset_left = -313.28708
-offset_top = -344.5174
-offset_right = 406.71292
-offset_bottom = 375.4826
+offset_top = -316.1724
+offset_right = 339.71573
+offset_bottom = 375.48264
 mouse_filter = 2
 
 [node name="Glitch" type="ColorRect" parent="Camera2D" unique_id=1775864242]
@@ -436,7 +438,7 @@ texture_repeat = 3
 material = SubResource("ShaderMaterial_dqmf8")
 offset_left = -313.28708
 offset_top = -344.5174
-offset_right = 406.71292
+offset_right = 421.93954
 offset_bottom = 375.4826
 mouse_filter = 2
 color = Color(1, 1, 1, 0.93333334)

@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 // The rendered screen texture (used for post-processing)
-uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_linear;
+uniform sampler2D screen_texture : hint_screen_texture;
 
 // The tint color for the monochrome effect
 uniform vec4 mono_color : source_color = vec4(1.0, 0.0, 0.0, 1.0);
