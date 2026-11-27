@@ -1,7 +1,8 @@
+Camera2D
+ColorRect
 SubViewport
 TextureButton
 Button
-ColorRect
 GPUParticlesAttractorSphere3D
 Window
 RichTextLabel
@@ -11,5 +12,3 @@ NinePatchRect
 ReferenceRect
 OptionButton
 CheckBox
-CheckButton
-AudioStreamPlayer2D

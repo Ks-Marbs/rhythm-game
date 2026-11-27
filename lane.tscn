@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bghvlufmi1y4j"]
+
+[ext_resource type="Script" uid="uid://d1nny4lafmboh" path="res://lane.gd" id="1_phwy2"]
+
+[node name="fane" type="Node2D" unique_id=1060878523]
+script = ExtResource("1_phwy2")
+
+[node name="start" type="ColorRect" parent="." unique_id=1186153350]
+offset_right = 50.0
+offset_bottom = 3.0
+
+[node name="end" type="ColorRect" parent="." unique_id=2070279843]
+offset_left = 0.421
+offset_top = -300.0
+offset_right = 50.421
+offset_bottom = -297.0

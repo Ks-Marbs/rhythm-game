@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dxh36vqvlk2ma" path="res://finish.tscn" id="8_2e6f6"]
 [ext_resource type="VideoStream" uid="uid://dbtylacc40cq4" path="res://web/levels/Bap.ogv" id="8_heypf"]
 [ext_resource type="Texture2D" uid="uid://bt256evkcbpnv" path="res://images/web0.png" id="8_xfunc"]
+[ext_resource type="PackedScene" uid="uid://bghvlufmi1y4j" path="res://lane.tscn" id="8_yblgd"]
 [ext_resource type="PackedScene" uid="uid://bjkebmxfml0yf" path="res://sets.tscn" id="9_2e6f6"]
 [ext_resource type="PackedScene" uid="uid://wqqso1shw5fo" path="res://bap.tscn" id="9_62trd"]
 [ext_resource type="Shader" uid="uid://dbblp1s7yuuf4" path="res://negate.gdshader" id="13_8ud87"]
@@ -298,13 +299,9 @@ rotation = 3.1415927
 texture = ExtResource("3_hx1ia")
 script = ExtResource("5_2a1lc")
 
-[node name="j" type="Sprite2D" parent="Sprite2D" unique_id=888024516]
-z_index = -1
-use_parent_material = true
-position = Vector2(1.0678864, -6.8474445)
-rotation = 1.5707964
-texture = ExtResource("3_hx1ia")
-script = ExtResource("5_2a1lc")
+[node name="j" parent="Sprite2D" unique_id=1060878523 instance=ExtResource("8_yblgd")]
+modulate = Color(0.03999996, 1.031006, 1.8247963, 1)
+position = Vector2(-0.046556473, -11.720104)
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D" unique_id=1288790580]
 z_index = -99
@@ -412,6 +409,7 @@ use_parent_material = true
 position = Vector2(101.00598, 54.915436)
 
 [node name="Negate" type="ColorRect" parent="Camera2D" unique_id=1856469754]
+visible = false
 z_index = 999
 material = SubResource("ShaderMaterial_hd5p8")
 offset_left = -313.28708
@@ -421,6 +419,7 @@ offset_bottom = 375.48264
 mouse_filter = 2
 
 [node name="Glitch" type="ColorRect" parent="Camera2D" unique_id=1775864242]
+visible = false
 z_index = 999
 texture_filter = 2
 texture_repeat = 3
@@ -432,6 +431,7 @@ offset_bottom = 375.4826
 mouse_filter = 2
 
 [node name="Graey" type="ColorRect" parent="Camera2D" unique_id=381566096]
+visible = false
 z_index = 999
 texture_filter = 2
 texture_repeat = 3
