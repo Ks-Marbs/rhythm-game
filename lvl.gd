@@ -80,28 +80,28 @@ func _process(delta: float) -> void:
 	$Camera2D/jb.self_modulate = Global.jcolor
 	if Input.is_action_pressed("f"):
 		Global.fcolo = Color.from_hsv(0.0,Global.sat*0.3, 0.993, 1.0)
-		$Sprite2D/f.self_modulate = Global.fcolo
+		$Sprite2D/f.get_child(0).self_modulate = Global.fcolo
 	else:
 		Global.fcolo = Color.from_hsv(0.0, Global.sat, 0.488, 1.0)
-		$Sprite2D/f.self_modulate = Global.fcolo
+		$Sprite2D/f.get_child(0).self_modulate = Global.fcolo
 	if Input.is_action_pressed("v"):
 		Global.vcolo = Color.from_hsv(0.117, Global.sat*0.3, 0.993, 1.0)
-		$Sprite2D/v.self_modulate = Global.vcolo
+		$Sprite2D/v.get_child(0).self_modulate = Global.vcolo
 	else:
 		Global.vcolo = Color.from_hsv(0.117, Global.sat, 0.54, 1.0)
-		$Sprite2D/v.self_modulate = Global.vcolo
+		$Sprite2D/v.get_child(0).self_modulate = Global.vcolo
 	if Input.is_action_pressed("n"):
 		Global.ncolo = Color.from_hsv(0.455, Global.sat*0.3, 0.993, 1.0)
-		$Sprite2D/n.self_modulate = Global.ncolo
+		$Sprite2D/n.get_child(0).self_modulate = Global.ncolo
 	else:
 		Global.ncolo = Color.from_hsv(0.455, Global.sat, 0.354, 1.0)
-		$Sprite2D/n.self_modulate = Global.ncolo
+		$Sprite2D/n.get_child(0).self_modulate = Global.ncolo
 	if Input.is_action_pressed("j"):
 		Global.jcolo = Color.from_hsv(0.631, Global.sat*0.3, 0.993, 1.0)
-		$Sprite2D/j.self_modulate = Global.jcolo
+		$Sprite2D/j.get_child(0).self_modulate = Global.jcolo
 	else:
 		Global.jcolo = Color.from_hsv(0.631, Global.sat, 0.49, 1.0)
-		$Sprite2D/j.self_modulate = Global.jcolo
+		$Sprite2D/j.get_child(0).self_modulate = Global.jcolo
 	if Input.is_action_just_pressed("p"):
 		w()
 	Global.plays = $Camera2D/VideoStreamPlayer.get_stream_position()

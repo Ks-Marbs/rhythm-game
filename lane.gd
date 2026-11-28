@@ -1,7 +1,7 @@
 extends Node2D
-var start_size := 21.0
-var end_size := 321.0
-var length := 158.0
+var start_size := 23.0
+var end_size := 329.0
+var length := 150.0
 var bar_size := 25.0
 var notes:= []
 

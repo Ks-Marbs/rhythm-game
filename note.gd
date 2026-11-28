@@ -11,7 +11,7 @@ var a:=0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.max_score += 5
-	blo = beat*speed
+	blo = (beat+(Global.offset/get_parent().bar_size))*speed
 	for m in range(hold_time*speed):
 		var i = ColorRect.new()
 		i.set_script(load("res://held.gd"))
@@ -26,8 +26,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position = Vector2(-size[0]/2,-((blo-Global.plays*(Global.bpm/60.0))*get_parent().bar_size-Global.offset))
-	size = Vector2(  lerpf(get_parent().start_size,get_parent().end_size,   ((blo-Global.plays*(Global.bpm/60.0))*get_parent().bar_size-Global.offset) )   ,3)
+	position = Vector2(-size[0]/2,-((blo-Global.plays*(Global.bpm/60.0))*get_parent().bar_size))
+	size = Vector2(  lerpf(get_parent().start_size,get_parent().end_size,   ((blo-Global.plays*(Global.bpm/60.0))*get_parent().bar_size/get_parent().length) )   ,3)
 	if position[1] > 2*int(Global.speed*4)+hold_time*get_parent().bar_size+5:
 		queue_free()
 	if int(position[1]) in range(-2*int(Global.speed*4),2*int(Global.speed*4)) and not caught and not Global.paused:
@@ -55,7 +55,7 @@ func _process(delta: float) -> void:
 			Global.score += sco
 	if position[1] > 2*int(Global.speed*4):
 		modulate = Color(0,0,0,0.2)
-		self.get_parent().get_parent().get_parent().emit_signal("bap",4,self.get_parent().name)
+		self.get_parent().get_parent().get_parent().emit_signal("bap",0,self.get_parent().name)
 	if not Input.is_action_pressed(str(self.get_parent().name)[0]) and held:
 		held = false
 	pass

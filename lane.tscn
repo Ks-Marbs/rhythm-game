@@ -6,11 +6,12 @@
 script = ExtResource("1_phwy2")
 
 [node name="start" type="ColorRect" parent="." unique_id=1186153350]
-offset_right = 50.0
+offset_left = -11.0
+offset_right = 11.0
 offset_bottom = 3.0
 
 [node name="end" type="ColorRect" parent="." unique_id=2070279843]
 offset_left = 0.421
-offset_top = -300.0
+offset_top = -150.0
 offset_right = 50.421
-offset_bottom = -297.0
+offset_bottom = -147.0
